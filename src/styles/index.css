@@ -1,0 +1,240 @@
+@import 'tailwindcss';
+@import 'react-phone-input-2/lib/style.css';
+
+@font-face {
+  font-family: 'MochiyPopOne';
+  src:
+    local(MochiyPopOne-Regular),
+    url('../../public/fonts/MOCHIYPOPONE-REGULAR.TTF') format(truetype);
+}
+@font-face {
+  font-family: 'Montserrat';
+  src:
+    local(Montserrat-Regular),
+    url('../../public/fonts/MONTSERRAT-REGULAR.TTF') format(truetype);
+}
+@font-face {
+  font-family: 'Raleway';
+  src:
+    local(Raleway-Regular),
+    url('../../public/fonts/RALEWAY-REGULAR.TTF') format(truetype);
+}
+
+@theme inline {
+  --color-background: #f4e8d8;
+
+  --color-primary-100: #f0e9e5;
+  --color-primary-200: #d1bfb5;
+  --color-primary-300: #8d6e63;
+  --color-primary-400: #745749;
+  --color-primary-500: #5a4138;
+
+  --color-secondary-100: #f2efea;
+  --color-secondary-200: #d7cfc6;
+  --color-secondary-300: #a1887f;
+  --color-secondary-400: #7f6b63;
+  --color-secondary-500: #5d504b;
+
+  --color-accent-100: #f8f3ee;
+  --color-accent-200: #e6d8c3;
+  --color-accent-300: #d7b899;
+  --color-accent-400: #bfa47a;
+  --color-accent-500: #997f5f;
+
+  --color-dark-100: #eae0db;
+  --color-dark-200: #b69b8f;
+  --color-dark-300: #5d4037;
+  --color-dark-400: #462f27;
+  --color-dark-500: #321e18;
+
+  --color-destructive-100: #f7e0e0;
+  --color-destructive-200: #e19b9b;
+  --color-destructive-300: #c53030;
+  --color-destructive-400: #9d2525;
+  --color-destructive-500: #711919;
+
+  --color-medium-100: #f0e7e1;
+  --color-medium-200: #c6a38e;
+  --color-medium-300: #c8a882;
+  --color-medium-400: #63432f;
+  --color-medium-500: #4d3225;
+
+  --color-text-300: #5d4037;
+
+  --color-box-300: #d5b690;
+
+  --color-textform: #392720;
+
+  --font-titr: 'MochiyPopOne';
+  --font-text: 'Montserrat';
+  --font-btn: 'Raleway';
+
+  --shadow-form: 0px 10px 25px rgba(0, 0, 0, 0.25);
+}
+.about-card {
+  @supports (corner-shape: bevel) {
+    border-radius: 80px;
+    corner-shape: bevel;
+  }
+}
+.loader {
+  width: fit-content;
+  font-size: 40px;
+  font-family: system-ui, sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #0000;
+  -webkit-text-stroke: 1px #321e18;
+  background:
+    radial-gradient(0.71em at 50% 1em, #321e18 99%, #0000 101%) calc(50% - 1em)
+      1em/2em 200% repeat-x text,
+    radial-gradient(0.71em at 50% -0.5em, #0000 99%, #321e18 101%) 50% 1.5em/2em
+      200% repeat-x text;
+  animation:
+    l10-0 0.8s linear infinite alternate,
+    l10-1 3s linear infinite;
+}
+.loader:before {
+  content: 'Loading';
+}
+@keyframes l10-0 {
+  to {
+    background-position-x: 50%, calc(50% + 1em);
+  }
+}
+@keyframes l10-1 {
+  to {
+    background-position-y: -0.5em, 0;
+  }
+}
+
+.loader-first {
+  width: 40px;
+  aspect-ratio: 1;
+  --c: linear-gradient(#321e18 0 0);
+  --r1: radial-gradient(farthest-side at bottom, #321e18 93%, #0000);
+  --r2: radial-gradient(farthest-side at top, #321e18 93%, #0000);
+  background:
+    var(--c), var(--r1), var(--r2), var(--c), var(--r1), var(--r2), var(--c),
+    var(--r1), var(--r2);
+  background-repeat: no-repeat;
+  animation: l2 1s infinite alternate;
+}
+@keyframes l2 {
+  0%,
+  25% {
+    background-size:
+      8px 0,
+      8px 4px,
+      8px 4px,
+      8px 0,
+      8px 4px,
+      8px 4px,
+      8px 0,
+      8px 4px,
+      8px 4px;
+    background-position:
+      0 50%,
+      0 calc(50% - 2px),
+      0 calc(50% + 2px),
+      50% 50%,
+      50% calc(50% - 2px),
+      50% calc(50% + 2px),
+      100% 50%,
+      100% calc(50% - 2px),
+      100% calc(50% + 2px);
+  }
+  50% {
+    background-size:
+      8px 100%,
+      8px 4px,
+      8px 4px,
+      8px 0,
+      8px 4px,
+      8px 4px,
+      8px 0,
+      8px 4px,
+      8px 4px;
+    background-position:
+      0 50%,
+      0 calc(0% - 2px),
+      0 calc(100% + 2px),
+      50% 50%,
+      50% calc(50% - 2px),
+      50% calc(50% + 2px),
+      100% 50%,
+      100% calc(50% - 2px),
+      100% calc(50% + 2px);
+  }
+  75% {
+    background-size:
+      8px 100%,
+      8px 4px,
+      8px 4px,
+      8px 100%,
+      8px 4px,
+      8px 4px,
+      8px 0,
+      8px 4px,
+      8px 4px;
+    background-position:
+      0 50%,
+      0 calc(0% - 2px),
+      0 calc(100% + 2px),
+      50% 50%,
+      50% calc(0% - 2px),
+      50% calc(100% + 2px),
+      100% 50%,
+      100% calc(50% - 2px),
+      100% calc(50% + 2px);
+  }
+  95%,
+  100% {
+    background-size:
+      8px 100%,
+      8px 4px,
+      8px 4px,
+      8px 100%,
+      8px 4px,
+      8px 4px,
+      8px 100%,
+      8px 4px,
+      8px 4px;
+    background-position:
+      0 50%,
+      0 calc(0% - 2px),
+      0 calc(100% + 2px),
+      50% 50%,
+      50% calc(0% - 2px),
+      50% calc(100% + 2px),
+      100% 50%,
+      100% calc(0% - 2px),
+      100% calc(100% + 2px);
+  }
+}
+
+/* SopScrollBar 24 - class="ssb24" 💖 More Here :- https://sh20raj.github.io/SopScrollbar/
+--How to Use--
+Copy the Class Name and Assign to the element where you want to see your ScrollBar. Examples
+- Body Tag. (To getting in whole website)
+- Iframe
+- Textarea
+- Div
+- and All other elements.
+*/
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#351e1e, #1e1411);
+  /* border-radius: 6px; */
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(transparent, #321e18);
+}
+::-webkit-scrollbar {
+  /* background: var(--color-medium-500); */
+  background: transparent;
+}
