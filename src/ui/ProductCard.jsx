@@ -2,10 +2,16 @@ import { Link } from 'react-router-dom'
 import { BiCartAdd, BiMoney } from 'react-icons/bi'
 import { FaStar } from 'react-icons/fa'
 import { formatCurrency } from '../utils/helper'
+// eslint-disable-next-line no-unused-vars
+import { motion } from 'framer-motion'
 import Button from './Button'
 const ProductCard = ({ item, scale, blur }) => {
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{ duration: 0.2, ease: 'backInOut' }}
       className={`relative flex h-[150px] transition-all duration-300 ease-in-out sm:h-[450px] sm:w-[300px] md:h-[460px] md:w-[335px] lg:h-[480px] lg:w-[350px] ${scale && 'scale-60'} ${blur && 'blur-md'} w-full flex-col items-center justify-center gap-2 rounded-2xl bg-box-300 px-5 md:gap-5 lg:gap-5`}
     >
       <img src={`${item.image}`} alt="" className="hidden md:block lg:block" />
@@ -39,7 +45,7 @@ const ProductCard = ({ item, scale, blur }) => {
       <Button type="button" classType="primary">
         <BiCartAdd size={30} /> Add to cart
       </Button>
-    </div>
+    </motion.div>
   )
 }
 

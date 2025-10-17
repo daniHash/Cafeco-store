@@ -8,6 +8,7 @@ const products = [
     subcategory: 'Milk Coffee',
     price: 4.5,
     rating: 4.7,
+    sold: 1,
   },
   {
     id: 2,
@@ -18,6 +19,7 @@ const products = [
     subcategory: 'Black Coffee',
     price: 3.0,
     rating: 4.9,
+    sold: 17,
   },
   {
     id: 3,
@@ -29,6 +31,7 @@ const products = [
     subcategory: 'Milk',
     price: 4.8,
     rating: 4.6,
+    sold: 16,
   },
   {
     id: 4,
@@ -39,6 +42,7 @@ const products = [
     subcategory: 'Black Coffee',
     price: 3.5,
     rating: 4.5,
+    sold: 15,
   },
   {
     id: 5,
@@ -49,6 +53,7 @@ const products = [
     subcategory: 'Cold',
     price: 5.0,
     rating: 4.8,
+    sold: 13,
   },
   {
     id: 6,
@@ -59,6 +64,7 @@ const products = [
     subcategory: 'Milk',
     price: 5.2,
     rating: 4.8,
+    sold: 10,
   },
 ]
 export default products
