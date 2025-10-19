@@ -3,6 +3,7 @@ import products from '../services/cofe'
 import ProductCard from '../ui/ProductCard'
 import Footer from '../ui/Footer'
 import Line from '../features/advice/Line'
+import MainProducts from '../ui/MainProducts'
 const Products = () => {
   const topCoffee = products.reduce((top, curr) => {
     return curr.sold > top.sold ? curr : top
@@ -17,6 +18,7 @@ const Products = () => {
           <ProductCard item={topCoffee} />
         </div>
       </Header>
+      <MainProducts />
       <Line />
       <Footer />
     </>
