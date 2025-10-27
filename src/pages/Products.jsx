@@ -7,6 +7,7 @@ import Footer from '../ui/Footer'
 import Line from '../features/advice/Line'
 import MainProducts from '../features/product/MainProducts'
 import Loader from '../ui/Loader'
+import SearchBar from '../ui/SearchBar'
 
 const Products = () => {
   const dispatch = useDispatch()
@@ -31,6 +32,7 @@ const Products = () => {
           <ProductCard item={topCoffee} />
         </div>
       </Header>
+      <SearchBar />
       <MainProducts />
       <Line />
       <Footer />
