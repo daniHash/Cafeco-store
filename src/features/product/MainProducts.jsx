@@ -1,10 +1,12 @@
+import { useSelector } from 'react-redux'
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion'
-import products from '../services/cofe'
-import ProductCard from './ProductCard'
-import SearchBar from './SearchBar'
+import ProductCard from '../../ui/ProductCard'
+import SearchBar from '../../ui/SearchBar'
 
 const MainProducts = () => {
+  const { products } = useSelector((state) => state.products)
+  console.log(products)
   return (
     <motion.section
       initial={{ opacity: 0, x: 150 }}
@@ -17,7 +19,7 @@ const MainProducts = () => {
       <SearchBar />
       <div className="mt-18 flex w-full flex-wrap items-center justify-center sm:justify-center sm:gap-10 md:justify-center lg:justify-between">
         {products.map((item) => (
-          <ProductCard item={item} />
+          <ProductCard item={item} key={item.id} />
         ))}
       </div>
     </motion.section>

@@ -1,10 +1,23 @@
+import { useDispatch, useSelector } from 'react-redux'
+import { useEffect } from 'react'
+import { fetchProducts } from '../features/product/productSlice'
 import Header from '../ui/Header'
-import products from '../services/cofe'
 import ProductCard from '../ui/ProductCard'
 import Footer from '../ui/Footer'
 import Line from '../features/advice/Line'
-import MainProducts from '../ui/MainProducts'
+import MainProducts from '../features/product/MainProducts'
+import Loader from '../ui/Loader'
+
 const Products = () => {
+  const dispatch = useDispatch()
+  const { products, isFetched, isLoading } = useSelector(
+    (state) => state.products
+  )
+  useEffect(() => {
+    if (!isFetched) dispatch(fetchProducts())
+  }, [dispatch, isFetched])
+
+  if (isLoading || !products.length) return <Loader />
   const topCoffee = products.reduce((top, curr) => {
     return curr.sold > top.sold ? curr : top
   }, products[0])

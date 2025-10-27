@@ -1,18 +1,26 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay } from 'swiper/modules'
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
-import products from '../services/cofe'
+import { fetchProducts } from '../features/product/productSlice'
 import ProductCard from './ProductCard'
 import Button from './Button'
+import Loader from './Loader'
 
 const SwiperProduct = () => {
   const [activeIndex, setActiveIndex] = useState(0)
   const swiperRef = useRef(null)
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(fetchProducts())
+  }, [dispatch])
+  const { products, isLoading } = useSelector((state) => state.products)
 
   const topRatedProducts = products.filter((item) => item.rating > 4.5)
 
+  if (isLoading) return <Loader />
   return (
     <>
       <div className="mt-10 flex items-center justify-center">

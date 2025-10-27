@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion'
+import SwiperProduct from '../../ui/Swiper'
 import 'swiper/css'
-import SwiperProduct from './Swiper'
 
 const HomeProductsSection = () => {
   return (

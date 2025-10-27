@@ -33,12 +33,13 @@ const adviceSlice = createSlice({
         state.loading = true
       })
       .addCase(fetchAdvice.fulfilled, (state, action) => {
-        state.advice = action.payload // یا جایگزین کردن: state.advices = [action.payload]
+        state.advice = action.payload
         state.loading = false
         state.fetched = true
       })
       .addCase(fetchAdvice.rejected, (state, action) => {
         state.error = action.payload
+        state.advice = 'Good luck!'
         state.loading = false
       })
   },

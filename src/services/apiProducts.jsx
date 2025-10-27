@@ -1,7 +1,7 @@
 const BASE_URL = 'http://localhost:3000/api/v2/products'
 
-export const getProducts = async () => {
-  const res = await fetch(BASE_URL)
+export const getCofeProducts = async () => {
+  const res = await fetch('http://localhost:8000/products')
   if (!res.ok) throw new Error('something was wrong')
   const data = await res.json()
   return data

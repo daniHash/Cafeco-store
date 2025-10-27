@@ -1,10 +1,10 @@
 import { RxReset } from 'react-icons/rx'
 import { inputs } from '../../utils/helper'
-import 'notyf/notyf.min.css'
 import Button from '../../ui/Button'
 import Input from '../../ui/Input'
 import SpanForm from '../../ui/SpanForm'
 import useLoginForm from '../../hooks/useLoginForm'
+import 'notyf/notyf.min.css'
 
 const RegisterForm = () => {
   const { values, errors, handleChange, handleReset, handleSubmit } =
