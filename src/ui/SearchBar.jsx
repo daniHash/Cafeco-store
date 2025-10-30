@@ -1,8 +1,16 @@
 import { FaOpencart, FaSortAmountDown } from 'react-icons/fa'
 import { LuListFilter } from 'react-icons/lu'
+import { useState } from 'react'
 import Button from '../ui/Button'
+import SortPopover from './SortPopover'
 
 const SearchBar = () => {
+  const [isOpen, setIsOpen] = useState(false)
+
+  const handleOpen = () => {
+    setIsOpen((open) => !open)
+  }
+
   return (
     <div className="mt-16">
       <h2 className="text-center font-titr text-4xl text-dark-500">Products</h2>
@@ -14,17 +22,17 @@ const SearchBar = () => {
             </span>
           </Button>
           <div className="absolute ml-1 flex flex-col items-center justify-center">
-            <Button classType="productsbtn" type="button" px={20}>
+            <Button
+              classType="productsbtn"
+              type="button"
+              px={20}
+              onClick={handleOpen}
+            >
               <span className="flex items-center justify-center gap-3">
                 Sort <FaSortAmountDown size={20} />
               </span>
             </Button>
-            <ul className="relative z-50 h-40 w-40 rounded-md bg-[#B59D90]">
-              <li>Sort by price</li>
-              <li>Sort by A-Z</li>
-              <li></li>
-              <li></li>
-            </ul>
+            {isOpen && <SortPopover handleOpen={handleOpen} />}
           </div>
           <Button classType="productsbtn" type="button" px={20}>
             <span className="flex items-center justify-center gap-3">

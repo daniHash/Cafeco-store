@@ -5,7 +5,18 @@ import ProductCard from '../../ui/ProductCard'
 
 const MainProducts = () => {
   const { products } = useSelector((state) => state.products)
-  console.log(products)
+
+  //sort by a-z
+  // const sortedProducts = [...products].sort((a, b) =>
+  //   a.title.localeCompare(b.title)
+  // )
+
+  //sort by price
+  // const sortedProducts = [...products].sort((a, b) => b.price - a.price)
+
+  //sort by rating
+  // const sortedProducts = [...products].sort((a, b) => b.rating - a.rating)
+
   return (
     <motion.section
       initial={{ opacity: 0, x: 150 }}
