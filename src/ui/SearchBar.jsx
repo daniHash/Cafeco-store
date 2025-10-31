@@ -3,12 +3,19 @@ import { LuListFilter } from 'react-icons/lu'
 import { useState } from 'react'
 import Button from '../ui/Button'
 import SortPopover from './SortPopover'
+import { useNavigate } from 'react-router-dom'
 
 const SearchBar = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const navigate = useNavigate()
 
   const handleOpen = () => {
     setIsOpen((open) => !open)
+  }
+  const handleSort = (e) => {
+    setIsOpen((open) => !open)
+    const value = e.target.innerText.toLowerCase().split(' ')
+    navigate(`/products?sort=${value[value.length - 1]}`)
   }
 
   return (
@@ -32,7 +39,7 @@ const SearchBar = () => {
                 Sort <FaSortAmountDown size={20} />
               </span>
             </Button>
-            {isOpen && <SortPopover handleOpen={handleOpen} />}
+            {isOpen && <SortPopover handleSort={handleSort} />}
           </div>
           <Button classType="productsbtn" type="button" px={20}>
             <span className="flex items-center justify-center gap-3">

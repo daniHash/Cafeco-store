@@ -2,20 +2,22 @@ import { useSelector } from 'react-redux'
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion'
 import ProductCard from '../../ui/ProductCard'
+import { useSearchParams } from 'react-router-dom'
 
 const MainProducts = () => {
   const { products } = useSelector((state) => state.products)
-
+  const [searchParams] = useSearchParams()
+  const sortValue = searchParams.get('sort')
   //sort by a-z
-  // const sortedProducts = [...products].sort((a, b) =>
-  //   a.title.localeCompare(b.title)
-  // )
-
-  //sort by price
-  // const sortedProducts = [...products].sort((a, b) => b.price - a.price)
-
-  //sort by rating
-  // const sortedProducts = [...products].sort((a, b) => b.rating - a.rating)
+  const sortedProducts = [...products].sort((a, b) =>
+    sortValue === 'a-z'
+      ? a.title.localeCompare(b.title)
+      : sortValue === 'price'
+        ? b.price - a.price
+        : sortValue === 'rating'
+          ? b.rating - a.rating
+          : products
+  )
 
   return (
     <motion.section
@@ -26,7 +28,7 @@ const MainProducts = () => {
       className="h-[1000px] w-full overflow-auto px-[20px] lg:px-[140px]"
     >
       <div className="mt-18 flex w-full flex-wrap items-center justify-center sm:justify-center sm:gap-10 md:justify-center lg:justify-between">
-        {products.map((item) => (
+        {sortedProducts.map((item) => (
           <ProductCard item={item} key={item.id} />
         ))}
       </div>
