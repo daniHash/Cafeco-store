@@ -24,7 +24,7 @@ const Button = ({ children, px, classType, type, onClick, loading }) => {
       ` rounded-md bg-primary-300 mb-4 hover:bg-primary-400 text-white flex justify-center items-center ${pxClasses[px] ? pxClasses[px] : 'w-full'}`,
     productsbtn:
       base +
-      ` rounded-md bg-[#B59D90] mb-4 hover:bg-[#a08a7e]  hover:shadow-xs text-dark-500 flex justify-center items-center ${pxClasses[px] ? pxClasses[px] : 'w-full'}`,
+      ` rounded-md mt-5 bg-[#B59D90] mb-4 hover:bg-[#a08a7e]  hover:shadow-xs text-dark-500 flex justify-center items-center ${pxClasses[px] ? pxClasses[px] : 'w-full'}`,
     show:
       base +
       ` rounded-md bg-primary-300 mb-4 hover:bg-primary-500 text-white flex justify-center items-center w-full ${pxClasses[px] ? pxClasses[px] : 'w-full'}`,

@@ -1,19 +1,27 @@
 import { FaOpencart, FaSortAmountDown } from 'react-icons/fa'
 import { LuListFilter } from 'react-icons/lu'
-import { useState } from 'react'
-import Button from '../ui/Button'
-import SortPopover from './SortPopover'
 import { useNavigate } from 'react-router-dom'
-
+import Button from '../ui/Button'
+import SortDropDown from './SortDropDown'
+import useDropdownToggle from '../hooks/useDropDownToggle'
+import FilterDropDown from './FilterDropDown'
 const SearchBar = () => {
-  const [isOpen, setIsOpen] = useState(false)
   const navigate = useNavigate()
+  const filter = useDropdownToggle()
+  const sort = useDropdownToggle()
 
-  const handleOpen = () => {
-    setIsOpen((open) => !open)
+  const handleOpen = (type) => {
+    if (type === 'filter') {
+      filter.toggle()
+      sort.close()
+    } else {
+      sort.toggle()
+      filter.close()
+    }
   }
+
   const handleSort = (e) => {
-    setIsOpen((open) => !open)
+    sort.toggle()
     const value = e.target.innerText.toLowerCase().split(' ')
     navigate(`/products?sort=${value[value.length - 1]}`)
   }
@@ -21,25 +29,43 @@ const SearchBar = () => {
   return (
     <div className="mt-16">
       <h2 className="text-center font-titr text-4xl text-dark-500">Products</h2>
-      <div className="mt-8 flex w-full items-center justify-between px-[20px] lg:px-[140px]">
+      <div className="mt-4 flex w-full flex-col-reverse items-center justify-between px-5 lg:flex-row lg:px-[140px]">
         <div className="flex items-start justify-center gap-30">
-          <Button classType="productsbtn" type="button" px={20}>
-            <span className="flex items-center justify-center gap-2">
-              Filter <LuListFilter size={22} />
-            </span>
-          </Button>
-          <div className="absolute ml-1 flex flex-col items-center justify-center">
+          <div
+            ref={filter.ref}
+            className="relative flex flex-col items-center justify-center"
+          >
             <Button
               classType="productsbtn"
               type="button"
               px={20}
-              onClick={handleOpen}
+              onClick={() => handleOpen('filter')}
+            >
+              <span className="flex items-center justify-center gap-2">
+                Filter <LuListFilter size={22} />
+              </span>
+            </Button>
+            {filter.isOpen && (
+              <div className="absolute top-full left-0 z-50">
+                <FilterDropDown closeDropdown={() => filter.close()} />
+              </div>
+            )}
+          </div>
+          <div
+            ref={sort.ref}
+            className="absolute ml-1 flex flex-col items-center justify-center"
+          >
+            <Button
+              classType="productsbtn"
+              type="button"
+              px={20}
+              onClick={() => handleOpen('sort')}
             >
               <span className="flex items-center justify-center gap-3">
                 Sort <FaSortAmountDown size={20} />
               </span>
             </Button>
-            {isOpen && <SortPopover handleSort={handleSort} />}
+            {sort.isOpen && <SortDropDown handleSort={handleSort} />}
           </div>
           <Button classType="productsbtn" type="button" px={20}>
             <span className="flex items-center justify-center gap-3">

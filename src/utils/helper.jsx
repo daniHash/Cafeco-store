@@ -1,11 +1,32 @@
 import { Notyf } from 'notyf'
 import Swal from 'sweetalert2'
+
 const notyf = new Notyf({
   duration: 3000,
   position: { x: 'center', y: 'bottom' },
   dismissible: true,
   ripple: true,
 })
+export function formatCurrency(value) {
+  return new Intl.NumberFormat('en', {
+    style: 'currency',
+    currency: 'USD',
+  }).format(value)
+}
+export const notify = (type, message) => {
+  type === 'error' ? notyf.error(message) : notyf.success(message)
+}
+export const swal = (icon, title, text) => {
+  Swal.fire({
+    icon: icon,
+    title: title,
+    text: text,
+    confirmButtonText: 'OK',
+    // color: "#8d6e63",
+    background: '#f4e8d8',
+    color: '#321e18',
+  })
+}
 
 export const features = [
   {
@@ -42,28 +63,6 @@ export const features = [
     description: 'Committed to doing the right thing, always.',
   },
 ]
-export function formatCurrency(value) {
-  return new Intl.NumberFormat('en', {
-    style: 'currency',
-    currency: 'USD',
-  }).format(value)
-}
-export const notify = (type, message) => {
-  type === 'error' ? notyf.error(message) : notyf.success(message)
-}
-
-export const swal = (icon, title, text) => {
-  Swal.fire({
-    icon: icon,
-    title: title,
-    text: text,
-    confirmButtonText: 'OK',
-    // color: "#8d6e63",
-    background: '#f4e8d8',
-    color: '#321e18',
-  })
-}
-
 export const secondStep = [
   {
     id: 'phone',
@@ -171,4 +170,11 @@ export const backend = {
     'Arya entered programming at age 11.Strong in backend logic and server management.',
   skills: ['Nodejs', 'Expressjs', 'MongoDB', 'Git & Github'],
   githubname: 'Arya-veysi',
+}
+export const categories = {
+  drinks: ['Hot', 'Cold', 'Milks'],
+  cakesweety: ['Wet', 'Dry'],
+  biscuitscookies: [],
+  coffees: [],
+  icecreams: [],
 }

@@ -37,9 +37,11 @@ const NavbarLinks = () => {
             <>
               <HiHome
                 size="30px"
-                className={isActive ? 'text-yellow-400' : 'text-white'}
+                className={`transition-all duration-200 ease-in ${isActive ? 'text-yellow-400' : 'text-white'}`}
               />
-              <h5 className={isActive ? 'text-yellow-400' : 'text-white'}>
+              <h5
+                className={`transition-all duration-200 ease-in ${isActive ? 'text-yellow-400' : 'text-white'}`}
+              >
                 Home
               </h5>
             </>
@@ -53,9 +55,11 @@ const NavbarLinks = () => {
             <>
               <AiOutlineInfoCircle
                 size="30px"
-                className={isActive ? 'text-yellow-400' : 'text-white'}
+                className={`transition-all duration-200 ease-in ${isActive ? 'text-yellow-400' : 'text-white'}`}
               />
-              <h5 className={isActive ? 'text-yellow-400' : 'text-white'}>
+              <h5
+                className={`transition-all duration-200 ease-in ${isActive ? 'text-yellow-400' : 'text-white'}`}
+              >
                 About
               </h5>
             </>
@@ -69,9 +73,11 @@ const NavbarLinks = () => {
             <>
               <AiOutlineProduct
                 size="30px"
-                className={isActive ? 'text-yellow-400' : 'text-white'}
+                className={`transition-all duration-200 ease-in ${isActive ? 'text-yellow-400' : 'text-white'}`}
               />
-              <h5 className={isActive ? 'text-yellow-400' : 'text-white'}>
+              <h5
+                className={`transition-all duration-200 ease-in ${isActive ? 'text-yellow-400' : 'text-white'}`}
+              >
                 Products
               </h5>
             </>
@@ -85,9 +91,11 @@ const NavbarLinks = () => {
             <>
               <FiLogIn
                 size="30px"
-                className={isActive ? 'text-yellow-400' : 'text-white'}
+                className={`transition-all duration-200 ease-in ${isActive ? 'text-yellow-400' : 'text-white'}`}
               />
-              <h5 className={isActive ? 'text-yellow-400' : 'text-white'}>
+              <h5
+                className={`transition-all duration-200 ease-in ${isActive ? 'text-yellow-400' : 'text-white'}`}
+              >
                 Login
               </h5>
             </>
@@ -101,9 +109,11 @@ const NavbarLinks = () => {
             <>
               <AiOutlineUser
                 size="30px"
-                className={isActive ? 'text-yellow-400' : 'text-white'}
+                className={`transition-all duration-200 ease-in ${isActive ? 'text-yellow-400' : 'text-white'}`}
               />
-              <h5 className={isActive ? 'text-yellow-400' : 'text-white'}>
+              <h5
+                className={`transition-all duration-200 ease-in ${isActive ? 'text-yellow-400' : 'text-white'}`}
+              >
                 Profile
               </h5>
             </>

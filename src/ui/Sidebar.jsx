@@ -13,18 +13,18 @@ const Sidebar = ({ setIsOpen }) => {
     <>
       <aside
         id="logo-sidebar"
-        class="fixed -top-2 -right-64 z-40 h-screen w-64 -translate-x-full transition-transform sm:-right-[267.5px] md:-right-[261.5px]"
+        className="fixed -top-2 -right-64 z-40 h-screen w-64 -translate-x-full transition-transform sm:-right-[267.5px] md:-right-[261.5px]"
         aria-label="Sidebar"
       >
-        <div class="h-full overflow-y-auto bg-dark-400 px-3 py-4">
-          <div class="mb-5 flex items-center justify-between ps-2.5">
+        <div className="h-full overflow-y-auto bg-dark-400 px-3 py-4">
+          <div className="mb-5 flex items-center justify-between ps-2.5">
             <div className="flex">
               <img
                 src="/icons/logo.png"
-                class="me-3 h-6 sm:h-7"
+                className="me-3 h-6 sm:h-7"
                 alt="Flowbite Logo"
               />
-              <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
+              <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
                 CofeCo.
               </span>
             </div>
@@ -35,7 +35,7 @@ const Sidebar = ({ setIsOpen }) => {
               onClick={() => setIsOpen(false)}
             />
           </div>
-          <ul class="flex flex-col gap-4 divide-accent-500 font-medium">
+          <ul className="flex flex-col gap-4 divide-accent-500 font-medium">
             <NavLink
               to="/"
               className="flex items-center justify-baseline gap-5 rounded-md py-2 transition-all duration-150 ease-in-out hover:bg-dark-500"
