@@ -8,10 +8,15 @@ export const getCofeProducts = async () => {
 }
 
 export const getProduct = async (id) => {
-  const res = await fetch(`${BASE_URL}/:${id}`)
-  if (!res.ok) throw new Error('something was wrong')
-  const data = await res.json()
-  return data
+  try {
+    const res = await fetch(`${BASE_URL}/:${id}`)
+    if (!res.ok) throw new Error('something was wrong')
+    const data = await res.json()
+    return data
+  } catch (err) {
+    console.error('Fetch failed:', err)
+    throw err
+  }
 }
 
 export const createProduct = async (body) => {

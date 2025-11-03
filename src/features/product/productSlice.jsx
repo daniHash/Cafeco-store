@@ -2,19 +2,20 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { getCofeProducts } from '../../services/apiProducts'
 const initialState = {
   products: [],
-  error: '',
+  error: null,
   isLoading: false,
   isFetched: false,
 }
 
 export const fetchProducts = createAsyncThunk(
   'products/fetchProducts',
-  (_, { rejectWithValue }) => {
+  async (_, { rejectWithValue }) => {
     try {
-      const response = getCofeProducts()
+      const response = await getCofeProducts()
       return response
     } catch (err) {
-      rejectWithValue(err.message)
+      console.log(err)
+      return rejectWithValue(err.message)
     }
   }
 )

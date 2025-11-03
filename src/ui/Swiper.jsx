@@ -8,6 +8,7 @@ import { fetchProducts } from '../features/product/productSlice'
 import ProductCard from './ProductCard'
 import Button from './Button'
 import Loader from './Loader'
+import Error from './Error'
 
 const SwiperProduct = () => {
   const [activeIndex, setActiveIndex] = useState(0)
@@ -16,11 +17,16 @@ const SwiperProduct = () => {
   useEffect(() => {
     dispatch(fetchProducts())
   }, [dispatch])
-  const { products, isLoading } = useSelector((state) => state.products)
+  const {
+    products = [],
+    isLoading,
+    error,
+  } = useSelector((state) => state.products)
 
   const topRatedProducts = products.filter((item) => item.rating > 4.5)
-
+  console.log(error)
   if (isLoading) return <Loader />
+  if (error) return <Error>{error}</Error>
   return (
     <>
       {topRatedProducts.length > 0 ? (
