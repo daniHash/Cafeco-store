@@ -23,63 +23,71 @@ const SwiperProduct = () => {
   if (isLoading) return <Loader />
   return (
     <>
-      <div className="mt-10 flex items-center justify-center">
-        <Swiper
-          ref={swiperRef}
-          slidesPerView={3}
-          centeredSlides={true}
-          loop={true}
-          autoplay={{
-            delay: 5000,
-            disableOnInteraction: false,
-          }}
-          modules={[Autoplay]}
-          breakpoints={{
-            0: {
-              slidesPerView: 1,
-            },
-            768: {
-              slidesPerView: 1,
-            },
-            1024: {
-              slidesPerView: 3,
-            },
-          }}
-          className="relative -left-2 w-full sm:right-2 md:left-32 lg:left-8"
-          onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-        >
-          {topRatedProducts.map((p, i) => (
-            <SwiperSlide key={i}>
-              <ProductCard
-                item={p}
-                blur={activeIndex !== i && true}
-                scale={activeIndex !== i && true}
-              />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
-      <div className="mt-10 flex items-center justify-between gap-5">
-        <Button
-          type="button"
-          classType="round"
-          onClick={() => swiperRef.current.swiper.slidePrev()}
-        >
-          <AiOutlineArrowLeft size={30} color="white" />
-        </Button>
-        <Link to="/products" className="w-28">
-          <Button type="button" classType="show">
-            Show more
-          </Button>
-        </Link>
-        <Button
-          type="button"
-          classType="round"
-          onClick={() => swiperRef.current.swiper.slideNext()}
-        >
-          <AiOutlineArrowRight size={30} color="white" />
-        </Button>
-      </div>
+      {topRatedProducts.length > 0 ? (
+        <>
+          <div className="mt-10 flex items-center justify-center">
+            <Swiper
+              ref={swiperRef}
+              slidesPerView={3}
+              centeredSlides={true}
+              loop={true}
+              autoplay={{
+                delay: 5000,
+                disableOnInteraction: false,
+              }}
+              modules={[Autoplay]}
+              breakpoints={{
+                0: {
+                  slidesPerView: 1,
+                },
+                768: {
+                  slidesPerView: 1,
+                },
+                1024: {
+                  slidesPerView: 3,
+                },
+              }}
+              className="relative -left-2 w-full sm:right-2 md:left-32 lg:left-8"
+              onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+            >
+              {topRatedProducts.map((p, i) => (
+                <SwiperSlide key={i}>
+                  <ProductCard
+                    item={p}
+                    blur={activeIndex !== i && true}
+                    scale={activeIndex !== i && true}
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+          <div className="mt-10 flex items-center justify-between gap-5">
+            <Button
+              type="button"
+              classType="round"
+              onClick={() => swiperRef.current.swiper.slidePrev()}
+            >
+              <AiOutlineArrowLeft size={30} color="white" />
+            </Button>
+            <Link to="/products" className="w-28">
+              <Button type="button" classType="show">
+                Show more
+              </Button>
+            </Link>
+            <Button
+              type="button"
+              classType="round"
+              onClick={() => swiperRef.current.swiper.slideNext()}
+            >
+              <AiOutlineArrowRight size={30} color="white" />
+            </Button>
+          </div>
+        </>
+      ) : (
+        <p className="mt-16 text-center font-text text-xl font-bold text-dark-500">
+          There are no products yet
+        </p>
+      )}
     </>
   )
 }
