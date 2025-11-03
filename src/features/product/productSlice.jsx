@@ -14,7 +14,6 @@ export const fetchProducts = createAsyncThunk(
       const response = await getCofeProducts()
       return response
     } catch (err) {
-      console.log(err)
       return rejectWithValue(err.message)
     }
   }
@@ -35,7 +34,7 @@ const productSlice = createSlice({
         state.isFetched = true
       })
       .addCase(fetchProducts.rejected, (state, action) => {
-        state.error = action.payload
+        state.error = action.payload || 'Something went wrong'
         state.isLoading = false
         state.isFetched = false
       })

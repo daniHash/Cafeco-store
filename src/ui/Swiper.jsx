@@ -24,9 +24,10 @@ const SwiperProduct = () => {
   } = useSelector((state) => state.products)
 
   const topRatedProducts = products.filter((item) => item.rating > 4.5)
-  console.log(error)
+
   if (isLoading) return <Loader />
   if (error) return <Error>{error}</Error>
+
   return (
     <>
       {topRatedProducts.length > 0 ? (

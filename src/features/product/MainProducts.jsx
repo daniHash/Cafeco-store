@@ -5,10 +5,10 @@ import { useSearchParams } from 'react-router-dom'
 import ProductCard from '../../ui/ProductCard'
 
 const MainProducts = () => {
-  const { products } = useSelector((state) => state.products)
+  const { products = [] } = useSelector((state) => state.products)
   const [searchParams] = useSearchParams()
   const sortValue = searchParams.get('sort')
-  //sort by a-z
+
   const sortedProducts = [...products].sort((a, b) =>
     sortValue === 'a-z'
       ? a.title.localeCompare(b.title)
