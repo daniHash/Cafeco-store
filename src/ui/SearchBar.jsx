@@ -5,7 +5,7 @@ import Button from '../ui/Button'
 import SortDropDown from './SortDropDown'
 import useDropdownToggle from '../hooks/useDropDownToggle'
 import FilterDropDown from './FilterDropDown'
-const SearchBar = () => {
+const SearchBar = ({ query, handleSearch }) => {
   const navigate = useNavigate()
   const filter = useDropdownToggle()
   const sort = useDropdownToggle()
@@ -79,6 +79,8 @@ const SearchBar = () => {
           placeholder="Search..."
           className="w-[300px] rounded-sm border-r-2 border-b-2 border-r-primary-500 border-b-primary-500 bg-[#B59D90] px-2.5 py-2.5 font-text font-black text-dark-500 transition-all duration-300 ease-in outline-none focus:shadow-form"
           id="searchInp"
+          value={query}
+          onChange={handleSearch}
         />
       </div>
     </div>

@@ -4,19 +4,24 @@ import { motion } from 'framer-motion'
 import { useSearchParams } from 'react-router-dom'
 import ProductCard from '../../ui/ProductCard'
 
-const MainProducts = () => {
+const MainProducts = ({ query }) => {
   const { products = [] } = useSelector((state) => state.products)
   const [searchParams] = useSearchParams()
   const sortValue = searchParams.get('sort')
-
-  const sortedProducts = [...products].sort((a, b) =>
+  let finalProducts = products
+  if (query) {
+    finalProducts = products.filter((product) =>
+      product.title.toLowerCase().includes(query.toLowerCase())
+    )
+  }
+  const sortedProducts = [...finalProducts].sort((a, b) =>
     sortValue === 'a-z'
       ? a.title.localeCompare(b.title)
       : sortValue === 'price'
         ? b.price - a.price
         : sortValue === 'rating'
           ? b.rating - a.rating
-          : products
+          : finalProducts
   )
 
   return (

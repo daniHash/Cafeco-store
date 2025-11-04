@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { fetchProducts } from '../features/product/productSlice'
 import Header from '../ui/Header'
 import ProductCard from '../ui/ProductCard'
@@ -12,6 +12,12 @@ import Error from '../ui/Error'
 
 const Products = () => {
   const dispatch = useDispatch()
+  const [query, setQuery] = useState('')
+
+  const handleSearch = (e) => {
+    setQuery(e.target.value)
+  }
+
   const {
     products = [],
     isFetched,
@@ -45,7 +51,7 @@ const Products = () => {
           )}
         </div>
       </Header>
-      <SearchBar />
+      <SearchBar query={query} handleSearch={handleSearch} />
       {error ? (
         <Error>{error}</Error>
       ) : (
@@ -55,7 +61,7 @@ const Products = () => {
           </p>
         )
       )}
-      <MainProducts />
+      <MainProducts query={query} />
       <Line />
       <Footer />
     </>
