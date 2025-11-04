@@ -1,11 +1,13 @@
 import { FaBasketShopping, FaPersonWalkingArrowLoopLeft } from 'react-icons/fa6'
-import { Navigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const ProductPageNav = () => {
+  const navigate = useNavigate()
+
   return (
     <div className="flex w-full items-center justify-between">
       <FaPersonWalkingArrowLoopLeft
-        onClick={() => Navigate(-1)}
+        onClick={() => navigate(-1)}
         size={30}
         className="cursor-pointer text-dark-500"
       />

@@ -92,7 +92,7 @@ const SwiperProduct = () => {
         </>
       ) : (
         <p className="mt-16 text-center font-text text-xl font-bold text-dark-500">
-          There are no products yet
+          No top rated products found
         </p>
       )}
     </>

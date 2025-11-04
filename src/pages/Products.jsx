@@ -44,7 +44,7 @@ const Products = () => {
             <Error>{error}</Error>
           ) : products.length === 0 ? (
             <p className="mt-16 text-center font-text text-xl font-bold text-dark-500">
-              There are no products yet
+              No products available
             </p>
           ) : (
             <ProductCard item={topCoffee} />
@@ -52,15 +52,7 @@ const Products = () => {
         </div>
       </Header>
       <SearchBar query={query} handleSearch={handleSearch} />
-      {error ? (
-        <Error>{error}</Error>
-      ) : (
-        products.length === 0 && (
-          <p className="mt-16 text-center font-text text-xl font-bold text-dark-500">
-            There are no products yet
-          </p>
-        )
-      )}
+      {error && <Error>{error}</Error>}
       <MainProducts query={query} />
       <Line />
       <Footer />

@@ -31,9 +31,9 @@ const ProductDetails = () => {
           </h3>
           <h3 className="flex items-center text-center font-titr text-lg text-dark-500 lg:text-[28px]">
             Rating: 4.8
-            <h6 className="mt-4 ml-1 font-titr text-xs text-dark-500 lg:text-[12px]">
+            <span className="mt-4 ml-1 font-titr text-xs text-dark-500 lg:text-[12px]">
               out of 5
-            </h6>
+            </span>
           </h3>
         </div>
         <div className="w-full px-6">
