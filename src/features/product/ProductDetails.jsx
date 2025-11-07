@@ -1,11 +1,17 @@
 import { BiCartAdd } from 'react-icons/bi'
 import { useSelector } from 'react-redux'
-import Button from './Button'
-import Error from './Error'
+import Button from '../../ui/Button'
+import Error from '../../ui/Error'
 const ProductDetails = () => {
   const { productDetails, error } = useSelector((state) => state.products)
 
   if (error) return <Error>Try again later</Error>
+  if (!productDetails)
+    return (
+      <p className="mt-16 text-center font-text text-xl font-bold text-dark-500">
+        No top rated products found
+      </p>
+    )
   return (
     <div className="mt-10 flex h-8/12 w-full items-center justify-center gap-10">
       <img
