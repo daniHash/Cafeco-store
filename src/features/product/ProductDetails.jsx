@@ -5,7 +5,7 @@ import Error from '../../ui/Error'
 const ProductDetails = () => {
   const { productDetails, error } = useSelector((state) => state.products)
 
-  if (error) return <Error>Try again later</Error>
+  if (error) return <Error>{error}</Error>
   if (!productDetails)
     return (
       <p className="mt-16 text-center font-text text-xl font-bold text-dark-500">
@@ -13,7 +13,7 @@ const ProductDetails = () => {
       </p>
     )
   return (
-    <div className="mt-10 flex h-8/12 w-full items-center justify-center gap-10">
+    <div className="mt-20 flex h-8/12 w-full flex-col items-center justify-center gap-10 md:mt-10 md:flex-col lg:mt-10 lg:flex-row">
       <img
         src={productDetails.image}
         alt="image of product"
@@ -23,7 +23,7 @@ const ProductDetails = () => {
         <h2 className="text-center font-titr text-4xl text-dark-500">
           {productDetails.title}
         </h2>
-        <p className="w-[620px] text-center font-text text-sm font-medium text-dark-500 md:text-lg lg:text-xl">
+        <p className="mg:w-[620px] w-full text-center font-text text-sm font-medium text-dark-500 md:text-lg lg:w-[620px] lg:text-xl">
           {productDetails.description}
         </p>
         <div className="hidden gap-0.5 sm:flex sm:gap-1 md:flex md:gap-1.5 lg:flex lg:gap-2">
@@ -34,7 +34,7 @@ const ProductDetails = () => {
             {productDetails.subcategory}
           </span>
         </div>
-        <div className="flex w-full items-center justify-evenly gap-32">
+        <div className="flex w-full flex-col items-center justify-evenly gap-5 md:flex-row md:gap-32 lg:flex-row lg:gap-32">
           <h3 className="font-titr text-lg text-dark-500 lg:text-[28px]">
             Price: {productDetails.price}$
           </h3>

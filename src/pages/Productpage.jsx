@@ -20,7 +20,7 @@ const Productpage = () => {
 
   if (isLoading) return <Loader />
   return (
-    <div className="flex h-screen flex-col pt-16 sm:px-10 md:px-20 lg:px-[140px]">
+    <div className="flex h-screen flex-col px-5 pt-5 sm:px-10 md:px-20 md:pt-16 lg:px-[140px] lg:pt-16">
       <ProductPageNav />
       <ProductDetails />
       <StarSection />

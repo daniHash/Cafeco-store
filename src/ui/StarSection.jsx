@@ -2,7 +2,7 @@ import StarRating from './starRating'
 
 const StarSection = () => {
   return (
-    <div className="mt-10 flex w-full flex-col items-center justify-center gap-2">
+    <div className="mt-20 flex w-full flex-col items-center justify-center gap-2 md:mt-10 lg:mt-10">
       <h4 className="font-btn text-lg font-bold text-dark-500">
         Your Opinion Matters
       </h4>
