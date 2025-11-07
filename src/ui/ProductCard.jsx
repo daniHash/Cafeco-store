@@ -18,7 +18,7 @@ const ProductCard = ({ item, scale, blur }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 0.2, ease: 'backInOut' }}
-      className={`relative flex h-[150px] transition-all duration-300 ease-in-out sm:h-[450px] sm:w-[300px] md:h-[460px] md:w-[335px] lg:h-[480px] lg:w-[350px] ${scale && 'scale-60'} ${blur && 'blur-md'} w-full flex-col items-center justify-center gap-2 rounded-2xl bg-box-300 px-5 md:gap-5 lg:gap-5`}
+      className={`relative flex h-[200px] transition-all duration-300 ease-in-out sm:h-[450px] sm:w-[300px] md:h-[460px] md:w-[335px] lg:h-[480px] lg:w-[350px] ${scale && 'scale-60'} ${blur && 'blur-md'} w-full flex-col items-center justify-center gap-2 rounded-2xl bg-box-300 px-5 md:gap-5 lg:gap-5`}
     >
       <Link to={`/product/${item.id}`}>
         <img
@@ -38,7 +38,7 @@ const ProductCard = ({ item, scale, blur }) => {
           {item.subcategory.toUpperCase()}
         </span>
       </div>
-      <p className="hidden text-center font-text text-[16px] text-dark-500 sm:block sm:text-[18px] lg:block lg:text-[15px]">
+      <p className="text-center font-text text-[16px] text-dark-500 sm:block sm:text-[18px] lg:block lg:text-[15px]">
         {displayedText}
         {showMore && (
           <Link to={`/product/${item.id}`} className="text-sky-700">
