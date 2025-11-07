@@ -1,7 +1,8 @@
-const BASE_URL = 'http://localhost:3000/api/v2/products'
+// const BASE_URL = 'http://localhost:3000/api/v2/products'
+const BASE_URL = 'http://localhost:8000/products'
 
 export const getCofeProducts = async () => {
-  const res = await fetch('http://localhost:8000/products')
+  const res = await fetch(BASE_URL)
   if (!res.ok) throw new Error('something was wrong')
   const data = await res.json()
   return data
@@ -9,7 +10,7 @@ export const getCofeProducts = async () => {
 
 export const getProduct = async (id) => {
   try {
-    const res = await fetch(`${BASE_URL}/:${id}`)
+    const res = await fetch(`${BASE_URL}/${id}`)
     if (!res.ok) throw new Error('something was wrong')
     const data = await res.json()
     return data
