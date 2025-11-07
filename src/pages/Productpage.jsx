@@ -1,11 +1,13 @@
-import StarSection from '../ui/StarSection'
-import ProductPageNav from '../ui/ProductPageNav'
-import ProductDetails from '../features/product/ProductDetails'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { useEffect } from 'react'
 import { fetchProductById } from '../features/product/productSlice'
+import StarSection from '../ui/StarSection'
+import ProductDetails from '../features/product/ProductDetails'
+import ProductPageNav from '../ui/ProductPageNav'
 import Loader from '../ui/Loader'
+// eslint-disable-next-line no-unused-vars
+import { motion } from 'framer-motion'
 
 const Productpage = () => {
   const { isLoading, productDetails } = useSelector((state) => state.products)

@@ -1,5 +1,14 @@
 {
-  "users": [],
+  "users": [
+    {
+      "id": "mhpcjnl1_njkiyh",
+      "firstname": "Dani",
+      "familyname": "HHK",
+      "email": "mehdi.hajhashem.khan@gmail.com",
+      "password": "123456d",
+      "confrimpassword": "123456d"
+    }
+  ],
   "products": [
     {
       "id": "1",
