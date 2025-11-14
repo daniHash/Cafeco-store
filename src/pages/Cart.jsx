@@ -1,7 +1,27 @@
+import { FaLongArrowAltLeft } from 'react-icons/fa'
+import { useNavigate } from 'react-router-dom'
+import Button from '../ui/Button'
+
 const Cart = () => {
+  const navigate = useNavigate()
   return (
-    <div>
-      <h1 className="text-white">Cart</h1>
+    <div className="flex h-screen flex-col px-5 pt-5 sm:px-10 md:px-20 md:pt-16 lg:px-[140px] lg:pt-16">
+      <div className="flex w-full items-center justify-between">
+        <h1 className="text font-titr text-xl text-dark-500 lg:text-4xl">
+          My Cart
+        </h1>
+        <Button
+          onClick={() => navigate(-1)}
+          classType="outlinesecondary"
+          type="button"
+          px={20}
+        >
+          <FaLongArrowAltLeft className="mr-10" size={30} />
+          <span className="font-btn text-2xl font-bold text-dark-500">
+            Back
+          </span>
+        </Button>
+      </div>
     </div>
   )
 }

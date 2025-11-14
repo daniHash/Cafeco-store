@@ -9,7 +9,6 @@ const SearchBar = ({ query, handleSearch }) => {
   const navigate = useNavigate()
   const filter = useDropdownToggle()
   const sort = useDropdownToggle()
-
   const handleOpen = (type) => {
     if (type === 'filter') {
       filter.toggle()
@@ -67,7 +66,12 @@ const SearchBar = ({ query, handleSearch }) => {
             </Button>
             {sort.isOpen && <SortDropDown handleSort={handleSort} />}
           </div>
-          <Button classType="productsbtn" type="button" px={20}>
+          <Button
+            onClick={() => navigate('/cart')}
+            classType="productsbtn"
+            type="button"
+            px={20}
+          >
             <span className="flex items-center justify-center gap-3">
               Cart <FaOpencart size={20} />
             </span>
