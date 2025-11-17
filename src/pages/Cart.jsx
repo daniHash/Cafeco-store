@@ -1,6 +1,10 @@
 import { FaLongArrowAltLeft } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
 import Button from '../ui/Button'
+import { BiMinus, BiPlus } from 'react-icons/bi'
+import { FiDelete } from 'react-icons/fi'
+import { MdDelete } from 'react-icons/md'
+import { RiDeleteBin6Line } from 'react-icons/ri'
 
 const Cart = () => {
   const navigate = useNavigate()
@@ -22,7 +26,72 @@ const Cart = () => {
           </span>
         </Button>
       </div>
-      <div className="mt-20 h-64 w-full rounded-xl bg-[#D5B690]/65 shadow-form shadow-black/20"></div>
+      <div className="mt-20 h-auto max-h-[1500px] w-full overflow-auto rounded-xl bg-[#D5B690]/65 shadow-form shadow-black/20">
+        <ul className="flex h-full w-full flex-col items-center justify-center divide-y-2 divide-dark-500">
+          <li className="flex w-full items-center justify-center gap-20 py-10">
+            <img
+              src="/images/coffeemilk.png"
+              className="h-32 w-2/12"
+              alt=""
+              srcset=""
+            />
+            <h3 className="text-center font-titr text-sm text-dark-500 lg:text-[24px]">
+              Coffee Milk
+            </h3>
+            <h3 className="text-center font-titr text-sm text-dark-500 lg:text-[24px]">
+              10$
+            </h3>
+            <div className="flex items-center justify-center gap-8">
+              <Button classType="plusmin" px={20}>
+                <BiMinus size={18} className="mt-2 mb-2" />
+              </Button>
+              <h3 className="text-center font-titr text-sm text-dark-500 lg:text-[24px]">
+                1
+              </h3>
+              <Button classType="plusmin" px={20}>
+                <BiPlus size={18} className="mt-2 mb-2" />
+              </Button>
+            </div>
+            <h3 className="text-center font-titr text-sm text-dark-500 lg:text-[24px]">
+              10$
+            </h3>
+            <Button classType="delete" px={20}>
+              <RiDeleteBin6Line size={20} className="mt-2 mb-2" />
+            </Button>
+          </li>
+          <li className="flex w-full items-center justify-center gap-20 py-10">
+            <img
+              src="/images/coffeemilk.png"
+              className="h-32 w-2/12"
+              alt=""
+              srcset=""
+            />
+            <h3 className="text-center font-titr text-sm text-dark-500 lg:text-[24px]">
+              Coffee Milk
+            </h3>
+            <h3 className="text-center font-titr text-sm text-dark-500 lg:text-[24px]">
+              10$
+            </h3>
+            <div className="flex items-center justify-center gap-8">
+              <Button classType="plusmin" px={20}>
+                <BiMinus size={18} className="mt-2 mb-2" />
+              </Button>
+              <h3 className="text-center font-titr text-sm text-dark-500 lg:text-[24px]">
+                1
+              </h3>
+              <Button classType="plusmin" px={20}>
+                <BiPlus size={18} className="mt-2 mb-2" />
+              </Button>
+            </div>
+            <h3 className="text-center font-titr text-sm text-dark-500 lg:text-[24px]">
+              10$
+            </h3>
+            <Button classType="delete" px={20}>
+              <RiDeleteBin6Line size={20} className="mt-2 mb-2" />
+            </Button>
+          </li>
+        </ul>
+      </div>
       <div className="mt-20 mb-20 h-auto w-full rounded-xl bg-[#D5B690]/65 shadow-form shadow-black/20">
         <div className="mt-20 flex w-full items-center justify-center gap-72">
           <div className="">

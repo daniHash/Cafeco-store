@@ -30,6 +30,12 @@ const Button = ({ children, px, classType, type, onClick, loading }) => {
       ` rounded-md bg-primary-300 mb-4 hover:bg-primary-500 text-white flex justify-center items-center w-full ${pxClasses[px] ? pxClasses[px] : 'w-full'}`,
     outlineprimary: `py-2.5 transition-all duration-150 ease-in hover:shadow-2xl shadow-black rounded-md bg-transparent border-2 border-primary-300 mb-4 cursor-pointer text-primary-300 flex justify-center items-center ${pxClasses[px] ? pxClasses[px] : 'w-full'}`,
     outlinesecondary: `py-2.5 transition-all duration-150 ease-in  rounded-md bg-transparent border-2 border-dark-500 mb-4 cursor-pointer text-dark-500 flex justify-center items-center ${pxClasses[px] ? pxClasses[px] : 'w-full'}`,
+    plusmin:
+      base +
+      ` rounded-md bg-primary-300 hover:bg-primary-400 text-white flex justify-center items-center ${pxClasses[px] ? pxClasses[px] : 'w-full'}`,
+    delete:
+      base +
+      ` rounded-md bg-destructive-300 hover:bg-destructive-400 text-white flex justify-center items-center ${pxClasses[px] ? pxClasses[px] : 'w-full'}`,
   }
   return (
     <button
