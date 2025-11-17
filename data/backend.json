@@ -15,6 +15,14 @@
       "email": "mehdi.hajhashem.khan@gmail.com",
       "password": "123456d",
       "confrimpassword": "123456d"
+    },
+    {
+      "id": "mi3im546_umg8es",
+      "firstname": "Dani",
+      "familyname": "HHl",
+      "email": "danihashdev@gmail.com",
+      "password": "123456d",
+      "confrimpassword": "123456d"
     }
   ],
   "products": [
