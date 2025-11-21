@@ -177,5 +177,28 @@
       "rating": 4.8,
       "sold": 10
     }
+  ],
+  "cart": [
+    {
+      "id": "1",
+      "image": "/images/coffeemilk.png",
+      "title": "Caffè Latte",
+      "price": 4.5,
+      "quantity": 1
+    },
+    {
+      "id": "2",
+      "image": "/images/coffeemilk.png",
+      "title": "Espresso",
+      "price": 3,
+      "quantity": 1
+    },
+    {
+      "id": "3",
+      "image": "/images/coffeemilk.png",
+      "title": "Cappuccino",
+      "price": 4.8,
+      "quantity": 1
+    }
   ]
 }
