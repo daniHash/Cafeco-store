@@ -1,8 +1,14 @@
+// eslint-disable-next-line no-unused-vars
+import { motion } from 'framer-motion'
 import Button from './Button'
-
 const CheckOutSection = () => {
   return (
-    <div className="mt-20 mb-20 h-auto w-full rounded-xl bg-[#D5B690]/65 shadow-form shadow-black/20">
+    <motion.div
+      initial={{ opacity: 0, y: 15 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: 'easeOut' }}
+      className="mt-20 mb-20 h-auto w-full rounded-xl bg-[#D5B690]/65 shadow-form shadow-black/20"
+    >
       <div className="mt-20 flex w-full items-center justify-center gap-72">
         <div className="">
           <h2 className="text-center font-titr text-4xl text-dark-500">
@@ -34,7 +40,7 @@ const CheckOutSection = () => {
           Chekout <span className="ml-20">300$</span>
         </Button>
       </div>
-    </div>
+    </motion.div>
   )
 }
 

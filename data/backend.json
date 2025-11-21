@@ -23,6 +23,14 @@
       "email": "danihashdev@gmail.com",
       "password": "123456d",
       "confrimpassword": "123456d"
+    },
+    {
+      "id": "mi94lccp_oafz52",
+      "firstname": "Dani",
+      "familyname": "HHK",
+      "email": "mehdi.hajhashem.khan@gmail.com",
+      "password": "123456d",
+      "confrimpassword": "123456d"
     }
   ],
   "products": [
