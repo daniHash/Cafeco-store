@@ -10,8 +10,10 @@ import {
   increaseItemQuantity,
   removeItem,
 } from '../features/cart/cartSlice'
+import { useState } from 'react'
 
 const CartItem = ({ item }) => {
+  const [isRemoving, setIsRemoving] = useState(false)
   const dispatch = useDispatch()
   const handleAddItem = (id) => {
     dispatch(increaseItemQuantity(id))
@@ -20,7 +22,10 @@ const CartItem = ({ item }) => {
     dispatch(decreaseItemQuantity(id))
   }
   const handleDeleteItem = (id) => {
-    dispatch(removeItem(id))
+    setIsRemoving(true)
+    setTimeout(() => {
+      dispatch(removeItem(id))
+    }, 350)
   }
   return (
     <motion.li
@@ -28,7 +33,7 @@ const CartItem = ({ item }) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, ease: 'easeOut' }}
       whileHover={{ scale: 1.01, boxShadow: '0px 4px 20px rgba(0,0,0,0.12)' }}
-      className="flex w-full items-center justify-between px-7 py-10"
+      className={`flex w-full items-center justify-between px-7 py-10 transition-all duration-300 ease-in-out ${isRemoving ? '-translate-x-10/12 opacity-0' : 'translate-x-0 opacity-100'}`}
     >
       <img src="/images/coffeemilk.png" className="h-32 w-2/12" alt="" />
       <h3 className="text-center font-titr text-sm text-dark-500 lg:text-[24px]">
