@@ -4,8 +4,24 @@ import { BiMinus, BiPlus } from 'react-icons/bi'
 import { RiDeleteBin6Line } from 'react-icons/ri'
 import Button from './Button'
 import { formatCurrency } from '../utils/helper'
+import { useDispatch } from 'react-redux'
+import {
+  decreaseItemQuantity,
+  increaseItemQuantity,
+  removeItem,
+} from '../features/cart/cartSlice'
 
 const CartItem = ({ item }) => {
+  const dispatch = useDispatch()
+  const handleAddItem = (id) => {
+    dispatch(increaseItemQuantity(id))
+  }
+  const handleDecItem = (id) => {
+    dispatch(decreaseItemQuantity(id))
+  }
+  const handleDeleteItem = (id) => {
+    dispatch(removeItem(id))
+  }
   return (
     <motion.li
       initial={{ opacity: 0, y: 20 }}
@@ -22,20 +38,32 @@ const CartItem = ({ item }) => {
         {formatCurrency(item.price)}$
       </h3>
       <div className="flex items-center justify-center gap-8">
-        <Button classType="plusmin" px={20}>
+        <Button
+          classType="plusmin"
+          px={20}
+          onClick={() => handleDecItem(item.id)}
+        >
           <BiMinus size={18} className="mt-2 mb-2" />
         </Button>
         <h3 className="text-center font-titr text-sm text-dark-500 lg:text-[24px]">
           {item.quantity}
         </h3>
-        <Button classType="plusmin" px={20}>
+        <Button
+          classType="plusmin"
+          px={20}
+          onClick={() => handleAddItem(item.id)}
+        >
           <BiPlus size={18} className="mt-2 mb-2" />
         </Button>
       </div>
       <h3 className="text-center font-titr text-sm text-dark-500 lg:text-[24px]">
-        {formatCurrency(item.price)}$
+        {formatCurrency(item.totalprice)}$
       </h3>
-      <Button classType="delete" px={20}>
+      <Button
+        classType="delete"
+        px={20}
+        onClick={() => handleDeleteItem(item.id)}
+      >
         <RiDeleteBin6Line size={20} className="mt-2 mb-2" />
       </Button>
     </motion.li>

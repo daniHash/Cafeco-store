@@ -31,6 +31,14 @@
       "email": "mehdi.hajhashem.khan@gmail.com",
       "password": "123456d",
       "confrimpassword": "123456d"
+    },
+    {
+      "id": "mian0xy9_ifb7qp",
+      "firstname": "Dani",
+      "familyname": "HHk",
+      "email": "mehdi.hajhashem.khan@gmail.com",
+      "password": "123456d",
+      "confrimpassword": "123456d"
     }
   ],
   "products": [
@@ -184,21 +192,24 @@
       "image": "/images/coffeemilk.png",
       "title": "Caffè Latte",
       "price": 4.5,
-      "quantity": 1
+      "quantity": 1,
+      "totalprice": 4.5
     },
     {
       "id": "2",
       "image": "/images/coffeemilk.png",
       "title": "Espresso",
       "price": 3,
-      "quantity": 1
+      "quantity": 1,
+      "totalprice": 3
     },
     {
       "id": "3",
       "image": "/images/coffeemilk.png",
       "title": "Cappuccino",
       "price": 4.8,
-      "quantity": 1
+      "quantity": 1,
+      "totalprice": 4.8
     }
   ]
 }

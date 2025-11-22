@@ -22,10 +22,28 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addItem: () => {},
-    removeItem: () => {},
+    removeItem: (state, action) => {
+      state.cart = state.cart.filter((item) => item.id !== action.payload)
+    },
     clearCart: () => {},
-    increaseItemQuantity: () => {},
-    decreaseItemQuantity: () => {},
+    increaseItemQuantity: (state, action) => {
+      state.cart.find((item) => {
+        if (item.id === action.payload) {
+          item.quantity++
+          item.totalprice = item.quantity * item.price
+        }
+      })
+    },
+    decreaseItemQuantity: (state, action) => {
+      state.cart.find((item) => {
+        if (item.id === action.payload) {
+          item.quantity--
+          item.totalprice = item.quantity * item.price
+        }
+        if (item.quantity === 0)
+          state.cart = state.cart.filter((item) => item.id !== action.payload)
+      })
+    },
   },
   extraReducers: (builder) => {
     builder
