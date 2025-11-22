@@ -7,7 +7,7 @@ import { useEffect } from 'react'
 import { fetchCart } from '../features/cart/cartSlice'
 const Cart = () => {
   const dispatch = useDispatch()
-  const { isLoading } = useSelector((state) => state.cart)
+  const { isLoading, cart } = useSelector((state) => state.cart)
 
   useEffect(() => {
     dispatch(fetchCart())
@@ -17,8 +17,16 @@ const Cart = () => {
   return (
     <div className="flex flex-col px-5 pt-5 sm:px-10 md:px-20 md:pt-16 lg:px-[140px] lg:pt-16">
       <CartNav />
-      <CartItems />
-      <CheckOutSection />
+      {cart.length > 0 ? (
+        <>
+          <CartItems />
+          <CheckOutSection />
+        </>
+      ) : (
+        <h2 className="mt-20 text-center font-titr text-2xl text-dark-500">
+          Your cart is empty
+        </h2>
+      )}
     </div>
   )
 }

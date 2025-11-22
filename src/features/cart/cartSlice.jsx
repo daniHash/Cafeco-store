@@ -1,5 +1,10 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { getUserCart } from '../../services/apiCart'
+import {
+  apiDecreaseItem,
+  apiIncreaseItem,
+  apiRemoveItem,
+  getUserCart,
+} from '../../services/apiCart'
 const initialState = {
   cart: [],
   error: null,
@@ -17,6 +22,42 @@ export const fetchCart = createAsyncThunk(
     }
   }
 )
+export const removeItemAsync = createAsyncThunk(
+  'cart/removeItemAsync',
+  async (id, { rejectWithValue }) => {
+    try {
+      await apiRemoveItem(id)
+      return id
+    } catch (err) {
+      return rejectWithValue(err.message)
+    }
+  }
+)
+
+export const increaseAsync = createAsyncThunk(
+  'cart/increaseAsync',
+  async (id, { rejectWithValue }) => {
+    try {
+      await apiIncreaseItem(id)
+      return id
+    } catch (err) {
+      return rejectWithValue(err.message)
+    }
+  }
+)
+
+export const decreaseAsync = createAsyncThunk(
+  'cart/decreaseAsync',
+  async (id, { rejectWithValue }) => {
+    try {
+      await apiDecreaseItem(id)
+      return id
+    } catch (err) {
+      return rejectWithValue(err.message)
+    }
+  }
+)
+
 const cartSlice = createSlice({
   name: 'cart',
   initialState,
@@ -25,7 +66,6 @@ const cartSlice = createSlice({
     removeItem: (state, action) => {
       state.cart = state.cart.filter((item) => item.id !== action.payload)
     },
-    clearCart: () => {},
     increaseItemQuantity: (state, action) => {
       state.cart.find((item) => {
         if (item.id === action.payload) {
@@ -66,7 +106,6 @@ export default cartSlice.reducer
 export const {
   addItem,
   removeItem,
-  clearCart,
   increaseItemQuantity,
   decreaseItemQuantity,
 } = cartSlice.actions

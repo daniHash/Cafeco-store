@@ -1,46 +1,5 @@
 {
-  "users": [
-    {
-      "id": "mhpcjnl1_njkiyh",
-      "firstname": "Dani",
-      "familyname": "HHK",
-      "email": "mehdi.hajhashem.khan@gmail.com",
-      "password": "123456d",
-      "confrimpassword": "123456d"
-    },
-    {
-      "id": "mhz6euyn_rjvflg",
-      "firstname": "Dani",
-      "familyname": "hhk",
-      "email": "mehdi.hajhashem.khan@gmail.com",
-      "password": "123456d",
-      "confrimpassword": "123456d"
-    },
-    {
-      "id": "mi3im546_umg8es",
-      "firstname": "Dani",
-      "familyname": "HHl",
-      "email": "danihashdev@gmail.com",
-      "password": "123456d",
-      "confrimpassword": "123456d"
-    },
-    {
-      "id": "mi94lccp_oafz52",
-      "firstname": "Dani",
-      "familyname": "HHK",
-      "email": "mehdi.hajhashem.khan@gmail.com",
-      "password": "123456d",
-      "confrimpassword": "123456d"
-    },
-    {
-      "id": "mian0xy9_ifb7qp",
-      "firstname": "Dani",
-      "familyname": "HHk",
-      "email": "mehdi.hajhashem.khan@gmail.com",
-      "password": "123456d",
-      "confrimpassword": "123456d"
-    }
-  ],
+  "users": [],
   "products": [
     {
       "id": "1",
@@ -186,30 +145,5 @@
       "sold": 10
     }
   ],
-  "cart": [
-    {
-      "id": "1",
-      "image": "/images/coffeemilk.png",
-      "title": "Caffè Latte",
-      "price": 4.5,
-      "quantity": 1,
-      "totalprice": 4.5
-    },
-    {
-      "id": "2",
-      "image": "/images/coffeemilk.png",
-      "title": "Espresso",
-      "price": 3,
-      "quantity": 1,
-      "totalprice": 3
-    },
-    {
-      "id": "3",
-      "image": "/images/coffeemilk.png",
-      "title": "Cappuccino",
-      "price": 4.8,
-      "quantity": 1,
-      "totalprice": 4.8
-    }
-  ]
+  "cart": []
 }

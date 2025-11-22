@@ -15,8 +15,10 @@ const CartNav = () => {
         type="button"
         px={20}
       >
-        <FaLongArrowAltLeft className="mr-10" size={30} />
-        <span className="font-btn text-2xl font-bold text-dark-500">Back</span>
+        <FaLongArrowAltLeft className="mr-2 md:mr-4 lg:mr-10" size={30} />
+        <span className="font-btn text-lg font-bold text-dark-500 md:text-xl lg:text-2xl">
+          Back
+        </span>
       </Button>
     </div>
   )
