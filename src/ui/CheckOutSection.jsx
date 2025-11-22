@@ -1,7 +1,15 @@
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion'
 import Button from './Button'
+import { useSelector } from 'react-redux'
+import { formatCurrency } from '../utils/helper'
 const CheckOutSection = () => {
+  const { cart } = useSelector((state) => state.cart)
+
+  const totalPrice = cart.reduce((prev, curr) => {
+    return prev + curr.totalprice
+  }, 0)
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 15 }}
@@ -23,7 +31,7 @@ const CheckOutSection = () => {
             Sub total
           </h2>
           <h3 className="mt-10 text-center font-titr text-lg text-dark-500 lg:text-[28px]">
-            300$
+            {formatCurrency(totalPrice)}
           </h3>
         </div>
       </div>
@@ -32,12 +40,12 @@ const CheckOutSection = () => {
           Sub total
         </h2>
         <h3 className="mt-10 text-center font-titr text-lg text-destructive-300 lg:text-[28px]">
-          300$
+          {formatCurrency(totalPrice)}
         </h3>
       </div>
       <div className="mt-20 flex w-full justify-center">
         <Button classType="primary" px={20}>
-          Chekout <span className="ml-20">300$</span>
+          Chekout <span className="ml-20">{formatCurrency(totalPrice)}</span>
         </Button>
       </div>
     </motion.div>

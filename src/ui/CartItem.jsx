@@ -40,7 +40,7 @@ const CartItem = ({ item }) => {
         {item.title}
       </h3>
       <h3 className="text-center font-titr text-sm text-dark-500 lg:text-[24px]">
-        {formatCurrency(item.price)}$
+        {formatCurrency(item.price)}
       </h3>
       <div className="flex items-center justify-center gap-8">
         <Button
@@ -62,7 +62,7 @@ const CartItem = ({ item }) => {
         </Button>
       </div>
       <h3 className="text-center font-titr text-sm text-dark-500 lg:text-[24px]">
-        {formatCurrency(item.totalprice)}$
+        {formatCurrency(item.totalprice)}
       </h3>
       <Button
         classType="delete"
