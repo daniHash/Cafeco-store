@@ -1,8 +1,9 @@
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion'
-import Button from './Button'
 import { useSelector } from 'react-redux'
-import { formatCurrency } from '../utils/helper'
+import { formatCurrency } from '../../utils/helper'
+import Button from '../../ui/Button'
+
 const CheckOutSection = () => {
   const { cart } = useSelector((state) => state.cart)
 
