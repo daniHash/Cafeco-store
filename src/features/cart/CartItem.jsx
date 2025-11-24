@@ -5,28 +5,15 @@ import { useDispatch } from 'react-redux'
 import { BiMinus, BiPlus } from 'react-icons/bi'
 import { RiDeleteBin6Line } from 'react-icons/ri'
 import { formatCurrency } from '../../utils/helper'
-import {
-  decreaseAsync,
-  decreaseItemQuantity,
-  increaseAsync,
-  increaseItemQuantity,
-  removeItem,
-  removeItemAsync,
-} from './cartSlice'
+import { removeItem, removeItemAsync } from './cartSlice'
+import useCartItem from '../../hooks/useCartItem'
 import Button from '../../ui/Button'
 
 const CartItem = ({ item }) => {
   const [isRemoving, setIsRemoving] = useState(false)
   const dispatch = useDispatch()
+  const { increase, decrease } = useCartItem(item)
 
-  const handleAddItem = (id) => {
-    dispatch(increaseItemQuantity(id))
-    dispatch(increaseAsync(id))
-  }
-  const handleDecItem = (id) => {
-    dispatch(decreaseItemQuantity(id))
-    dispatch(decreaseAsync(id))
-  }
   const handleDeleteItem = (id) => {
     setIsRemoving(true)
     setTimeout(() => {
@@ -54,21 +41,13 @@ const CartItem = ({ item }) => {
         {formatCurrency(item.price)}
       </h3>
       <div className="flex items-center justify-center gap-2 sm:gap-4 md:gap-6 lg:gap-8">
-        <Button
-          classType="plusmin"
-          px={20}
-          onClick={() => handleDecItem(item.id)}
-        >
+        <Button classType="plusmin" px={20} onClick={decrease}>
           <BiMinus size={18} className="mt-2 mb-2" />
         </Button>
         <h3 className="text-center font-titr text-sm text-dark-500 lg:text-[24px]">
           {item.quantity}
         </h3>
-        <Button
-          classType="plusmin"
-          px={20}
-          onClick={() => handleAddItem(item.id)}
-        >
+        <Button classType="plusmin" px={20} onClick={increase}>
           <BiPlus size={18} className="mt-2 mb-2" />
         </Button>
       </div>

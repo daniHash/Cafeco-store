@@ -4,49 +4,16 @@ import { FaStar } from 'react-icons/fa'
 import { formatCurrency } from '../utils/helper'
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion'
-import { useDispatch, useSelector } from 'react-redux'
-import {
-  addItem,
-  addItemAsync,
-  decreaseAsync,
-  decreaseItemQuantity,
-  increaseAsync,
-  increaseItemQuantity,
-} from '../features/cart/cartSlice'
 import Button from './Button'
+import useCartItem from '../hooks/useCartItem'
 
 const ProductCard = ({ item, scale, blur }) => {
-  const dispatch = useDispatch()
-  const { cart } = useSelector((state) => state.cart)
-
-  const isSelected = cart.find((p) => p.id === item.id)
+  const { cartItem, add, increase, decrease } = useCartItem(item)
   const words = item.description.split(' ')
   const showMore = words.length > 5
   const displayedText = showMore
     ? words.slice(0, 5).join(' ') + '...'
     : item.description
-
-  const handleAddItem = () => {
-    const newItem = {
-      id: item.id,
-      image: item.image,
-      price: item.price,
-      quantity: 1,
-      title: item.title,
-      totalprice: item.price,
-    }
-    dispatch(addItem(newItem))
-    dispatch(addItemAsync(newItem))
-  }
-  const handleIncItem = (id) => {
-    dispatch(increaseItemQuantity(id))
-    dispatch(increaseAsync(id))
-  }
-  const handleDecItem = (id) => {
-    dispatch(decreaseItemQuantity(id))
-    dispatch(decreaseAsync(id))
-  }
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -91,28 +58,20 @@ const ProductCard = ({ item, scale, blur }) => {
           {item.rating}
         </span>
       </div>
-      {isSelected ? (
+      {cartItem ? (
         <div className="flex items-center justify-center gap-2 sm:gap-4 md:gap-6 lg:gap-8">
-          <Button
-            classType="plusmin"
-            px={20}
-            onClick={() => handleDecItem(isSelected.id)}
-          >
+          <Button classType="plusmin" px={20} onClick={decrease}>
             <BiMinus size={18} className="mt-2 mb-2" />
           </Button>
           <h3 className="text-center font-titr text-sm text-dark-500 lg:text-[24px]">
-            {isSelected.quantity}
+            {cartItem.quantity}
           </h3>
-          <Button
-            classType="plusmin"
-            px={20}
-            onClick={() => handleIncItem(isSelected.id)}
-          >
+          <Button classType="plusmin" px={20} onClick={increase}>
             <BiPlus size={18} className="mt-2 mb-2" />
           </Button>
         </div>
       ) : (
-        <Button type="button" classType="primary" onClick={handleAddItem}>
+        <Button type="button" classType="primary" onClick={add}>
           <BiCartAdd size={30} /> Add to cart
         </Button>
       )}
