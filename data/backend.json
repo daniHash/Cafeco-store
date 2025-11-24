@@ -162,5 +162,22 @@
       "sold": 10
     }
   ],
-  "cart": []
+  "cart": [
+    {
+      "id": "3",
+      "image": "/images/coffeemilk.png",
+      "title": "Cappuccino",
+      "price": 4.8,
+      "quantity": 1,
+      "totalprice": 4.8
+    },
+    {
+      "id": "2",
+      "image": "/images/coffeemilk.png",
+      "title": "Espresso",
+      "price": 3,
+      "quantity": 2,
+      "totalprice": 6
+    }
+  ]
 }

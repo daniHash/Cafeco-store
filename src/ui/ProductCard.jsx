@@ -3,7 +3,7 @@ import { BiCartAdd, BiMinus, BiMoney, BiPlus } from 'react-icons/bi'
 import { FaStar } from 'react-icons/fa'
 import { formatCurrency } from '../utils/helper'
 // eslint-disable-next-line no-unused-vars
-import { motion, removeItem } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { useDispatch, useSelector } from 'react-redux'
 import {
   addItem,
@@ -27,8 +27,16 @@ const ProductCard = ({ item, scale, blur }) => {
     : item.description
 
   const handleAddItem = () => {
-    dispatch(addItem(item))
-    dispatch(addItemAsync(item))
+    const newItem = {
+      id: item.id,
+      image: item.image,
+      price: item.price,
+      quantity: 1,
+      title: item.title,
+      totalprice: item.price,
+    }
+    dispatch(addItem(newItem))
+    dispatch(addItemAsync(newItem))
   }
   const handleIncItem = (id) => {
     dispatch(increaseItemQuantity(id))

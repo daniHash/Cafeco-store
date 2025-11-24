@@ -10,10 +10,12 @@ import Loader from '../ui/Loader'
 import { motion } from 'framer-motion'
 
 const Productpage = () => {
-  const { isLoading, productDetails } = useSelector((state) => state.products)
-
   const dispatch = useDispatch()
+  const { isLoading, productDetails } = useSelector((state) => state.products)
+  const { cart } = useSelector((state) => state.cart)
   const { id } = useParams()
+  const isSelected = cart.find((p) => p.id === id)
+
   useEffect(() => {
     if (!productDetails || productDetails.id !== id) {
       dispatch(fetchProductById(id))
@@ -24,7 +26,7 @@ const Productpage = () => {
   return (
     <div className="flex h-screen flex-col px-5 pt-5 sm:px-10 md:px-20 md:pt-16 lg:px-[140px] lg:pt-16">
       <ProductPageNav />
-      <ProductDetails />
+      <ProductDetails isSelected={isSelected} />
       <StarSection />
     </div>
   )
