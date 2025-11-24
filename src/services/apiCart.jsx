@@ -9,32 +9,15 @@ export const getUserCart = async () => {
 
 /* ─────────── ADD ITEM ─────────── */
 export const apiAddItem = async (item) => {
-  const existing = await fetch(`${BASE_URL}?id=${item.id}`).then((r) =>
-    r.json()
-  )
-
-  if (existing.length > 0) {
-    const current = existing[0]
-    const updated = {
-      ...current,
-      quantity: current.quantity + 1,
-      totalprice: (current.quantity + 1) * current.price,
-    }
-
-    const res = await fetch(`${BASE_URL}/${current.id}`, {
-      method: 'PATCH',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(updated),
-    })
-
-    if (!res.ok) throw new Error('failed to update cart')
-    return updated
-  }
+  const cleanPrice = +item.price
 
   const newItem = {
-    ...item,
-    quantity: 1,
-    totalprice: item.price,
+    id: item.id,
+    image: item.image,
+    title: item.title,
+    price: cleanPrice,
+    quantity: Number(1),
+    totalprice: cleanPrice,
   }
 
   const res = await fetch(BASE_URL, {
@@ -46,7 +29,6 @@ export const apiAddItem = async (item) => {
   if (!res.ok) throw new Error('failed to add item')
   return newItem
 }
-
 /* ─────────── REMOVE ENTIRE ITEM ─────────── */
 export const apiRemoveItem = async (id) => {
   const res = await fetch(`${BASE_URL}/${id}`, { method: 'DELETE' })

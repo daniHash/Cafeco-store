@@ -1,16 +1,43 @@
 import { Link } from 'react-router-dom'
-import { BiCartAdd, BiMoney } from 'react-icons/bi'
+import { BiCartAdd, BiMinus, BiMoney, BiPlus } from 'react-icons/bi'
 import { FaStar } from 'react-icons/fa'
 import { formatCurrency } from '../utils/helper'
 // eslint-disable-next-line no-unused-vars
-import { motion } from 'framer-motion'
+import { motion, removeItem } from 'framer-motion'
+import { useDispatch, useSelector } from 'react-redux'
+import {
+  addItem,
+  addItemAsync,
+  decreaseAsync,
+  decreaseItemQuantity,
+  increaseAsync,
+  increaseItemQuantity,
+} from '../features/cart/cartSlice'
 import Button from './Button'
+
 const ProductCard = ({ item, scale, blur }) => {
+  const dispatch = useDispatch()
+  const { cart } = useSelector((state) => state.cart)
+
+  const isSelected = cart.find((p) => p.id === item.id)
   const words = item.description.split(' ')
   const showMore = words.length > 5
   const displayedText = showMore
     ? words.slice(0, 5).join(' ') + '...'
     : item.description
+
+  const handleAddItem = () => {
+    dispatch(addItem(item))
+    dispatch(addItemAsync(item))
+  }
+  const handleIncItem = (id) => {
+    dispatch(increaseItemQuantity(id))
+    dispatch(increaseAsync(id))
+  }
+  const handleDecItem = (id) => {
+    dispatch(decreaseItemQuantity(id))
+    dispatch(decreaseAsync(id))
+  }
 
   return (
     <motion.div
@@ -56,9 +83,31 @@ const ProductCard = ({ item, scale, blur }) => {
           {item.rating}
         </span>
       </div>
-      <Button type="button" classType="primary">
-        <BiCartAdd size={30} /> Add to cart
-      </Button>
+      {isSelected ? (
+        <div className="flex items-center justify-center gap-2 sm:gap-4 md:gap-6 lg:gap-8">
+          <Button
+            classType="plusmin"
+            px={20}
+            onClick={() => handleDecItem(isSelected.id)}
+          >
+            <BiMinus size={18} className="mt-2 mb-2" />
+          </Button>
+          <h3 className="text-center font-titr text-sm text-dark-500 lg:text-[24px]">
+            {isSelected.quantity}
+          </h3>
+          <Button
+            classType="plusmin"
+            px={20}
+            onClick={() => handleIncItem(isSelected.id)}
+          >
+            <BiPlus size={18} className="mt-2 mb-2" />
+          </Button>
+        </div>
+      ) : (
+        <Button type="button" classType="primary" onClick={handleAddItem}>
+          <BiCartAdd size={30} /> Add to cart
+        </Button>
+      )}
     </motion.div>
   )
 }

@@ -1,14 +1,24 @@
 import { FaOpencart, FaSortAmountDown } from 'react-icons/fa'
 import { LuListFilter } from 'react-icons/lu'
 import { useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { useEffect } from 'react'
+import { fetchCart } from '../features/cart/cartSlice'
 import Button from '../ui/Button'
 import SortDropDown from './SortDropDown'
 import useDropdownToggle from '../hooks/useDropDownToggle'
 import FilterDropDown from './FilterDropDown'
 const SearchBar = ({ query, handleSearch }) => {
+  const dispatch = useDispatch()
   const navigate = useNavigate()
   const filter = useDropdownToggle()
   const sort = useDropdownToggle()
+  const { isFetched, cart } = useSelector((state) => state.cart)
+
+  useEffect(() => {
+    if (!isFetched) dispatch(fetchCart())
+  }, [isFetched, dispatch])
+
   const handleOpen = (type) => {
     if (type === 'filter') {
       filter.toggle()
@@ -18,7 +28,6 @@ const SearchBar = ({ query, handleSearch }) => {
       filter.close()
     }
   }
-
   const handleSort = (e) => {
     sort.toggle()
     const value = e.target.innerText.toLowerCase().split(' ')

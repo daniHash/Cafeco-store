@@ -7,6 +7,14 @@
       "email": "mehdi.hajhashem.khan@gmail.com",
       "password": "123456d",
       "confrimpassword": "123456d"
+    },
+    {
+      "id": "mid11tyk_nq5ryv",
+      "firstname": "Dani",
+      "familyname": "HHK",
+      "email": "mehdi.hajhashem.khan@gmail.com",
+      "password": "123456d",
+      "confrimpassword": "123456d"
     }
   ],
   "products": [
@@ -154,5 +162,14 @@
       "sold": 10
     }
   ],
-  "cart": []
+  "cart": [
+    {
+      "id": "5",
+      "image": "/images/coffeemilk.png",
+      "title": "Ice Coffee",
+      "price": 5,
+      "quantity": 1,
+      "totalprice": 5
+    }
+  ]
 }

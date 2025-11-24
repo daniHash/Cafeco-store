@@ -7,11 +7,11 @@ import { useEffect } from 'react'
 import { fetchCart } from '../features/cart/cartSlice'
 const Cart = () => {
   const dispatch = useDispatch()
-  const { isLoading, cart } = useSelector((state) => state.cart)
+  const { isFetched, isLoading, cart } = useSelector((state) => state.cart)
 
   useEffect(() => {
-    dispatch(fetchCart())
-  }, [dispatch])
+    if (!isFetched) dispatch(fetchCart())
+  }, [dispatch, isFetched])
 
   if (isLoading) return <Loader />
   return (
