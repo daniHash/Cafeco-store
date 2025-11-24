@@ -38,7 +38,7 @@ const SearchBar = ({ query, handleSearch }) => {
     <div className="mt-16">
       <h2 className="text-center font-titr text-4xl text-dark-500">Products</h2>
       <div className="mt-4 flex w-full flex-col-reverse items-center justify-between px-5 lg:flex-row lg:px-[140px]">
-        <div className="flex items-start justify-center gap-30">
+        <div className="flex items-start justify-center gap-2">
           <div
             ref={filter.ref}
             className="relative flex flex-col items-center justify-center"
@@ -53,6 +53,7 @@ const SearchBar = ({ query, handleSearch }) => {
                 Filter <LuListFilter size={22} />
               </span>
             </Button>
+
             {filter.isOpen && (
               <div className="absolute top-full left-0 z-50">
                 <FilterDropDown closeDropdown={() => filter.close()} />
@@ -61,7 +62,7 @@ const SearchBar = ({ query, handleSearch }) => {
           </div>
           <div
             ref={sort.ref}
-            className="absolute ml-1 flex flex-col items-center justify-center"
+            className="relative flex flex-col items-center justify-center"
           >
             <Button
               classType="productsbtn"
@@ -73,18 +74,29 @@ const SearchBar = ({ query, handleSearch }) => {
                 Sort <FaSortAmountDown size={20} />
               </span>
             </Button>
-            {sort.isOpen && <SortDropDown handleSort={handleSort} />}
+            {sort.isOpen && (
+              <div className="absolute top-full -left-8 z-50">
+                <SortDropDown handleSort={handleSort} />
+              </div>
+            )}
           </div>
-          <Button
-            onClick={() => navigate('/cart')}
-            classType="productsbtn"
-            type="button"
-            px={20}
-          >
-            <span className="flex items-center justify-center gap-3">
-              Cart <FaOpencart size={20} />
-            </span>
-          </Button>
+          <div className="relative flex flex-col items-center justify-center">
+            <Button
+              onClick={() => navigate('/cart')}
+              classType="productsbtn"
+              type="button"
+              px={20}
+            >
+              <span className="flex items-center justify-center gap-3">
+                Cart <FaOpencart size={20} />
+                {cart.length > 0 && (
+                  <span className="rounded-full bg-dark-500 px-2 py-0 text-white">
+                    {cart.length}
+                  </span>
+                )}
+              </span>
+            </Button>
+          </div>
         </div>
         <input
           type="text"

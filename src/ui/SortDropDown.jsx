@@ -8,7 +8,7 @@ const SortDropDown = ({ handleSort }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.2, ease: 'easeOut' }}
-      className="relative z-50 flex h-30 w-40 flex-col items-center justify-center divide-y-2 divide-dark-500 overflow-hidden rounded-md bg-[#B59D90]"
+      className="absolute z-50 flex h-30 w-40 flex-col items-center justify-center divide-y-2 divide-dark-500 overflow-hidden rounded-md bg-[#B59D90]"
     >
       <li
         onClick={handleSort}

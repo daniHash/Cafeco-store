@@ -162,14 +162,5 @@
       "sold": 10
     }
   ],
-  "cart": [
-    {
-      "id": "5",
-      "image": "/images/coffeemilk.png",
-      "title": "Ice Coffee",
-      "price": 5,
-      "quantity": 1,
-      "totalprice": 5
-    }
-  ]
+  "cart": []
 }
