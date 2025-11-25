@@ -36,16 +36,32 @@ const Button = ({ children, px, classType, type, onClick, loading }) => {
     delete:
       base +
       ` rounded-md bg-destructive-300 hover:bg-destructive-400 text-white flex justify-center items-center ${pxClasses[px] ? pxClasses[px] : 'w-full'}`,
+    disable:
+      base +
+      ` rounded-md bg-primary-300 opacity-50 mb-4 hover:bg-primary-400 text-white flex justify-center items-center ${pxClasses[px] ? pxClasses[px] : 'w-full'}`,
   }
   return (
-    <button
-      type={type}
-      disabled={loading}
-      onClick={onClick && onClick}
-      className={styles[classType]}
-    >
-      {children}
-    </button>
+    <>
+      {classType === 'disable' ? (
+        <button
+          type={type}
+          disabled={true}
+          onClick={onClick && onClick}
+          className={styles[classType]}
+        >
+          {children}
+        </button>
+      ) : (
+        <button
+          type={type}
+          disabled={loading}
+          onClick={onClick && onClick}
+          className={styles[classType]}
+        >
+          {children}
+        </button>
+      )}
+    </>
   )
 }
 

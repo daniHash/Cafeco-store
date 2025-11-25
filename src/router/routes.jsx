@@ -10,6 +10,7 @@ import Productpage from '../pages/Productpage'
 import Products from '../pages/Products'
 import PageNotFound from '../pages/PageNotFound'
 import ProtectedRoute from '../pages/ProtectedRoute'
+import Information from '../pages/Information'
 
 const router = createBrowserRouter([
   {
@@ -56,7 +57,7 @@ const router = createBrowserRouter([
               },
               {
                 path: 'information',
-                element: <h1 className="text-white">Information</h1>,
+                element: <Information />,
               },
               {
                 path: 'scores',
