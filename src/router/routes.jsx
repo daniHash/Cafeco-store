@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router-dom'
+import { createBrowserRouter, Navigate } from 'react-router-dom'
 import AppLayout from '../pages/AppLayout'
 import Home from '../pages/Home'
 import About from '../pages/About'
@@ -50,6 +50,14 @@ const router = createBrowserRouter([
             path: '/profile',
             element: <Profile />,
             children: [
+              {
+                index: true,
+                element: <Navigate to="information" replace />,
+              },
+              {
+                path: 'information',
+                element: <h1 className="text-white">Information</h1>,
+              },
               {
                 path: 'scores',
                 element: <h1 className="text-white">Scores</h1>,
