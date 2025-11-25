@@ -12,6 +12,7 @@ import PageNotFound from '../pages/PageNotFound'
 import ProtectedRoute from '../pages/ProtectedRoute'
 import Information from '../pages/Information'
 import Scores from '../pages/Scores'
+import Addresses from '../pages/Addresses'
 
 const router = createBrowserRouter([
   {
@@ -66,7 +67,7 @@ const router = createBrowserRouter([
               },
               {
                 path: 'addresses',
-                element: <h1 className="text-white">Addresses</h1>,
+                element: <Addresses />,
               },
               {
                 path: 'orders',
