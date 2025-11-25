@@ -1,22 +1,5 @@
 {
-  "users": [
-    {
-      "id": "mic3rkiw_lwyomq",
-      "firstname": "Dani",
-      "familyname": "HHK",
-      "email": "mehdi.hajhashem.khan@gmail.com",
-      "password": "123456d",
-      "confrimpassword": "123456d"
-    },
-    {
-      "id": "mid11tyk_nq5ryv",
-      "firstname": "Dani",
-      "familyname": "HHK",
-      "email": "mehdi.hajhashem.khan@gmail.com",
-      "password": "123456d",
-      "confrimpassword": "123456d"
-    }
-  ],
+  "users": [],
   "products": [
     {
       "id": "1",

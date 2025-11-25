@@ -49,18 +49,20 @@ const router = createBrowserRouter([
           {
             path: '/profile',
             element: <Profile />,
-          },
-          {
-            path: '/scores',
-            element: <h1 className="text-white">Scores</h1>,
-          },
-          {
-            path: '/addresses',
-            element: <h1 className="text-white">Addresses</h1>,
-          },
-          {
-            path: '/orders',
-            element: <h1 className="text-white">Orders</h1>,
+            children: [
+              {
+                path: 'scores',
+                element: <h1 className="text-white">Scores</h1>,
+              },
+              {
+                path: 'addresses',
+                element: <h1 className="text-white">Addresses</h1>,
+              },
+              {
+                path: 'orders',
+                element: <h1 className="text-white">Orders</h1>,
+              },
+            ],
           },
         ],
       },
