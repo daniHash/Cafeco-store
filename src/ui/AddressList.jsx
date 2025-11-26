@@ -25,7 +25,7 @@ const AddressList = () => {
       variants={listVariants}
       initial="hidden"
       animate="visible"
-      className="mt-8 flex list-none flex-col items-center justify-center gap-3.5 divide-y-2 divide-black overflow-auto overflow-x-hidden"
+      className="mt-8 flex list-none flex-col items-center justify-center gap-3.5 divide-y-2 divide-black overflow-auto overflow-x-hidden pt-60 sm:pt-36 md:pt-72 lg:pt-0"
     >
       {[...Array(4)].map((_, i) => (
         <motion.li key={i} variants={itemVariants}>

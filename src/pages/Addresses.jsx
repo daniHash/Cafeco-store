@@ -5,14 +5,16 @@ import AddressList from '../ui/AddressList'
 const Addresses = () => {
   return (
     <div className="flex h-full w-full flex-col">
-      <div className="relative mt-14 flex items-center justify-center">
-        <h1 className="text text-center font-titr text-xl text-white lg:text-4xl">
+      <div className="mt-14 flex w-full items-center justify-between px-4">
+        <h1 className="text flex-1 text-center font-titr text-xl text-white lg:text-4xl">
           Addresses
         </h1>
-        <Button classType="prof" px={20} className="absolute right-0">
+
+        <Button classType="prof" px={20}>
           <BiPlus size={18} className="mt-2 mb-2 text-dark-500" />
         </Button>
       </div>
+
       <AddressList />
     </div>
   )

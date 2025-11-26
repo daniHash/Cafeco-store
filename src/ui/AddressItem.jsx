@@ -8,7 +8,7 @@ const AddressItem = () => {
   return (
     <motion.li
       whileHover={{ scale: 1.02, boxShadow: '0px 5px 15px rgba(0,0,0,0.2)' }}
-      className="flex items-center justify-between px-10 py-3.5"
+      className="flex flex-col items-center justify-between gap-2 px-10 py-3.5 sm:flex-col md:flex-row lg:flex-row"
     >
       <p className="font-text text-sm font-bold text-white md:text-lg lg:text-xl">
         PO Box , P.O. Box , 7721 , Greenfield Station , Greenfield , Plains
