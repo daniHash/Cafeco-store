@@ -2,13 +2,7 @@ import { useState } from 'react'
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion'
 import Button from './Button'
-
-const initialInfo = {
-  name: 'Danial',
-  lastname: 'Hajhashemkhani',
-  phone: '09034905933',
-  email: 'danihashdev@gmail.com',
-}
+import { useSelector } from 'react-redux'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -16,9 +10,18 @@ const fadeUp = {
 }
 
 const UpdateInformForm = () => {
-  const [information, setInformation] = useState(initialInfo)
+  const { firstname, number, familyname, email } = useSelector(
+    (state) => state.user.user
+  )
+  const initialState = {
+    firstname,
+    number,
+    familyname,
+    email,
+  }
+  const [information, setInformation] = useState(initialState)
 
-  const isChanged = JSON.stringify(information) !== JSON.stringify(initialInfo)
+  const isChanged = JSON.stringify(information) !== JSON.stringify(initialState)
 
   const handleChange = (field, value) => {
     setInformation((prev) => ({
@@ -43,8 +46,8 @@ const UpdateInformForm = () => {
           type="text"
           id="name"
           name="firstname"
-          value={information.name}
-          onChange={(e) => handleChange('name', e.target.value)}
+          value={information.firstname}
+          onChange={(e) => handleChange('firstname', e.target.value)}
           whileFocus={{ scale: 1.03, boxShadow: '0 0 10px #E29E01aa' }}
           transition={{ type: 'spring', stiffness: 250, damping: 15 }}
         />
@@ -58,8 +61,8 @@ const UpdateInformForm = () => {
           type="text"
           id="lastname"
           name="familyname"
-          value={information.lastname}
-          onChange={(e) => handleChange('lastname', e.target.value)}
+          value={information.familyname}
+          onChange={(e) => handleChange('familyname', e.target.value)}
           whileFocus={{ scale: 1.03, boxShadow: '0 0 10px #E29E01aa' }}
         />
       </motion.div>
@@ -72,8 +75,8 @@ const UpdateInformForm = () => {
           type="text"
           id="phone"
           name="tel"
-          value={information.phone}
-          onChange={(e) => handleChange('phone', e.target.value)}
+          value={information.number}
+          onChange={(e) => handleChange('number', e.target.value)}
           whileFocus={{ scale: 1.03, boxShadow: '0 0 10px #E29E01aa' }}
         />
       </motion.div>

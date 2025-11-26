@@ -2,7 +2,7 @@
 import { motion } from 'framer-motion'
 import PhoneInput from 'react-phone-input-2'
 
-const Input = ({ input, onChange, value, errors }) => {
+const Input = ({ input, onChange, handlePhoneChange, value, errors }) => {
   return (
     <motion.div
       initial={{ opacity: 0, x: 10 }}
@@ -32,7 +32,7 @@ const Input = ({ input, onChange, value, errors }) => {
         <PhoneInput
           country={'ir'}
           value={value}
-          onChange={onchange}
+          onChange={(phone) => handlePhoneChange(phone, input.name)}
           containerClass="!w-full"
           buttonClass="!bg-primary-100 "
           dropdownClass="!bg-primary-100 !text-textform !font-titr text-sm !rounded-md"
@@ -42,6 +42,7 @@ const Input = ({ input, onChange, value, errors }) => {
           inputProps={{
             pattern: input.pattern,
             title: input.title,
+            name: input.name,
             required: true,
           }}
           placeholder="example: +98..."

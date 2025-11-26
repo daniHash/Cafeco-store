@@ -22,6 +22,9 @@ const useRegisterForm = () => {
   const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value })
   }
+  const handlePhoneChange = (phone, name) => {
+    setValues({ ...values, [name]: phone })
+  }
   const handleSubmit = (e) => {
     e.preventDefault()
     let newErrors = {}
@@ -58,6 +61,7 @@ const useRegisterForm = () => {
     values,
     errors,
     handleChange,
+    handlePhoneChange,
     handleSubmit,
     handleSetShow,
   }

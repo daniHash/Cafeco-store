@@ -10,6 +10,18 @@
       "score": 0,
       "addresses": [],
       "orders": []
+    },
+    {
+      "id": "mig7uz4a_3s18jp",
+      "firstname": "Danial",
+      "familyname": "Hajhashemkhani",
+      "number": "989034905933",
+      "email": "mehdi.hajhashem.khan@gmail.com",
+      "password": "123456d",
+      "confrimpassword": "123456d",
+      "score": 0,
+      "addresses": [],
+      "orders": []
     }
   ],
   "products": [

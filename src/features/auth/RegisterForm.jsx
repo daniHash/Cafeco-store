@@ -16,6 +16,7 @@ const RegisterForm = () => {
     errors,
     handleChange,
     handleSubmit,
+    handlePhoneChange,
     handleSetShow,
   } = useRegisterForm()
   const loading = useSelector((state) => state.user.loading)
@@ -42,6 +43,7 @@ const RegisterForm = () => {
               input={input}
               value={values[input.name] || ''}
               onChange={handleChange}
+              handlePhoneChange={handlePhoneChange}
               errors={errors[input.name]}
               key={input.id}
             />

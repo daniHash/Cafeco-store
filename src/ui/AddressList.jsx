@@ -1,8 +1,11 @@
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion'
 import AddressItem from './AddressItem'
+import { useSelector } from 'react-redux'
 
 const AddressList = () => {
+  const { addresses } = useSelector((state) => state.user.user)
+
   const listVariants = {
     hidden: {},
     visible: {
@@ -19,7 +22,12 @@ const AddressList = () => {
       transition: { duration: 0.4, ease: 'easeOut' },
     },
   }
-
+  if (addresses.length === 0)
+    return (
+      <p className="mt-16 w-full text-center font-text text-xl font-bold text-white">
+        No Addresses found
+      </p>
+    )
   return (
     <motion.ul
       variants={listVariants}

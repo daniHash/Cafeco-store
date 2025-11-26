@@ -33,7 +33,6 @@ export const register = async (body) => {
       throw new Error('Failed to register user')
     }
     const data = await res.json()
-    console.log(data)
     Cookies.set('token', 'data.token', { expires: 0.5, secure: true })
     return data
   } catch {
