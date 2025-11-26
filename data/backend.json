@@ -32,6 +32,18 @@
         }
       ],
       "orders": []
+    },
+    {
+      "id": "migbywrw_d5eers",
+      "firstname": "Dani",
+      "familyname": "dd",
+      "number": "989929995488",
+      "email": "danihashdev@gmail.com",
+      "password": "123456d",
+      "confrimpassword": "123456d",
+      "score": 0,
+      "addresses": [],
+      "orders": []
     }
   ],
   "products": [
@@ -179,5 +191,22 @@
       "sold": 10
     }
   ],
-  "cart": []
+  "cart": [
+    {
+      "id": "2",
+      "image": "/images/coffeemilk.png",
+      "title": "Espresso",
+      "price": 3,
+      "quantity": 3,
+      "totalprice": 9
+    },
+    {
+      "id": "3",
+      "image": "/images/coffeemilk.png",
+      "title": "Cappuccino",
+      "price": 4.8,
+      "quantity": 1,
+      "totalprice": 4.8
+    }
+  ]
 }

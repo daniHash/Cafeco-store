@@ -21,7 +21,7 @@ const AppLayout = () => {
   useEffect(() => {
     if (!isFetched)
       dispatch(getUserFetch(JSON.parse(localStorage.getItem('user'))?.id))
-  })
+  }, [dispatch, isFetched])
 
   if (isLoading) return <Loader />
   return (

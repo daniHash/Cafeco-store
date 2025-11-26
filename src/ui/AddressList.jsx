@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion'
-import AddressItem from './AddressItem'
 import { useSelector } from 'react-redux'
+import AddressItem from './AddressItem'
 
 const AddressList = () => {
   const user = useSelector((state) => state.user.user)

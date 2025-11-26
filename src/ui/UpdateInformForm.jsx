@@ -1,39 +1,19 @@
-import { useState } from 'react'
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion'
-import Button from './Button'
-import { useDispatch, useSelector } from 'react-redux'
-import { updateFetch, updateUser } from '../features/auth/authSlice'
 import { notify } from '../utils/helper'
-
+import Button from './Button'
+import useUpdateInform from '../hooks/useUpdateInform'
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0 },
 }
 
 const UpdateInformForm = () => {
-  const dispatch = useDispatch()
-  const { loading, error, user } = useSelector((state) => state.user)
-  const [information, setInformation] = useState(user)
+  const { loading, error, information, isChanged, handleChange, handleSubmit } =
+    useUpdateInform()
 
-  const isChanged = JSON.stringify(information) !== JSON.stringify(user)
+  if (error) return notify('error', error)
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-
-    dispatch(updateUser(information))
-    dispatch(updateFetch({ id: user.id, body: information }))
-  }
-  const handleChange = (field, value) => {
-    setInformation((prev) => ({
-      ...prev,
-      [field]: value,
-    }))
-  }
-
-  if (error) {
-    return notify('error', error)
-  }
   return (
     <motion.form
       className="mt-12 flex w-full flex-col items-center justify-center gap-6"

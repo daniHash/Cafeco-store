@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux'
+import { useEffect } from 'react'
+import { fetchCart } from '../features/cart/cartSlice'
 import CartNav from '../ui/CartNav'
 import CartItems from '../features/cart/CartItems'
 import CheckOutSection from '../features/cart/CheckOutSection'
 import Loader from '../ui/Loader'
-import { useEffect } from 'react'
-import { fetchCart } from '../features/cart/cartSlice'
 const Cart = () => {
   const dispatch = useDispatch()
   const { isFetched, isLoading, cart } = useSelector((state) => state.cart)

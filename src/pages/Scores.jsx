@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion'
-import useAnimatedCounter from '../hooks/useAnimatedCounter'
 import { useSelector } from 'react-redux'
+import useAnimatedCounter from '../hooks/useAnimatedCounter'
 
 const Scores = () => {
   const { user } = useSelector((state) => state.user)
