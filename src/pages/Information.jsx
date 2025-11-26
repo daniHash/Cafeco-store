@@ -1,4 +1,4 @@
-import UpdateInformForm from '../ui/UpdateInformForm'
+import UpdateInformForm from '../features/auth/UpdateInformForm'
 
 const Information = () => {
   return (

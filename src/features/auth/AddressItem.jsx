@@ -2,7 +2,7 @@
 import { motion } from 'framer-motion'
 import { MdOutlineModeEdit } from 'react-icons/md'
 import { RiDeleteBin6Line } from 'react-icons/ri'
-import Button from './Button'
+import Button from '../../ui/Button'
 
 const AddressItem = () => {
   return (

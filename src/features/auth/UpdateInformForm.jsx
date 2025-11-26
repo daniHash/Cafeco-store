@@ -1,8 +1,8 @@
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion'
-import { notify } from '../utils/helper'
-import Button from './Button'
-import useUpdateInform from '../hooks/useUpdateInform'
+import { notify } from '../../utils/helper'
+import Button from '../../ui/Button'
+import useUpdateInform from '../../hooks/useUpdateInform'
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0 },

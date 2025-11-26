@@ -1,6 +1,6 @@
 import { BiPlus } from 'react-icons/bi'
 import Button from '../ui/Button'
-import AddressList from '../ui/AddressList'
+import AddressList from '../features/auth/AddressList'
 
 const Addresses = () => {
   return (
