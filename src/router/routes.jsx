@@ -13,6 +13,7 @@ import ProtectedRoute from '../pages/ProtectedRoute'
 import Information from '../pages/Information'
 import Scores from '../pages/Scores'
 import Addresses from '../pages/Addresses'
+import AuthRedirect from '../pages/AuthRedirect'
 
 const router = createBrowserRouter([
   {
@@ -28,11 +29,19 @@ const router = createBrowserRouter([
       },
       {
         path: '/register',
-        element: <Register />,
+        element: (
+          <AuthRedirect>
+            <Register />,
+          </AuthRedirect>
+        ),
       },
       {
         path: '/login',
-        element: <Login />,
+        element: (
+          <AuthRedirect>
+            <Login />,
+          </AuthRedirect>
+        ),
       },
       {
         path: '/products',
