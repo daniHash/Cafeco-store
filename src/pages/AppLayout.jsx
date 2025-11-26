@@ -1,11 +1,12 @@
 import { Outlet, useLocation } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { useEffect } from 'react'
+import { getUserFetch } from '../features/auth/authSlice'
 import Loader from '../ui/Loader'
 import Navbar from '../ui/Navbar'
 import Logo from '../ui/Logo'
 import NavbarLinks from '../ui/NavbarLinks'
-import { useDispatch, useSelector } from 'react-redux'
-import { useEffect } from 'react'
-import { getUserFetch } from '../features/auth/authSlice'
+import useAuthCheck from '../hooks/useAuthCheck'
 
 const AppLayout = () => {
   const dispatch = useDispatch()
@@ -18,6 +19,7 @@ const AppLayout = () => {
     routesWithoutNav.includes(location.pathname) ||
     location.pathname.startsWith('/product/')
 
+  useAuthCheck()
   useEffect(() => {
     if (!isFetched)
       dispatch(getUserFetch(JSON.parse(localStorage.getItem('user'))?.id))
