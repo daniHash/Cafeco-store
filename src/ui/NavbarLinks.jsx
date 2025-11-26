@@ -130,7 +130,9 @@ const NavbarLinks = () => {
             </>
           )}
         </NavLink>
-        <ProfileDropdown open={profileOpen} />
+        {profileOpen && (
+          <ProfileDropdown open={profileOpen} setIsOpen={setProfileOpen} />
+        )}
       </motion.ul>
     </>
   )

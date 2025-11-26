@@ -9,9 +9,10 @@ const dropdownVariants = {
   visible: { opacity: 1, y: 0, scale: 1 },
 }
 
-const ProfileDropdown = ({ open }) => {
+const ProfileDropdown = ({ open, setIsOpen }) => {
   const { user } = useSelector((state) => state.user)
   const dispatch = useDispatch()
+  const handleClose = () => setIsOpen(false)
 
   return (
     <AnimatePresence>
@@ -25,6 +26,7 @@ const ProfileDropdown = ({ open }) => {
           className="absolute top-22 right-0 z-50 flex min-w-[180px] flex-col gap-3 rounded-xl border border-white/20 bg-white/10 p-4 text-white shadow-lg backdrop-blur-md"
         >
           <Link
+            onClick={handleClose}
             to="/profile"
             className="text-center font-semibold text-white transition-all hover:text-yellow-400"
           >
@@ -32,6 +34,7 @@ const ProfileDropdown = ({ open }) => {
           </Link>
           {!user ? (
             <Link
+              onClick={handleClose}
               to="/login"
               className="text-center font-semibold text-white transition-all hover:text-yellow-400"
             >
@@ -44,6 +47,7 @@ const ProfileDropdown = ({ open }) => {
               </h3>
 
               <Link
+                onClick={handleClose}
                 to="/profile/addresses"
                 className="text-center font-semibold text-white transition-all hover:text-yellow-400"
               >
