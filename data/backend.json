@@ -1,12 +1,15 @@
 {
   "users": [
     {
-      "id": "mig1egqq_41ymwq",
+      "id": "mig6i28h_r6jfa5",
       "firstname": "Dani",
-      "familyname": "HHk",
+      "familyname": "Hajhashemkhani",
       "email": "mehdi.hajhashem.khan@gmail.com",
       "password": "123456d",
-      "confrimpassword": "123456d"
+      "confrimpassword": "123456d",
+      "score": 0,
+      "addresses": [],
+      "orders": []
     }
   ],
   "products": [
@@ -154,14 +157,5 @@
       "sold": 10
     }
   ],
-  "cart": [
-    {
-      "id": "2",
-      "image": "/images/coffeemilk.png",
-      "title": "Espresso",
-      "price": 3,
-      "quantity": 1,
-      "totalprice": 3
-    }
-  ]
+  "cart": []
 }

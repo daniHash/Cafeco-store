@@ -1,31 +1,53 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { login } from '../../services/apiAuth'
+import { login, register } from '../../services/apiAuth'
+
 const initialState = {
-  users: [],
-  error: null,
+  user: null,
   loading: false,
+  error: null,
   success: false,
 }
 
 export const registerFetch = createAsyncThunk(
-  'user/registeruser',
+  'auth/register',
   async (userData, { rejectWithValue }) => {
     try {
-      const response = await login(userData)
-      return response.data || response
+      const res = await register(userData)
+      return res.data || res
     } catch (err) {
       return rejectWithValue(err.message)
     }
   }
 )
 
-const userSlice = createSlice({
-  name: 'user',
+export const loginFetch = createAsyncThunk(
+  'auth/login',
+  async (credentials, { rejectWithValue }) => {
+    try {
+      const res = await login(credentials)
+      return res.data || res
+    } catch (err) {
+      return rejectWithValue(err.message)
+    }
+  }
+)
+
+const authSlice = createSlice({
+  name: 'auth',
   initialState,
   reducers: {
+    logout: (state) => {
+      state.user = null
+      state.token = null
+      localStorage.removeItem('user')
+    },
     resetStatus: (state) => {
       state.success = false
       state.error = null
+    },
+    loadUserFromStorage: (state) => {
+      const savedUser = localStorage.getItem('user')
+      if (savedUser) state.user = JSON.parse(savedUser)
     },
   },
   extraReducers: (builder) => {
@@ -37,16 +59,33 @@ const userSlice = createSlice({
       })
       .addCase(registerFetch.fulfilled, (state, action) => {
         state.loading = false
-        state.users.push(action.payload)
         state.success = true
+        state.user = action.payload
+
+        localStorage.setItem('user', JSON.stringify(action.payload))
       })
       .addCase(registerFetch.rejected, (state, action) => {
         state.loading = false
         state.error = action.payload
+      })
+      .addCase(loginFetch.pending, (state) => {
+        state.loading = true
+        state.error = null
         state.success = false
+      })
+      .addCase(loginFetch.fulfilled, (state, action) => {
+        state.loading = false
+        state.success = true
+        state.user = action.payload
+
+        localStorage.setItem('user', JSON.stringify(action.payload))
+      })
+      .addCase(loginFetch.rejected, (state, action) => {
+        state.loading = false
+        state.error = action.payload
       })
   },
 })
 
-export default userSlice.reducer
-export const { resetStatus } = userSlice.actions
+export default authSlice.reducer
+export const { logout, resetStatus, loadUserFromStorage } = authSlice.actions

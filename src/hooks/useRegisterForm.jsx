@@ -42,7 +42,9 @@ const useRegisterForm = () => {
     }
 
     const id = `${Date.now().toString(36)}_${Math.random().toString(36).substring(2, 8)}`
-    dispatch(registerFetch({ id, ...values }))
+    dispatch(
+      registerFetch({ id, ...values, score: 0, addresses: [], orders: [] })
+    )
   }
 
   const handleSetShow = () => {
