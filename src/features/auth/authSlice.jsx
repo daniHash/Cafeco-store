@@ -1,11 +1,12 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { login, register, update } from '../../services/apiAuth'
+import { login, register, update, getUser } from '../../services/apiAuth'
 
 const initialState = {
   user: null,
   loading: false,
   error: null,
   success: false,
+  isFetched: false,
 }
 
 export const registerFetch = createAsyncThunk(
@@ -37,6 +38,17 @@ export const updateFetch = createAsyncThunk(
   async ({ id, body }, { rejectWithValue }) => {
     try {
       const res = await update(id, body)
+      return res.data || res
+    } catch (err) {
+      return rejectWithValue(err.message)
+    }
+  }
+)
+export const getUserFetch = createAsyncThunk(
+  'auth/getUser',
+  async (id, { rejectWithValue }) => {
+    try {
+      const res = await getUser(id)
       return res.data || res
     } catch (err) {
       return rejectWithValue(err.message)
@@ -108,6 +120,25 @@ const authSlice = createSlice({
       .addCase(updateFetch.fulfilled, (state) => {
         state.loading = false
         state.success = true
+      })
+      .addCase(updateFetch.rejected, (state, action) => {
+        state.loading = false
+        state.error = action.payload
+      })
+      .addCase(getUserFetch.fulfilled, (state, action) => {
+        state.user = action.payload
+        state.loading = false
+        state.isFetched = true
+      })
+      .addCase(getUserFetch.rejected, (state, action) => {
+        state.loading = false
+        state.error = action.payload
+        state.isFetched = false
+      })
+      .addCase(getUserFetch.pending, (state) => {
+        state.loading = true
+        state.error = null
+        state.success = false
       })
   },
 })

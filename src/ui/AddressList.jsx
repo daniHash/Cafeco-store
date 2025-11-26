@@ -4,7 +4,11 @@ import AddressItem from './AddressItem'
 import { useSelector } from 'react-redux'
 
 const AddressList = () => {
-  const { addresses } = useSelector((state) => state.user.user)
+  const user = useSelector((state) => state.user.user)
+
+  if (!user) return null
+
+  const { addresses } = user
 
   const listVariants = {
     hidden: {},
@@ -33,10 +37,10 @@ const AddressList = () => {
       variants={listVariants}
       initial="hidden"
       animate="visible"
-      className="mt-8 flex list-none flex-col items-center justify-center gap-3.5 divide-y-2 divide-black overflow-auto overflow-x-hidden pt-60 sm:pt-36 md:pt-72 lg:pt-0"
+      className="mt-8 flex list-none flex-col items-center justify-center gap-3.5 divide-y-2 divide-black overflow-auto overflow-x-hidden pt-60 sm:pt-36 md:pt-72 lg:pt-20"
     >
-      {[...Array(4)].map((_, i) => (
-        <motion.li key={i} variants={itemVariants}>
+      {addresses.map((ad) => (
+        <motion.li key={ad.id} addresse={ad.address} variants={itemVariants}>
           <AddressItem />
         </motion.li>
       ))}

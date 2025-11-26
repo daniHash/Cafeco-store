@@ -53,3 +53,12 @@ export const update = async (id, body) => {
   const data = await res.json()
   return data
 }
+
+export const getUser = async (id) => {
+  const res = await fetch(`http://localhost:8000/users/${id}`)
+
+  if (!res.ok) throw new Error('Failed to get user')
+
+  const data = await res.json()
+  return data
+}

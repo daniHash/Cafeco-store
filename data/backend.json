@@ -9,7 +9,28 @@
       "password": "123456d",
       "confrimpassword": "123456d",
       "score": 0,
-      "addresses": [],
+      "addresses": [
+        {
+          "id": "ad1",
+          "address": "123 Coffee St, Caffeine City, CA 12345"
+        },
+        {
+          "id": "ad2",
+          "address": "456 Espresso Ave, Java Town, TX 67890"
+        },
+        {
+          "id": "ad3",
+          "address": "789 Latte Ln, Mocha Village, NY 10112"
+        },
+        {
+          "id": "ad4",
+          "address": "789 Latte Ln, Mocha Village, NY 10112"
+        },
+        {
+          "id": "ad5",
+          "address": "789 Latte Ln, Mocha Village, NY 10112"
+        }
+      ],
       "orders": []
     }
   ],
