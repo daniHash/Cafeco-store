@@ -11,9 +11,12 @@ import {
   AiOutlineUser,
 } from 'react-icons/ai'
 import Sidebar from './Sidebar'
+import ProfileDropdown from './ProfileDropDown'
 
 const NavbarLinks = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const [profileOpen, setProfileOpen] = useState(false)
+
   return (
     <>
       {isOpen && <Sidebar setIsOpen={setIsOpen} />}
@@ -103,22 +106,31 @@ const NavbarLinks = () => {
         </NavLink>
         <NavLink
           to="/profile"
-          className="hidden flex-col items-center justify-center sm:hidden md:hidden lg:flex"
+          onClick={(e) => {
+            e.preventDefault()
+            setProfileOpen((p) => !p)
+          }}
+          className="relative hidden flex-col items-center justify-center sm:hidden md:hidden lg:flex"
         >
           {({ isActive }) => (
             <>
               <AiOutlineUser
                 size="30px"
-                className={`transition-all duration-200 ease-in ${isActive ? 'text-yellow-400' : 'text-white'}`}
+                className={`transition-all duration-200 ease-in ${
+                  isActive ? 'text-yellow-400' : 'text-white'
+                }`}
               />
               <h5
-                className={`transition-all duration-200 ease-in ${isActive ? 'text-yellow-400' : 'text-white'}`}
+                className={`transition-all duration-200 ease-in ${
+                  isActive ? 'text-yellow-400' : 'text-white'
+                }`}
               >
                 Profile
               </h5>
             </>
           )}
         </NavLink>
+        <ProfileDropdown open={profileOpen} />
       </motion.ul>
     </>
   )

@@ -41,10 +41,13 @@ const Button = ({ children, px, classType, type, onClick, loading }) => {
       ` rounded-md bg-[#E29E01] hover:bg-[#b98305] text-white flex justify-center items-center ${pxClasses[px] ? pxClasses[px] : 'w-full'}`,
     disable:
       base +
-      ` rounded-md bg-primary-300 opacity-50 mb-4 hover:bg-primary-400 text-white flex justify-center items-center ${pxClasses[px] ? pxClasses[px] : 'w-full'}`,
+      ` rounded-md bg-primary-300 opacity-50 hover:bg-primary-400 text-white flex justify-center items-center ${pxClasses[px] ? pxClasses[px] : 'w-full'}`,
     prof:
       base +
       ` rounded-md bg-box-300 absolute right-10 hover:bg-primary-400 text-white flex justify-center items-center ${pxClasses[px] ? pxClasses[px] : 'w-full'}`,
+    anable:
+      base +
+      ` rounded-md bg-primary-300 hover:bg-primary-400 text-white flex justify-center items-center ${pxClasses[px] ? pxClasses[px] : 'w-full'}`,
   }
   return (
     <>

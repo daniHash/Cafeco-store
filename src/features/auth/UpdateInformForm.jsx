@@ -3,6 +3,9 @@ import { motion } from 'framer-motion'
 import { notify } from '../../utils/helper'
 import Button from '../../ui/Button'
 import useUpdateInform from '../../hooks/useUpdateInform'
+import { useDispatch } from 'react-redux'
+import { logout } from './authSlice'
+import { useNavigate } from 'react-router-dom'
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0 },
@@ -11,6 +14,8 @@ const fadeUp = {
 const UpdateInformForm = () => {
   const { loading, error, information, isChanged, handleChange, handleSubmit } =
     useUpdateInform()
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
 
   if (error) return notify('error', error)
 
@@ -80,25 +85,39 @@ const UpdateInformForm = () => {
         />
       </motion.div>
       <motion.div variants={fadeUp}>
-        <motion.div
-          animate={{
-            scale: isChanged ? 1 : 0.9,
-            opacity: isChanged ? 1 : 0.5,
-          }}
-          transition={{
-            type: 'spring',
-            stiffness: 300,
-            damping: 15,
-          }}
-        >
+        <div className="flex items-center justify-center gap-5">
+          <motion.div
+            animate={{
+              opacity: isChanged ? 1 : 0.5,
+            }}
+            transition={{
+              type: 'spring',
+              stiffness: 300,
+              damping: 15,
+            }}
+          >
+            <Button
+              px={20}
+              classType={isChanged ? 'anable' : 'disable'}
+              type="submit"
+            >
+              {loading ? 'Submitting...' : 'Update'}
+            </Button>
+          </motion.div>
           <Button
             px={20}
-            classType={isChanged ? 'primary' : 'disable'}
-            type="submit"
+            classType="delete"
+            type="button"
+            onClick={() => {
+              document.cookie =
+                'token=; path=/; max-age=0; SameSite=Lax; Secure'
+              dispatch(logout())
+              navigate('/')
+            }}
           >
-            {loading ? 'Submitting...' : 'Update'}
+            Logout
           </Button>
-        </motion.div>
+        </div>
       </motion.div>
     </motion.form>
   )
