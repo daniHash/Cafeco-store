@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { login, register } from '../../services/apiAuth'
+import { login, register, update } from '../../services/apiAuth'
 
 const initialState = {
   user: null,
@@ -32,6 +32,18 @@ export const loginFetch = createAsyncThunk(
   }
 )
 
+export const updateFetch = createAsyncThunk(
+  'auth/update',
+  async ({ id, body }, { rejectWithValue }) => {
+    try {
+      const res = await update(id, body)
+      return res.data || res
+    } catch (err) {
+      return rejectWithValue(err.message)
+    }
+  }
+)
+
 const authSlice = createSlice({
   name: 'auth',
   initialState,
@@ -48,6 +60,10 @@ const authSlice = createSlice({
     loadUserFromStorage: (state) => {
       const savedUser = localStorage.getItem('user')
       if (savedUser) state.user = JSON.parse(savedUser)
+    },
+    updateUser: (state, action) => {
+      state.user = { ...state.user, ...action.payload }
+      localStorage.setItem('user', JSON.stringify(state.user))
     },
   },
   extraReducers: (builder) => {
@@ -84,8 +100,18 @@ const authSlice = createSlice({
         state.loading = false
         state.error = action.payload
       })
+      .addCase(updateFetch.pending, (state) => {
+        state.loading = true
+        state.error = null
+        state.success = false
+      })
+      .addCase(updateFetch.fulfilled, (state) => {
+        state.loading = false
+        state.success = true
+      })
   },
 })
 
 export default authSlice.reducer
-export const { logout, resetStatus, loadUserFromStorage } = authSlice.actions
+export const { logout, resetStatus, updateUser, loadUserFromStorage } =
+  authSlice.actions

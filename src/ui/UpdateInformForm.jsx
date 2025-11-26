@@ -2,7 +2,9 @@ import { useState } from 'react'
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion'
 import Button from './Button'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { updateFetch, updateUser } from '../features/auth/authSlice'
+import { notify } from '../utils/helper'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -10,19 +12,18 @@ const fadeUp = {
 }
 
 const UpdateInformForm = () => {
-  const { firstname, number, familyname, email } = useSelector(
-    (state) => state.user.user
-  )
-  const initialState = {
-    firstname,
-    number,
-    familyname,
-    email,
+  const dispatch = useDispatch()
+  const { loading, error, user } = useSelector((state) => state.user)
+  const [information, setInformation] = useState(user)
+
+  const isChanged = JSON.stringify(information) !== JSON.stringify(user)
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+    dispatch(updateUser(information))
+    dispatch(updateFetch({ id: user.id, body: information }))
   }
-  const [information, setInformation] = useState(initialState)
-
-  const isChanged = JSON.stringify(information) !== JSON.stringify(initialState)
-
   const handleChange = (field, value) => {
     setInformation((prev) => ({
       ...prev,
@@ -30,11 +31,15 @@ const UpdateInformForm = () => {
     }))
   }
 
+  if (error) {
+    return notify('error', error)
+  }
   return (
     <motion.form
       className="mt-12 flex w-full flex-col items-center justify-center gap-6"
       initial="hidden"
       animate="visible"
+      onSubmit={handleSubmit}
       transition={{ staggerChildren: 0.08 }}
     >
       <motion.div variants={fadeUp} className="flex w-2/5 flex-col gap-2">
@@ -111,7 +116,7 @@ const UpdateInformForm = () => {
             classType={isChanged ? 'primary' : 'disable'}
             type="submit"
           >
-            Update
+            {loading ? 'Submitting...' : 'Update'}
           </Button>
         </motion.div>
       </motion.div>

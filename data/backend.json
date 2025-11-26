@@ -1,21 +1,10 @@
 {
   "users": [
     {
-      "id": "mig6i28h_r6jfa5",
-      "firstname": "Dani",
-      "familyname": "Hajhashemkhani",
-      "email": "mehdi.hajhashem.khan@gmail.com",
-      "password": "123456d",
-      "confrimpassword": "123456d",
-      "score": 0,
-      "addresses": [],
-      "orders": []
-    },
-    {
-      "id": "mig7uz4a_3s18jp",
+      "id": "migajcyi_3bcvom",
       "firstname": "Danial",
       "familyname": "Hajhashemkhani",
-      "number": "989034905933",
+      "number": "989034905985",
       "email": "mehdi.hajhashem.khan@gmail.com",
       "password": "123456d",
       "confrimpassword": "123456d",

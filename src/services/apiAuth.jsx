@@ -40,3 +40,16 @@ export const register = async (body) => {
     throw new Error('Failed to register user')
   }
 }
+
+export const update = async (id, body) => {
+  const res = await fetch(`http://localhost:8000/users/${id}`, {
+    method: 'PATCH',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body),
+  })
+
+  if (!res.ok) throw new Error('Failed to update user')
+
+  const data = await res.json()
+  return data
+}
