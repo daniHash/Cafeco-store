@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import {
   apiAddItem,
+  apiClearCart,
   apiDecreaseItem,
   apiIncreaseItem,
   apiRemoveItem,
@@ -29,6 +30,17 @@ export const addItemAsync = createAsyncThunk(
   async (item, { rejectWithValue }) => {
     try {
       const response = await apiAddItem(item)
+      return response
+    } catch (err) {
+      return rejectWithValue(err.message)
+    }
+  }
+)
+export const clearCartAsync = createAsyncThunk(
+  'cart/clearCartAsync',
+  async (_, { rejectWithValue }) => {
+    try {
+      const response = await apiClearCart()
       return response
     } catch (err) {
       return rejectWithValue(err.message)
@@ -99,6 +111,12 @@ const cartSlice = createSlice({
           state.cart = state.cart.filter((item) => item.id !== action.payload)
       })
     },
+    resetCart: (state) => {
+      state.cart = []
+      state.error = null
+      state.isLoading = false
+      state.isFetched = false
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -115,6 +133,9 @@ const cartSlice = createSlice({
         state.isLoading = false
         state.isFetched = true
       })
+      .addCase(clearCartAsync.fulfilled, (state) => {
+        state.cart = []
+      })
   },
 })
 
@@ -124,4 +145,5 @@ export const {
   removeItem,
   increaseItemQuantity,
   decreaseItemQuantity,
+  resetCart,
 } = cartSlice.actions

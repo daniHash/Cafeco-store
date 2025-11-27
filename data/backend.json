@@ -32,6 +32,66 @@
         }
       ],
       "orders": []
+    },
+    {
+      "id": "mihvl1u0_cbql2y",
+      "firstname": "Danial",
+      "familyname": "Hajhashemkhani",
+      "number": "989034565655",
+      "email": "mehdi.hajhashem.khan@gmail.com",
+      "password": "123456d",
+      "confrimpassword": "123456d",
+      "score": 0,
+      "addresses": [],
+      "orders": []
+    },
+    {
+      "id": "mihvwmg6_m2xohd",
+      "firstname": "Danial",
+      "familyname": "Hajhashemkhani",
+      "number": "989034905933",
+      "email": "mehdi.hajhashem.khan@gmail.com",
+      "password": "123456d",
+      "confrimpassword": "123456d",
+      "score": 0,
+      "addresses": [],
+      "orders": []
+    },
+    {
+      "id": "mihwiahz_aa448u",
+      "firstname": "Dani",
+      "familyname": "Hajhashemkhani",
+      "number": "989034905933",
+      "email": "mehdi.hajhashem.khan@gmail.com",
+      "password": "123456d",
+      "confrimpassword": "123456d",
+      "score": 0,
+      "addresses": [],
+      "orders": []
+    },
+    {
+      "id": "mihwk4va_xm2493",
+      "firstname": "Danial",
+      "familyname": "Hajhashemkhani",
+      "number": "989034905933",
+      "email": "mehdi.hajhashem.khan@gmail.com",
+      "password": "123456d",
+      "confrimpassword": "123456d",
+      "score": 0,
+      "addresses": [],
+      "orders": []
+    },
+    {
+      "id": "mihx9k6o_py09lo",
+      "firstname": "dani",
+      "familyname": "Hajhashemkhani",
+      "number": "989034905933",
+      "email": "mehdi.hajhashem.khan@gmail.com",
+      "password": "123456d",
+      "confrimpassword": "123456d",
+      "score": 0,
+      "addresses": [],
+      "orders": []
     }
   ],
   "products": [
@@ -179,5 +239,14 @@
       "sold": 10
     }
   ],
-  "cart": []
+  "cart": [
+    {
+      "id": "2",
+      "image": "/images/coffeemilk.png",
+      "title": "Espresso",
+      "price": 3,
+      "quantity": 1,
+      "totalprice": 3
+    }
+  ]
 }

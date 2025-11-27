@@ -1,11 +1,12 @@
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion'
 import { notify } from '../../utils/helper'
-import Button from '../../ui/Button'
-import useUpdateInform from '../../hooks/useUpdateInform'
 import { useDispatch } from 'react-redux'
 import { logout } from './authSlice'
 import { useNavigate } from 'react-router-dom'
+import { clearCartAsync, resetCart } from '../cart/cartSlice'
+import useUpdateInform from '../../hooks/useUpdateInform'
+import Button from '../../ui/Button'
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0 },
@@ -112,6 +113,8 @@ const UpdateInformForm = () => {
               document.cookie =
                 'token=; path=/; max-age=0; SameSite=Lax; Secure'
               dispatch(logout())
+              dispatch(resetCart())
+              dispatch(clearCartAsync())
               navigate('/')
             }}
           >

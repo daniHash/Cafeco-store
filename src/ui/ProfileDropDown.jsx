@@ -1,8 +1,9 @@
 // eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { logout } from '../features/auth/authSlice'
+import { clearCartAsync, resetCart } from '../features/cart/cartSlice'
 
 const dropdownVariants = {
   hidden: { opacity: 0, y: -10, scale: 0.95 },
@@ -13,7 +14,7 @@ const ProfileDropdown = ({ open, setIsOpen }) => {
   const { user } = useSelector((state) => state.user)
   const dispatch = useDispatch()
   const handleClose = () => setIsOpen(false)
-
+  const navigate = useNavigate()
   return (
     <AnimatePresence>
       {open && (
@@ -59,7 +60,10 @@ const ProfileDropdown = ({ open, setIsOpen }) => {
                 onClick={() => {
                   document.cookie =
                     'token=; path=/; max-age=0; SameSite=Lax; Secure'
+                  dispatch(clearCartAsync())
+                  dispatch(resetCart())
                   dispatch(logout())
+                  navigate('/')
                 }}
               >
                 Logout
