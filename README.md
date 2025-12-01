@@ -1,4 +1,4 @@
-# React + Vite + redux
+# React + Vite + redux + motion
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
