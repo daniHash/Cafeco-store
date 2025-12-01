@@ -10,7 +10,7 @@ const Addresses = () => {
           Addresses
         </h1>
 
-        <Button classType="prof" px={20}>
+        <Button classType="prof" px={20} onClick={() => console.log('added')}>
           <BiPlus size={18} className="mt-2 mb-2 text-dark-500" />
         </Button>
       </div>
