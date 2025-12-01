@@ -45,7 +45,11 @@ const CheckOutSection = () => {
         </h3>
       </div>
       <div className="mt-20 flex w-full justify-center">
-        <Button classType="primary" px={20}>
+        <Button
+          classType="primary"
+          px={20}
+          onClick={() => console.log('ordered')}
+        >
           Chekout <span className="ml-20">{formatCurrency(totalPrice)}</span>
         </Button>
       </div>
