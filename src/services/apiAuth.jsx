@@ -78,20 +78,20 @@ export const addAddress = async (userId, address) => {
 }
 
 export const editAddress = async (userId, addressId, body) => {
-  const res = await fetch(
-    `http://localhost:8000/users/${userId}/addresses/${addressId}`,
-    {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(body),
-    }
+  const user = await getUser(userId)
+
+  const updatedAddresses = user.addresses.map((item) =>
+    item.id === addressId ? { ...item, ...body } : item
   )
 
-  const data = await res.json()
-  if (!res.ok) throw new Error(data?.message || 'Failed to edit address')
-  return data
+  const res = await fetch(`http://localhost:8000/users/${userId}`, {
+    method: 'PATCH',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ ...user, addresses: updatedAddresses }),
+  })
+
+  if (!res.ok) throw new Error('Failed to edit address')
+  return res.json()
 }
 
 export const deleteAddress = async (userId, addressId) => {
