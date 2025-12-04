@@ -2,7 +2,6 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { MdOutlineModeEdit } from 'react-icons/md'
 import { RiDeleteBin6Line } from 'react-icons/ri'
-import Button from '../../ui/Button'
 import { useDispatch } from 'react-redux'
 import {
   deleteAddressFetch,
@@ -12,6 +11,7 @@ import {
 } from './authSlice'
 import { notify } from '../../utils/helper'
 import { useState } from 'react'
+import Button from '../../ui/Button'
 
 const AddressItem = ({ addresse, variants, userId }) => {
   const dispatch = useDispatch()

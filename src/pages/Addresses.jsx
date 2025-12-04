@@ -1,12 +1,14 @@
+// eslint-disable-next-line no-unused-vars
+import { motion } from 'framer-motion'
 import { BiPlus } from 'react-icons/bi'
-import Button from '../ui/Button'
-import AddressList from '../features/auth/AddressList'
 import { useState } from 'react'
 import { AnimatePresence } from 'framer-motion'
-import { motion } from 'framer-motion'
 import { useDispatch, useSelector } from 'react-redux'
 import { addAddressFetch, addAddressToUser } from '../features/auth/authSlice'
 import { notify } from '../utils/helper'
+import Button from '../ui/Button'
+import AddressList from '../features/auth/AddressList'
+
 const Addresses = () => {
   const user = useSelector((state) => state.user.user)
   const dispatch = useDispatch()
