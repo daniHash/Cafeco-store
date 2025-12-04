@@ -26,6 +26,11 @@ const ProfileDropdown = ({ open, setIsOpen }) => {
           transition={{ duration: 0.2, ease: 'easeOut' }}
           className="absolute top-22 right-0 z-50 flex min-w-[180px] flex-col gap-3 rounded-xl border border-white/20 bg-white/10 p-4 text-white shadow-lg backdrop-blur-md"
         >
+          {user && (
+            <h3 className="mb-1 text-center text-sm font-semibold">
+              {user?.firstname} {user?.familyname}
+            </h3>
+          )}
           <Link
             onClick={handleClose}
             to="/profile"
@@ -43,10 +48,6 @@ const ProfileDropdown = ({ open, setIsOpen }) => {
             </Link>
           ) : (
             <>
-              <h3 className="mb-1 text-center text-sm font-semibold">
-                {user?.firstname} {user?.familyname}
-              </h3>
-
               <Link
                 onClick={handleClose}
                 to="/profile/addresses"

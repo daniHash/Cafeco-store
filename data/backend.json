@@ -1,27 +1,15 @@
 {
   "users": [
     {
-      "id": "migajcyi_3bcvom",
+      "id": "mirm9xyu_vqgyqw",
       "firstname": "Danial",
-      "familyname": "Hajhashemkhani",
-      "number": "989034905985",
+      "familyname": "Hashemi",
+      "number": "989034905933",
       "email": "mehdi.hajhashem.khan@gmail.com",
       "password": "123456d",
       "confrimpassword": "123456d",
       "score": 0,
       "addresses": [
-        {
-          "id": "ad1",
-          "address": "123 Coffee St, Caffeine City, CA 12345"
-        },
-        {
-          "id": "ad2",
-          "address": "456 Espresso Ave, Java Town, TX 67890"
-        },
-        {
-          "id": "ad3",
-          "address": "789 Latte Ln, Mocha Village, NY 10112"
-        },
         {
           "id": "ad4",
           "address": "789 Latte Ln, Mocha Village, NY 10112"
@@ -29,68 +17,16 @@
         {
           "id": "ad5",
           "address": "789 Latte Ln, Mocha Village, NY 10112"
+        },
+        {
+          "id": "ad5",
+          "address": "789 Latte Ln, Mocha Village, NY 10112"
+        },
+        {
+          "id": "ad5",
+          "address": "789 Latte Ln, Mocha Village, NY 10112"
         }
       ],
-      "orders": []
-    },
-    {
-      "id": "mihvl1u0_cbql2y",
-      "firstname": "Danial",
-      "familyname": "Hajhashemkhani",
-      "number": "989034565655",
-      "email": "mehdi.hajhashem.khan@gmail.com",
-      "password": "123456d",
-      "confrimpassword": "123456d",
-      "score": 0,
-      "addresses": [],
-      "orders": []
-    },
-    {
-      "id": "mihvwmg6_m2xohd",
-      "firstname": "Danial",
-      "familyname": "Hajhashemkhani",
-      "number": "989034905933",
-      "email": "mehdi.hajhashem.khan@gmail.com",
-      "password": "123456d",
-      "confrimpassword": "123456d",
-      "score": 0,
-      "addresses": [],
-      "orders": []
-    },
-    {
-      "id": "mihwiahz_aa448u",
-      "firstname": "Dani",
-      "familyname": "Hajhashemkhani",
-      "number": "989034905933",
-      "email": "mehdi.hajhashem.khan@gmail.com",
-      "password": "123456d",
-      "confrimpassword": "123456d",
-      "score": 0,
-      "addresses": [],
-      "orders": []
-    },
-    {
-      "id": "mihwk4va_xm2493",
-      "firstname": "Danial",
-      "familyname": "Hajhashemkhani",
-      "number": "989034905933",
-      "email": "mehdi.hajhashem.khan@gmail.com",
-      "password": "123456d",
-      "confrimpassword": "123456d",
-      "score": 0,
-      "addresses": [],
-      "orders": []
-    },
-    {
-      "id": "mihx9k6o_py09lo",
-      "firstname": "dani",
-      "familyname": "Hajhashemkhani",
-      "number": "989034905933",
-      "email": "mehdi.hajhashem.khan@gmail.com",
-      "password": "123456d",
-      "confrimpassword": "123456d",
-      "score": 0,
-      "addresses": [],
       "orders": []
     }
   ],
@@ -239,14 +175,5 @@
       "sold": 10
     }
   ],
-  "cart": [
-    {
-      "id": "2",
-      "image": "/images/coffeemilk.png",
-      "title": "Espresso",
-      "price": 3,
-      "quantity": 1,
-      "totalprice": 3
-    }
-  ]
+  "cart": []
 }
