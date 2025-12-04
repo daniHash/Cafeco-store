@@ -15,6 +15,8 @@ const Addresses = () => {
   const [addAddress, setAddAddress] = useState('')
   const [isAddOpen, setIsAddOpen] = useState(false)
   const handleAdd = () => {
+    if (!addAddress.trim()) return notify('error', 'Address cannot be empty')
+
     dispatch(
       addAddressFetch({
         userId: user.id,

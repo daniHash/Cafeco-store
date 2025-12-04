@@ -2,48 +2,20 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { MdOutlineModeEdit } from 'react-icons/md'
 import { RiDeleteBin6Line } from 'react-icons/ri'
-import { useDispatch } from 'react-redux'
-import {
-  deleteAddressFetch,
-  deleteAddressFromUser,
-  editAddressFetch,
-  editAddressInUser,
-} from './authSlice'
-import { notify } from '../../utils/helper'
-import { useState } from 'react'
+import useAddressActions from '../../hooks/useAddressActions'
 import Button from '../../ui/Button'
 
 const AddressItem = ({ addresse, variants, userId }) => {
-  const dispatch = useDispatch()
-  const [isEditOpen, setIsEditOpen] = useState(false)
-  const [editedAddress, setEditedAddress] = useState(addresse.address)
-  const handleDeleteAdd = () => {
-    dispatch(deleteAddressFetch({ userId, addressId: addresse.id }))
-      .unwrap()
-      .then(() => {
-        dispatch(deleteAddressFromUser(addresse.id))
-      })
-      .catch(() => {
-        notify('error', 'Try again later')
-      })
-  }
-  const handleSave = () => {
-    dispatch(
-      editAddressFetch({
-        userId,
-        addressId: addresse.id,
-        body: { address: editedAddress },
-      })
-    )
-      .unwrap()
-      .then(() => {
-        dispatch(editAddressInUser({ id: addresse.id, address: editedAddress }))
-      })
-      .catch(() => {
-        notify('error', 'Try again later')
-      })
-    setIsEditOpen(false)
-  }
+  const {
+    isEditOpen,
+    editedAddress,
+    setEditedAddress,
+    handleDelete,
+    handleSave,
+    openEdit,
+    closeEdit,
+  } = useAddressActions(userId, addresse)
+
   return (
     <>
       <motion.li
@@ -55,10 +27,10 @@ const AddressItem = ({ addresse, variants, userId }) => {
           {addresse.address}
         </p>
         <div className="flex items-center justify-center gap-2">
-          <Button classType="edit" px={20} onClick={() => setIsEditOpen(true)}>
+          <Button classType="edit" px={20} onClick={openEdit}>
             <MdOutlineModeEdit size={20} className="mt-2 mb-2" />
           </Button>
-          <Button classType="delete" px={20} onClick={handleDeleteAdd}>
+          <Button classType="delete" px={20} onClick={handleDelete}>
             <RiDeleteBin6Line size={20} className="mt-2 mb-2" />
           </Button>
         </div>
@@ -87,7 +59,7 @@ const AddressItem = ({ addresse, variants, userId }) => {
                 placeholder="Enter new address"
               />
               <div className="mt-2 flex justify-end gap-3">
-                <Button classType="delete" onClick={() => setIsEditOpen(false)}>
+                <Button classType="delete" onClick={closeEdit}>
                   Cancel
                 </Button>
                 <Button classType="edit" onClick={handleSave}>
