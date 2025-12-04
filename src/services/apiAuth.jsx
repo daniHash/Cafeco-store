@@ -4,7 +4,7 @@ import Cookies from 'js-cookie'
 const BASE_URL = 'http://localhost:3000/api/v2/auth'
 
 export const login = async (body) => {
-  const res = await fetch(`${BASE_URL}/register`, {
+  const res = await fetch(`${BASE_URL}/login`, {
     method: 'POST',
     headers: {
       'Content-type': 'application/json',
@@ -60,5 +60,52 @@ export const getUser = async (id) => {
   if (!res.ok) throw new Error('Failed to get user')
 
   const data = await res.json()
+  return data
+}
+
+export const addAddress = async (userId, address) => {
+  const res = await fetch(`http://localhost:8000/users/${userId}/addresses`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    credentials: 'include',
+    body: JSON.stringify(address),
+  })
+
+  const data = await res.json()
+  if (!res.ok) throw new Error(data?.message || 'Failed to add address')
+  return data
+}
+
+export const editAddress = async (userId, addressId, body) => {
+  const res = await fetch(
+    `http://localhost:8000/users/${userId}/addresses/${addressId}`,
+    {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include',
+      body: JSON.stringify(body),
+    }
+  )
+
+  const data = await res.json()
+  if (!res.ok) throw new Error(data?.message || 'Failed to edit address')
+  return data
+}
+
+export const deleteAddress = async (userId, addressId) => {
+  const res = await fetch(
+    `http://localhost:8000/users/${userId}/addresses/${addressId}`,
+    {
+      method: 'DELETE',
+      credentials: 'include',
+    }
+  )
+
+  const data = await res.json()
+  if (!res.ok) throw new Error(data?.message || 'Failed to delete address')
   return data
 }
