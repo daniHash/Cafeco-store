@@ -235,4 +235,7 @@ export const {
   resetStatus,
   updateUser,
   loadUserFromStorage,
+  addAddressToUser,
+  editAddressInUser,
+  deleteAddressFromUser,
 } = authSlice.actions

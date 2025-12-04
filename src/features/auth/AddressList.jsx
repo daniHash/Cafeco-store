@@ -8,7 +8,7 @@ const AddressList = () => {
 
   if (!user) return null
 
-  const { addresses } = user
+  const { addresses, id } = user
 
   const listVariants = {
     hidden: {},
@@ -42,7 +42,8 @@ const AddressList = () => {
       {addresses.map((ad) => (
         <AddressItem
           key={ad.id}
-          addresse={ad.address}
+          userId={id}
+          addresse={ad}
           variants={itemVariants}
         />
       ))}

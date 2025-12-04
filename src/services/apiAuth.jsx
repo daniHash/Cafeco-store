@@ -69,7 +69,6 @@ export const addAddress = async (userId, address) => {
     headers: {
       'Content-Type': 'application/json',
     },
-    credentials: 'include',
     body: JSON.stringify(address),
   })
 
@@ -86,7 +85,6 @@ export const editAddress = async (userId, addressId, body) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      credentials: 'include',
       body: JSON.stringify(body),
     }
   )
@@ -97,15 +95,18 @@ export const editAddress = async (userId, addressId, body) => {
 }
 
 export const deleteAddress = async (userId, addressId) => {
-  const res = await fetch(
-    `http://localhost:8000/users/${userId}/addresses/${addressId}`,
-    {
-      method: 'DELETE',
-      credentials: 'include',
-    }
+  const user = await getUser(userId)
+
+  const updatedAddresses = user.addresses.filter(
+    (item) => item.id !== addressId
   )
 
-  const data = await res.json()
-  if (!res.ok) throw new Error(data?.message || 'Failed to delete address')
-  return data
+  const res = await fetch(`http://localhost:8000/users/${userId}`, {
+    method: 'PATCH',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ ...user, addresses: updatedAddresses }),
+  })
+
+  if (!res.ok) throw new Error('Failed to delete address')
+  return res.json()
 }
