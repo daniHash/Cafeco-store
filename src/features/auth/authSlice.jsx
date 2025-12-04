@@ -1,5 +1,13 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { login, register, update, getUser } from '../../services/apiAuth'
+import {
+  login,
+  register,
+  update,
+  getUser,
+  addAddress,
+  editAddress,
+  deleteAddress,
+} from '../../services/apiAuth'
 
 const initialState = {
   user: null,
@@ -55,6 +63,41 @@ export const getUserFetch = createAsyncThunk(
     }
   }
 )
+export const addAddressFetch = createAsyncThunk(
+  'auth/addAddress',
+  async ({ userId, address }, { rejectWithValue }) => {
+    try {
+      const res = await addAddress(userId, address)
+      return res.data || res
+    } catch (err) {
+      return rejectWithValue(err.message)
+    }
+  }
+)
+
+export const editAddressFetch = createAsyncThunk(
+  'auth/editAddress',
+  async ({ userId, addressId, body }, { rejectWithValue }) => {
+    try {
+      const res = await editAddress(userId, addressId, body)
+      return res.data || res
+    } catch (err) {
+      return rejectWithValue(err.message)
+    }
+  }
+)
+
+export const deleteAddressFetch = createAsyncThunk(
+  'auth/deleteAddress',
+  async ({ userId, addressId }, { rejectWithValue }) => {
+    try {
+      const res = await deleteAddress(userId, addressId)
+      return (addressId, res.data || res)
+    } catch (err) {
+      return rejectWithValue(err.message)
+    }
+  }
+)
 
 const authSlice = createSlice({
   name: 'auth',
@@ -78,6 +121,25 @@ const authSlice = createSlice({
     },
     resetUser: (state) => {
       state.user = null
+    },
+    addAddressToUser: (state, action) => {
+      state.user.addresses.push(action.payload)
+      localStorage.setItem('user', JSON.stringify(state.user))
+    },
+    editAddressInUser: (state, action) => {
+      const index = state.user.addresses.findIndex(
+        (addr) => addr.id === action.payload.id
+      )
+      if (index !== -1) {
+        state.user.addresses[index] = action.payload
+        localStorage.setItem('user', JSON.stringify(state.user))
+      }
+    },
+    deleteAddressFromUser: (state, action) => {
+      state.user.addresses = state.user.addresses.filter(
+        (addr) => addr.id !== action.payload
+      )
+      localStorage.setItem('user', JSON.stringify(state.user))
     },
   },
   extraReducers: (builder) => {
@@ -141,6 +203,27 @@ const authSlice = createSlice({
         state.loading = true
         state.error = null
         state.success = false
+      })
+      .addCase(addAddressFetch.fulfilled, (state, action) => {
+        state.user.addresses.push(action.payload)
+        localStorage.setItem('user', JSON.stringify(state.user))
+      })
+
+      .addCase(editAddressFetch.fulfilled, (state, action) => {
+        const idx = state.user.addresses.findIndex(
+          (ad) => ad.id === action.payload.id
+        )
+        if (idx !== -1) {
+          state.user.addresses[idx] = action.payload
+          localStorage.setItem('user', JSON.stringify(state.user))
+        }
+      })
+
+      .addCase(deleteAddressFetch.fulfilled, (state, action) => {
+        state.user.addresses = state.user.addresses.filter(
+          (ad) => ad.id !== action.payload
+        )
+        localStorage.setItem('user', JSON.stringify(state.user))
       })
   },
 })

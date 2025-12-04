@@ -40,9 +40,11 @@ const AddressList = () => {
       className="mt-8 flex list-none flex-col items-center justify-center gap-3.5 divide-y-2 divide-black overflow-auto overflow-x-hidden pt-60 sm:pt-36 md:pt-72 lg:pt-20"
     >
       {addresses.map((ad) => (
-        <motion.li key={ad.id} addresse={ad.address} variants={itemVariants}>
-          <AddressItem />
-        </motion.li>
+        <AddressItem
+          key={ad.id}
+          addresse={ad.address}
+          variants={itemVariants}
+        />
       ))}
     </motion.ul>
   )

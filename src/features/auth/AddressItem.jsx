@@ -4,15 +4,14 @@ import { MdOutlineModeEdit } from 'react-icons/md'
 import { RiDeleteBin6Line } from 'react-icons/ri'
 import Button from '../../ui/Button'
 
-const AddressItem = () => {
+const AddressItem = ({ addresse }) => {
   return (
     <motion.li
       whileHover={{ scale: 1.02, boxShadow: '0px 5px 15px rgba(0,0,0,0.2)' }}
       className="flex flex-col items-center justify-between gap-2 px-10 py-3.5 sm:flex-col md:flex-row lg:flex-row"
     >
       <p className="font-text text-sm font-bold text-white md:text-lg lg:text-xl">
-        PO Box , P.O. Box , 7721 , Greenfield Station , Greenfield , Plains
-        99999 , United States
+        {addresse}
       </p>
       <div className="flex items-center justify-center gap-2">
         <Button classType="edit" px={20}>
