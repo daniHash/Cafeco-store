@@ -63,18 +63,23 @@ export const getUser = async (id) => {
   return data
 }
 
-export const addAddress = async (userId, address) => {
-  const res = await fetch(`http://localhost:8000/users/${userId}/addresses`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(address),
+export const addAddress = async (userId, newAddress) => {
+  const user = await getUser(userId)
+  const id = `${Date.now()}`
+
+  const updatedUser = {
+    ...user,
+    addresses: [...(user.addresses || []), { id, address: newAddress }],
+  }
+
+  const res = await fetch(`http://localhost:8000/users/${userId}`, {
+    method: 'PATCH',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(updatedUser),
   })
 
-  const data = await res.json()
-  if (!res.ok) throw new Error(data?.message || 'Failed to add address')
-  return data
+  if (!res.ok) throw new Error('Failed to add address')
+  return res.json()
 }
 
 export const editAddress = async (userId, addressId, body) => {

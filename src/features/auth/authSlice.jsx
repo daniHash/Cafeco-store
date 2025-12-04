@@ -127,13 +127,12 @@ const authSlice = createSlice({
       localStorage.setItem('user', JSON.stringify(state.user))
     },
     editAddressInUser: (state, action) => {
-      const index = state.user.addresses.findIndex(
-        (addr) => addr.id === action.payload.id
-      )
-      if (index !== -1) {
-        state.user.addresses[index] = action.payload
-        localStorage.setItem('user', JSON.stringify(state.user))
-      }
+      state.user.addresses.some((addr) => {
+        if (addr.id === action.payload.id) {
+          addr.address = action.payload.address
+          localStorage.setItem('user', JSON.stringify(state.user))
+        }
+      })
     },
     deleteAddressFromUser: (state, action) => {
       state.user.addresses = state.user.addresses.filter(
@@ -203,10 +202,6 @@ const authSlice = createSlice({
         state.loading = true
         state.error = null
         state.success = false
-      })
-      .addCase(addAddressFetch.fulfilled, (state, action) => {
-        state.user.addresses.push(action.payload)
-        localStorage.setItem('user', JSON.stringify(state.user))
       })
 
       .addCase(editAddressFetch.fulfilled, (state, action) => {
