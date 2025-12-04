@@ -9,28 +9,7 @@
       "password": "123456d",
       "confrimpassword": "123456d",
       "score": 0,
-      "addresses": [
-        {
-          "id": "1764877400024",
-          "address": "Esf"
-        },
-        {
-          "id": "1764877403727",
-          "address": "Th"
-        },
-        {
-          "id": "1764877406289",
-          "address": "d"
-        },
-        {
-          "id": "1764877408225",
-          "address": "d"
-        },
-        {
-          "id": "1764877515196",
-          "address": "Dd"
-        }
-      ],
+      "addresses": [],
       "orders": []
     }
   ],

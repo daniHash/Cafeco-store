@@ -156,6 +156,7 @@ export const inputs = [
   },
 ]
 export const frontend = {
+  id: 1,
   title: 'Front-End developer & Designer',
   fullname: 'Danial HHK',
   description:
@@ -164,6 +165,7 @@ export const frontend = {
   githubname: 'daniHash',
 }
 export const backend = {
+  id: 2,
   title: 'Backend developer',
   fullname: 'Arya Veysi',
   description:

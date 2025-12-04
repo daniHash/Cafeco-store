@@ -11,15 +11,27 @@ const About = () => {
     <>
       <Header bg={false}>
         <div className="flex h-full w-full flex-col items-center justify-center gap-30">
-          <h1 className="text text-center font-titr text-2xl text-white lg:text-4xl">
+          <motion.h1
+            initial={{ opacity: 0, y: 100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.9, ease: 'backOut' }}
+            className="text text-center font-titr text-2xl text-white lg:text-4xl"
+          >
             About Project
-          </h1>
-          <p className="w-[55%] text-center font-text text-sm font-medium text-white md:text-lg lg:text-xl">
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.9, delay: 0.3, ease: 'backOut' }}
+            className="w-[55%] text-center font-text text-sm font-medium text-white md:text-lg lg:text-xl"
+          >
             ❛❛ Every idea starts small — like a single coffee bean. With passion
             and creativity, we brew it into something meaningful. We believe
             design and development should blend seamlessly, just like the
             perfect balance of flavor in your favorite cup of coffee. ❜❜
-          </p>
+          </motion.p>
         </div>
       </Header>
       <section className="mt-16 w-full px-[20px] lg:px-[140px]">
