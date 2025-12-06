@@ -1,8 +1,9 @@
 // eslint-disable-next-line no-unused-vars
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import { useSelector } from 'react-redux'
 import { formatCurrency } from '../../utils/helper'
 import Button from '../../ui/Button'
+import AddressDropdown from '../../ui/AddressDropdown'
 
 const CheckOutSection = () => {
   const { cart } = useSelector((state) => state.cart)
@@ -12,48 +13,80 @@ const CheckOutSection = () => {
   }, 0)
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 15 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, ease: 'easeOut' }}
-      className="mt-20 mb-20 h-auto w-full rounded-xl bg-[#D5B690]/65 shadow-form shadow-black/20"
-    >
-      <div className="mt-20 flex w-full items-center justify-center gap-20 md:gap-40 lg:gap-72">
-        <div className="">
-          <h2 className="text-center font-titr text-xl text-dark-500 md:text-2xl lg:text-4xl">
-            Shipping
-          </h2>
-          <h3 className="mt-10 text-center font-titr text-lg text-dark-500 lg:text-[28px]">
-            Free
-          </h3>
+    <>
+      <motion.div
+        initial={{ opacity: 0, y: 15 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: 'easeOut' }}
+        className="mt-20 mb-20 h-auto w-full rounded-xl bg-[#D5B690]/65 shadow-form shadow-black/20"
+      >
+        <div className="mt-20 flex w-full items-center justify-center gap-20 md:gap-40 lg:gap-72">
+          <div className="">
+            <h2 className="text-center font-titr text-xl text-dark-500 md:text-2xl lg:text-4xl">
+              Shipping
+            </h2>
+            <h3 className="mt-10 text-center font-titr text-lg text-dark-500 lg:text-[28px]">
+              Free
+            </h3>
+          </div>
+          <div className="">
+            <h2 className="text-center font-titr text-xl text-dark-500 md:text-2xl lg:text-4xl">
+              Sub total
+            </h2>
+            <h3 className="mt-10 text-center font-titr text-lg text-dark-500 lg:text-[28px]">
+              {formatCurrency(totalPrice)}
+            </h3>
+          </div>
         </div>
         <div className="">
-          <h2 className="text-center font-titr text-xl text-dark-500 md:text-2xl lg:text-4xl">
-            Sub total
+          <h2 className="mt-16 w-full text-center font-titr text-2xl text-destructive-300 md:text-2xl lg:text-4xl">
+            Total
           </h2>
-          <h3 className="mt-10 text-center font-titr text-lg text-dark-500 lg:text-[28px]">
+          <h3 className="mt-10 text-center font-titr text-lg text-destructive-300 lg:text-[28px]">
             {formatCurrency(totalPrice)}
           </h3>
         </div>
-      </div>
-      <div className="">
-        <h2 className="mt-16 w-full text-center font-titr text-2xl text-destructive-300 md:text-2xl lg:text-4xl">
-          Total
-        </h2>
-        <h3 className="mt-10 text-center font-titr text-lg text-destructive-300 lg:text-[28px]">
-          {formatCurrency(totalPrice)}
-        </h3>
-      </div>
-      <div className="mt-20 flex w-full justify-center">
-        <Button
-          classType="primary"
-          px={20}
-          onClick={() => console.log('ordered')}
+        <div className="mt-20 flex w-full justify-center">
+          <Button
+            classType="primary"
+            px={20}
+            onClick={() => console.log('ordered')}
+          >
+            Chekout <span className="ml-20">{formatCurrency(totalPrice)}</span>
+          </Button>
+        </div>
+      </motion.div>
+      <AnimatePresence>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
         >
-          Chekout <span className="ml-20">{formatCurrency(totalPrice)}</span>
-        </Button>
-      </div>
-    </motion.div>
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.8, opacity: 0 }}
+            className="flex w-11/12 max-w-md flex-col gap-4 rounded-2xl border border-white/20 bg-white/15 p-8 backdrop-blur-lg"
+          >
+            <h2 className="text-xl font-bold text-white">
+              Choose your address
+            </h2>
+
+            <AddressDropdown
+              onSelect={(value) => console.log('selected:', value)}
+            />
+
+            <div className="mt-2 flex justify-end gap-3">
+              <Button classType="delete">Cancel</Button>
+              <Button classType="edit">
+                Payment {formatCurrency(totalPrice)}
+              </Button>
+            </div>
+          </motion.div>
+        </motion.div>
+      </AnimatePresence>
+    </>
   )
 }
 

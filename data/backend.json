@@ -1,15 +1,28 @@
 {
   "users": [
     {
-      "id": "mirop5lf_nc5ah9",
-      "firstname": "Danial",
+      "id": "miuhxutk_kj95ux",
+      "firstname": "Dani",
       "familyname": "Hajhashemkhani",
       "number": "989034905933",
       "email": "mehdi.hajhashem.khan@gmail.com",
       "password": "123456d",
       "confrimpassword": "123456d",
       "score": 0,
-      "addresses": [],
+      "addresses": [
+        {
+          "id": "1765038884180",
+          "address": "Esfahan"
+        },
+        {
+          "id": "1765038891108",
+          "address": "Mashhad"
+        },
+        {
+          "id": "1765039114029",
+          "address": "esfahan - esfahan - malekshahr - 17shahrivar - melat pk - arman 6,7 - 67"
+        }
+      ],
       "orders": []
     }
   ],
@@ -158,5 +171,22 @@
       "sold": 10
     }
   ],
-  "cart": []
+  "cart": [
+    {
+      "id": "2",
+      "image": "/images/coffeemilk.png",
+      "title": "Espresso",
+      "price": 3,
+      "quantity": 2,
+      "totalprice": 6
+    },
+    {
+      "id": "3",
+      "image": "/images/coffeemilk.png",
+      "title": "Cappuccino",
+      "price": 4.8,
+      "quantity": 1,
+      "totalprice": 4.8
+    }
+  ]
 }
