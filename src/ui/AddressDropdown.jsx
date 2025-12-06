@@ -4,10 +4,10 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 import { IoChevronDownOutline } from 'react-icons/io5'
 
-const AddressDropdown = ({ onSelect }) => {
+const AddressDropdown = ({ onSelect, address }) => {
   const addresses = useSelector((state) => state.user.user?.addresses || [])
   const [isOpen, setIsOpen] = useState(false)
-  const [selected, setSelected] = useState(null)
+  const [selected, setSelected] = useState(address)
 
   const handleSelect = (address) => {
     setSelected(address)

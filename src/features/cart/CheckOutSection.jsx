@@ -4,9 +4,14 @@ import { useSelector } from 'react-redux'
 import { formatCurrency } from '../../utils/helper'
 import Button from '../../ui/Button'
 import AddressDropdown from '../../ui/AddressDropdown'
+import { useState } from 'react'
+import InvoicePDF from '../../ui/InvoicePDF'
+import { PDFDownloadLink } from '@react-pdf/renderer'
 
 const CheckOutSection = () => {
+  const [address, setAddress] = useState('')
   const { cart } = useSelector((state) => state.cart)
+  const [isOpen, setIsOpen] = useState(false)
 
   const totalPrice = cart.reduce((prev, curr) => {
     return prev + curr.totalprice
@@ -47,45 +52,68 @@ const CheckOutSection = () => {
           </h3>
         </div>
         <div className="mt-20 flex w-full justify-center">
-          <Button
-            classType="primary"
-            px={20}
-            onClick={() => console.log('ordered')}
-          >
+          <Button classType="primary" px={20} onClick={() => setIsOpen(true)}>
             Chekout <span className="ml-20">{formatCurrency(totalPrice)}</span>
           </Button>
         </div>
       </motion.div>
-      <AnimatePresence>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
-        >
+      {isOpen && (
+        <AnimatePresence>
           <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.8, opacity: 0 }}
-            className="flex w-11/12 max-w-md flex-col gap-4 rounded-2xl border border-white/20 bg-white/15 p-8 backdrop-blur-lg"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
           >
-            <h2 className="text-xl font-bold text-white">
-              Choose your address
-            </h2>
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              className="flex w-11/12 max-w-md flex-col gap-4 rounded-2xl border border-white/20 bg-white/15 p-8 backdrop-blur-lg"
+            >
+              <h2 className="text-xl font-bold text-white">
+                Choose your address
+              </h2>
 
-            <AddressDropdown
-              onSelect={(value) => console.log('selected:', value)}
-            />
+              <AddressDropdown
+                address={address}
+                onSelect={(value) => setAddress(value)}
+              />
 
-            <div className="mt-2 flex justify-end gap-3">
-              <Button classType="delete">Cancel</Button>
-              <Button classType="edit">
-                Payment {formatCurrency(totalPrice)}
-              </Button>
-            </div>
+              <div className="mt-2 flex justify-end gap-3">
+                <Button classType="delete" onClick={() => setIsOpen(false)}>
+                  Cancel
+                </Button>
+                {/* <Button
+                  classType="edit"
+                  onClick={() => console.log({ id: Date.now(), cart, address })}
+                >
+                  Payment {formatCurrency(totalPrice)}
+                </Button> */}
+                <Button classType="edit" onClick={() => {}}>
+                  <PDFDownloadLink
+                    document={
+                      <InvoicePDF
+                        orderId={Date.now()}
+                        cart={cart}
+                        address={address}
+                        totalPrice={totalPrice}
+                      />
+                    }
+                    fileName={`order-${Date.now()}.pdf`}
+                  >
+                    {({ loading }) =>
+                      loading
+                        ? 'Generating...'
+                        : `Payment ${formatCurrency(totalPrice)}`
+                    }
+                  </PDFDownloadLink>
+                </Button>
+              </div>
+            </motion.div>
           </motion.div>
-        </motion.div>
-      </AnimatePresence>
+        </AnimatePresence>
+      )}
     </>
   )
 }
