@@ -2,11 +2,11 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { useSelector } from 'react-redux'
 import { formatCurrency } from '../../utils/helper'
-import Button from '../../ui/Button'
-import AddressDropdown from '../../ui/AddressDropdown'
 import { useState } from 'react'
-import InvoicePDF from '../../ui/InvoicePDF'
 import { PDFDownloadLink } from '@react-pdf/renderer'
+import InvoicePDF from '../../ui/InvoicePDF'
+import Button from '../../ui/Button'
+import AddressDropdown from './AddressDropdown'
 
 const CheckOutSection = () => {
   const [address, setAddress] = useState('')
@@ -84,13 +84,13 @@ const CheckOutSection = () => {
                 <Button classType="delete" onClick={() => setIsOpen(false)}>
                   Cancel
                 </Button>
-                {/* <Button
+                <Button
                   classType="edit"
-                  onClick={() => console.log({ id: Date.now(), cart, address })}
+                  onClick={() => {
+                    console.log({ address, cart, id: Date.now() })
+                    // setIsOpen(false)
+                  }}
                 >
-                  Payment {formatCurrency(totalPrice)}
-                </Button> */}
-                <Button classType="edit" onClick={() => {}}>
                   <PDFDownloadLink
                     document={
                       <InvoicePDF
