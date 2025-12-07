@@ -68,9 +68,8 @@ export default function InvoicePDF({ orderId, address, cart, totalPrice }) {
               {item.totalprice.toLocaleString()}$
             </Text>
           ))}
+          <Text style={styles.total}>Total: {formatCurrency(totalPrice)}</Text>
         </View>
-
-        <Text style={styles.total}>Total: {formatCurrency(totalPrice)}</Text>
       </Page>
     </Document>
   )
