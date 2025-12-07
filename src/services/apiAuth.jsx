@@ -121,7 +121,8 @@ export const apiCreateOrder = async (userId, updatedOrders) => {
   if (!userRes.ok) throw new Error('Failed to fetch user')
   const user = await userRes.json()
 
-  const newScore = (user.score || 0) + 10
+  let newScore = (user.score || 0) + 10
+  if (newScore > 100) newScore = 0
 
   const res = await fetch(`http://localhost:8000/users/${userId}`, {
     method: 'PATCH',

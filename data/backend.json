@@ -1,23 +1,6 @@
 {
   "users": [
     {
-      "id": "mivc17qb_6ni6rj",
-      "firstname": "Danial",
-      "familyname": "Hajhashemkhani",
-      "number": "989034905933",
-      "email": "mehdi.hajhashem.khan@gmail.com",
-      "password": "123456d",
-      "confrimpassword": "123456d",
-      "score": 0,
-      "addresses": [
-        {
-          "id": "1765089004498",
-          "address": "Esfahan - Esfahan - malekshahr - 17 shahrivar - melat pk - arman 6,7 - 67"
-        }
-      ],
-      "orders": []
-    },
-    {
       "id": "miw1s0y2_nd82km",
       "firstname": "Daniald",
       "familyname": "Hajhashemkhanid",
@@ -37,52 +20,21 @@
           "address": "Esfahan - esfahan - malekshahr - 17shahrivar - melat pk - arman 6,7",
           "cart": [
             {
-              "id": "3",
-              "image": "/images/coffeemilk.png",
-              "title": "Cappuccino",
-              "price": 4.8,
-              "quantity": 1,
-              "totalprice": 4.8
-            },
-            {
               "id": "2",
               "image": "/images/coffeemilk.png",
-              "title": "Espresso",
               "price": 3,
-              "quantity": 2,
-              "totalprice": 6
+              "quantity": 1,
+              "title": "Espresso",
+              "totalprice": 3
             }
           ],
-          "id": 1765137245698,
-          "createdAt": "2025-12-07T19:54:05.698Z"
+          "id": 1765140316938,
+          "createdAt": "2025-12-07T20:45:16.938Z"
         },
         {
           "address": "",
           "cart": [
             {
-              "id": "1",
-              "image": "/images/coffeemilk.png",
-              "title": "Caffè Latte",
-              "price": 4.5,
-              "quantity": 1,
-              "totalprice": 4.5
-            },
-            {
-              "id": "2",
-              "image": "/images/coffeemilk.png",
-              "title": "Espresso",
-              "price": 3,
-              "quantity": 1,
-              "totalprice": 3
-            }
-          ],
-          "id": 1765137593857,
-          "createdAt": "2025-12-07T19:59:53.857Z"
-        },
-        {
-          "address": "Esfahan - esfahan - malekshahr - 17shahrivar - melat pk - arman 6,7",
-          "cart": [
-            {
               "id": "2",
               "image": "/images/coffeemilk.png",
               "price": 3,
@@ -91,61 +43,8 @@
               "totalprice": 3
             }
           ],
-          "id": 1765137618209,
-          "createdAt": "2025-12-07T20:00:18.209Z"
-        },
-        {
-          "address": "Esfahan - esfahan - malekshahr - 17shahrivar - melat pk - arman 6,7",
-          "cart": [
-            {
-              "id": "2",
-              "image": "/images/coffeemilk.png",
-              "price": 3,
-              "quantity": 1,
-              "title": "Espresso",
-              "totalprice": 3
-            },
-            {
-              "id": "1",
-              "image": "/images/coffeemilk.png",
-              "price": 4.5,
-              "quantity": 1,
-              "title": "Caffè Latte",
-              "totalprice": 4.5
-            }
-          ],
-          "id": 1765137717033,
-          "createdAt": "2025-12-07T20:01:57.033Z"
-        },
-        {
-          "address": "Esfahan - esfahan - malekshahr - 17shahrivar - melat pk - arman 6,7",
-          "cart": [
-            {
-              "id": "2",
-              "image": "/images/coffeemilk.png",
-              "price": 3,
-              "quantity": 1,
-              "title": "Espresso",
-              "totalprice": 3
-            }
-          ],
-          "id": 1765137840777,
-          "createdAt": "2025-12-07T20:04:00.777Z"
-        },
-        {
-          "address": "Esfahan - esfahan - malekshahr - 17shahrivar - melat pk - arman 6,7",
-          "cart": [
-            {
-              "id": "2",
-              "image": "/images/coffeemilk.png",
-              "price": 3,
-              "quantity": 1,
-              "title": "Espresso",
-              "totalprice": 3
-            }
-          ],
-          "id": 1765137906418,
-          "createdAt": "2025-12-07T20:05:06.418Z"
+          "id": 1765140325794,
+          "createdAt": "2025-12-07T20:45:25.794Z"
         }
       ]
     }
@@ -295,14 +194,5 @@
       "sold": 10
     }
   ],
-  "cart": [
-    {
-      "id": "2",
-      "image": "/images/coffeemilk.png",
-      "title": "Espresso",
-      "price": 3,
-      "quantity": 1,
-      "totalprice": 3
-    }
-  ]
+  "cart": []
 }

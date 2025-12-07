@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import { fetchCart } from '../features/cart/cartSlice'
 import CartNav from '../ui/CartNav'
 import CartItems from '../features/cart/CartItems'
-import CheckOutSection from '../features/cart/CheckOutSection'
+import CheckOutSection from '../features/auth/CheckOutSection'
 import Loader from '../ui/Loader'
 const Cart = () => {
   const dispatch = useDispatch()

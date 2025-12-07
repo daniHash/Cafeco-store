@@ -2,23 +2,32 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { useDispatch, useSelector } from 'react-redux'
 import { formatCurrency, notify } from '../../utils/helper'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { PDFDownloadLink } from '@react-pdf/renderer'
-import { createOrderFetch } from '../auth/authSlice'
-import { clearCartAsync, resetCart } from './cartSlice'
+import { createOrderFetch, resetScore } from './authSlice'
+import { clearCartAsync, resetCart } from '../cart/cartSlice'
 import InvoicePDF from '../../ui/InvoicePDF'
 import Button from '../../ui/Button'
-import AddressDropdown from './AddressDropdown'
+import AddressDropdown from '../cart/AddressDropdown'
 
 const CheckOutSection = () => {
   const [address, setAddress] = useState('')
   const { cart } = useSelector((state) => state.cart)
   const [isOpen, setIsOpen] = useState(false)
+  const { score } = useSelector((state) => state.user.user)
   const dispatch = useDispatch()
+
+  useEffect(() => {
+    if (score > 100) dispatch(resetScore())
+  }, [dispatch, score])
 
   const totalPrice = cart.reduce((prev, curr) => {
     return prev + curr.totalprice
   }, 0)
+
+  const discount = score === 100 ? 0.15 : 0
+  const discountedPrice = totalPrice * (1 - discount)
+
   const handleSubmit = () => {
     const order = {
       address,
@@ -70,12 +79,33 @@ const CheckOutSection = () => {
             Total
           </h2>
           <h3 className="mt-10 text-center font-titr text-lg text-destructive-300 lg:text-[28px]">
-            {formatCurrency(totalPrice)}
+            {discount > 0 ? (
+              <span>
+                <span className="mr-2 line-through opacity-50">
+                  {formatCurrency(totalPrice)}
+                </span>
+                <span>{formatCurrency(discountedPrice)}</span>
+              </span>
+            ) : (
+              formatCurrency(totalPrice)
+            )}
           </h3>
         </div>
         <div className="mt-20 flex w-full justify-center">
           <Button classType="primary" px={20} onClick={() => setIsOpen(true)}>
-            Chekout <span className="ml-20">{formatCurrency(totalPrice)}</span>
+            Chekout{' '}
+            <span className="ml-20">
+              {discount > 0 ? (
+                <span>
+                  <span className="mr-2 line-through opacity-50">
+                    {formatCurrency(totalPrice)}
+                  </span>
+                  <span>{formatCurrency(discountedPrice)}</span>
+                </span>
+              ) : (
+                formatCurrency(totalPrice)
+              )}
+            </span>
           </Button>
         </div>
       </motion.div>
@@ -113,7 +143,9 @@ const CheckOutSection = () => {
                         orderId={Date.now()}
                         cart={cart}
                         address={address}
-                        totalPrice={totalPrice}
+                        totalPrice={discountedPrice}
+                        originalPrice={totalPrice}
+                        discount={discount}
                       />
                     }
                     fileName={`order-${Date.now()}.pdf`}

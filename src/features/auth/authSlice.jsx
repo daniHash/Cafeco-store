@@ -153,6 +153,9 @@ const authSlice = createSlice({
       )
       localStorage.setItem('user', JSON.stringify(state.user))
     },
+    resetScore: (state) => {
+      state.user.score = 0
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -258,4 +261,5 @@ export const {
   addAddressToUser,
   editAddressInUser,
   deleteAddressFromUser,
+  resetScore,
 } = authSlice.actions
