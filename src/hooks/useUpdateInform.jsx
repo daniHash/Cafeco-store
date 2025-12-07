@@ -30,6 +30,14 @@ const useUpdateInfoForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     if (!user) return
+    if (
+      !information.firstname ||
+      !information.familyname ||
+      !information.number ||
+      !information.email
+    ) {
+      return notify('error', 'Please fill all fields')
+    }
     dispatch(updateFetch({ id: user.id, body: information }))
       .unwrap()
       .then(() => dispatch(updateUser(information)))
