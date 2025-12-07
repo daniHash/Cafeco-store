@@ -115,3 +115,23 @@ export const deleteAddress = async (userId, addressId) => {
   if (!res.ok) throw new Error('Failed to delete address')
   return res.json()
 }
+
+export const apiCreateOrder = async (userId, updatedOrders) => {
+  const userRes = await fetch(`http://localhost:8000/users/${userId}`)
+  if (!userRes.ok) throw new Error('Failed to fetch user')
+  const user = await userRes.json()
+
+  const newScore = (user.score || 0) + 10
+
+  const res = await fetch(`http://localhost:8000/users/${userId}`, {
+    method: 'PATCH',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      orders: updatedOrders,
+      score: newScore,
+    }),
+  })
+
+  if (!res.ok) throw new Error('Failed to create order')
+  return await res.json()
+}

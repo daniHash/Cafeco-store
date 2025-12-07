@@ -1,9 +1,11 @@
 // eslint-disable-next-line no-unused-vars
 import { AnimatePresence, motion } from 'framer-motion'
-import { useSelector } from 'react-redux'
-import { formatCurrency } from '../../utils/helper'
+import { useDispatch, useSelector } from 'react-redux'
+import { formatCurrency, notify } from '../../utils/helper'
 import { useState } from 'react'
 import { PDFDownloadLink } from '@react-pdf/renderer'
+import { createOrderFetch } from '../auth/authSlice'
+import { clearCartAsync, resetCart } from './cartSlice'
 import InvoicePDF from '../../ui/InvoicePDF'
 import Button from '../../ui/Button'
 import AddressDropdown from './AddressDropdown'
@@ -12,10 +14,30 @@ const CheckOutSection = () => {
   const [address, setAddress] = useState('')
   const { cart } = useSelector((state) => state.cart)
   const [isOpen, setIsOpen] = useState(false)
+  const dispatch = useDispatch()
 
   const totalPrice = cart.reduce((prev, curr) => {
     return prev + curr.totalprice
   }, 0)
+  const handleSubmit = () => {
+    const order = {
+      address,
+      cart,
+      id: Date.now(),
+      createdAt: new Date().toISOString(),
+    }
+    setTimeout(() => {
+      dispatch(createOrderFetch(order))
+        .unwrap()
+        .then(() => {
+          dispatch(clearCartAsync())
+          dispatch(resetCart())
+          notify('success', 'Order created successfully! 🛍️')
+          setIsOpen(false)
+        })
+        .catch(() => notify('error', 'Try again later'))
+    }, 300)
+  }
 
   return (
     <>
@@ -84,13 +106,7 @@ const CheckOutSection = () => {
                 <Button classType="delete" onClick={() => setIsOpen(false)}>
                   Cancel
                 </Button>
-                <Button
-                  classType="edit"
-                  onClick={() => {
-                    console.log({ address, cart, id: Date.now() })
-                    // setIsOpen(false)
-                  }}
-                >
+                <Button classType="edit" onClick={handleSubmit}>
                   <PDFDownloadLink
                     document={
                       <InvoicePDF

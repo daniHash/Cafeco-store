@@ -7,6 +7,7 @@ import {
   addAddress,
   editAddress,
   deleteAddress,
+  apiCreateOrder,
 } from '../../services/apiAuth'
 
 const initialState = {
@@ -96,6 +97,18 @@ export const deleteAddressFetch = createAsyncThunk(
     } catch (err) {
       return rejectWithValue(err.message)
     }
+  }
+)
+export const createOrderFetch = createAsyncThunk(
+  'user/createOrder',
+  async (order, { getState }) => {
+    const state = getState()
+    const user = state.user.user
+
+    const updatedOrders = [...user.orders, order]
+
+    const data = await apiCreateOrder(user.id, updatedOrders)
+    return data.orders
   }
 )
 
@@ -219,6 +232,18 @@ const authSlice = createSlice({
           (ad) => ad.id !== action.payload
         )
         localStorage.setItem('user', JSON.stringify(state.user))
+      })
+      .addCase(createOrderFetch.fulfilled, (state, action) => {
+        state.user.orders = action.payload
+        state.user.score += 10
+        state.error = null
+        state.loading = false
+      })
+      .addCase(createOrderFetch.pending, (state) => {
+        state.loading = true
+      })
+      .addCase(createOrderFetch.rejected, (state) => {
+        state.error = false
       })
   },
 })
