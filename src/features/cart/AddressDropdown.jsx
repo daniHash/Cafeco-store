@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 import { IoChevronDownOutline } from 'react-icons/io5'
+import { Link } from 'react-router-dom'
 
 const AddressDropdown = ({ onSelect, address }) => {
   const addresses = useSelector((state) => state.user.user?.addresses || [])
@@ -37,17 +38,28 @@ const AddressDropdown = ({ onSelect, address }) => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -5 }}
             transition={{ duration: 0.15, ease: 'easeOut' }}
-            className="absolute z-50 mt-2 max-h-60 w-full divide-y-1 divide-white overflow-auto rounded-lg border border-white/30 bg-white/25 shadow-lg backdrop-blur-lg"
+            className="absolute z-50 mt-2 flex max-h-60 w-full flex-col items-center justify-center divide-y-1 divide-white overflow-auto rounded-lg border border-white/30 bg-black/30 shadow-lg backdrop-blur-lg"
           >
+            {addresses.length === 0 && (
+              <p className="w-full bg-black/80 py-4 text-center font-text text-xl font-bold text-white">
+                No addresses found
+              </p>
+            )}
             {addresses.map((item) => (
               <motion.li
                 key={item.id}
                 onClick={() => handleSelect(item)}
-                className="backdrop:blur-4xl h-auto cursor-pointer truncate bg-black/80 p-3 text-sm text-wrap text-white transition-all duration-300 ease-in-out hover:bg-black"
+                className="backdrop:blur-4xl h-auto w-full cursor-pointer truncate bg-black/80 p-3 text-sm text-wrap text-white transition-all duration-300 ease-in-out hover:bg-black"
               >
                 {item.address}
               </motion.li>
             ))}
+            <Link
+              to="/profile/addresses"
+              className="mt-2 mb-2 w-full text-center font-btn font-black text-blue-500 outline-none"
+            >
+              Manage Addresses
+            </Link>
           </motion.ul>
         )}
       </AnimatePresence>
