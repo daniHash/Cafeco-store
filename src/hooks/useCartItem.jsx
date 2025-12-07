@@ -7,8 +7,8 @@ import {
   decreaseAsync,
   decreaseItemQuantity,
 } from '../features/cart/cartSlice'
-import Cookies from 'js-cookie'
 import { notify } from '../utils/helper'
+import Cookies from 'js-cookie'
 
 const useCartItem = (item) => {
   const dispatch = useDispatch()
@@ -35,22 +35,26 @@ const useCartItem = (item) => {
       title: item.title,
       totalprice: item.price,
     }
-    dispatch(addItem(newItem))
     dispatch(addItemAsync(newItem))
+      .unwrap()
+      .then(() => dispatch(addItem(newItem)))
+      .catch(() => notify('error', 'Try again later'))
   }
 
   const increase = () => {
     if (!handleAuthCheck()) return
-
-    dispatch(increaseItemQuantity(cartItem.id))
     dispatch(increaseAsync(cartItem.id))
+      .unwrap()
+      .then(() => dispatch(increaseItemQuantity(cartItem.id)))
+      .catch(() => notify('error', 'Try again later'))
   }
 
   const decrease = () => {
     if (!handleAuthCheck()) return
-
-    dispatch(decreaseItemQuantity(cartItem.id))
     dispatch(decreaseAsync(cartItem.id))
+      .unwrap()
+      .then(() => dispatch(decreaseItemQuantity(cartItem.id)))
+      .catch(() => notify('error', 'Try again later'))
   }
 
   return {

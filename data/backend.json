@@ -11,18 +11,22 @@
       "score": 0,
       "addresses": [
         {
-          "id": "1765088392318",
-          "address": "Esfahan"
-        },
-        {
-          "id": "1765088962352",
-          "address": "Mashhad"
-        },
-        {
           "id": "1765089004498",
           "address": "Esfahan - Esfahan - malekshahr - 17 shahrivar - melat pk - arman 6,7 - 67"
         }
       ],
+      "orders": []
+    },
+    {
+      "id": "miw1s0y2_nd82km",
+      "firstname": "Danial",
+      "familyname": "Hajhashemkhani",
+      "number": "989034905933",
+      "email": "mehdi.hajhashem.khan@gmail.com",
+      "password": "123456d",
+      "confrimpassword": "123456d",
+      "score": 0,
+      "addresses": [],
       "orders": []
     }
   ],
@@ -173,20 +177,20 @@
   ],
   "cart": [
     {
+      "id": "3",
+      "image": "/images/coffeemilk.png",
+      "title": "Cappuccino",
+      "price": 4.8,
+      "quantity": 1,
+      "totalprice": 4.8
+    },
+    {
       "id": "2",
       "image": "/images/coffeemilk.png",
       "title": "Espresso",
       "price": 3,
       "quantity": 1,
       "totalprice": 3
-    },
-    {
-      "id": "6",
-      "image": "/images/coffeemilk.png",
-      "title": "Mocha",
-      "price": 5.2,
-      "quantity": 1,
-      "totalprice": 5.2
     }
   ]
 }

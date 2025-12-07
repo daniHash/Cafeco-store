@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { BiMinus, BiPlus } from 'react-icons/bi'
 import { RiDeleteBin6Line } from 'react-icons/ri'
-import { formatCurrency } from '../../utils/helper'
+import { formatCurrency, notify } from '../../utils/helper'
 import { removeItem, removeItemAsync } from './cartSlice'
 import useCartItem from '../../hooks/useCartItem'
 import Button from '../../ui/Button'
@@ -17,8 +17,15 @@ const CartItem = ({ item }) => {
   const handleDeleteItem = (id) => {
     setIsRemoving(true)
     setTimeout(() => {
-      dispatch(removeItem(id))
       dispatch(removeItemAsync(id))
+        .unwrap()
+        .then(() => {
+          dispatch(removeItem(id))
+        })
+        .catch(() => {
+          notify('error', 'Try again later')
+          setIsRemoving(false)
+        })
     }, 350)
   }
   return (
