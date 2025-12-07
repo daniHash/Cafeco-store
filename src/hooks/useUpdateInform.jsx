@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateFetch, updateUser } from '../features/auth/authSlice'
+import { notify } from '../utils/helper'
 
 const useUpdateInfoForm = () => {
   const dispatch = useDispatch()
@@ -13,7 +14,6 @@ const useUpdateInfoForm = () => {
     email: '',
   })
 
-  // وقتی user از سرور یا localStorage لود شد → فرم آپدیت شود
   useEffect(() => {
     if (user) setInformation(user)
   }, [user])
@@ -30,9 +30,10 @@ const useUpdateInfoForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     if (!user) return
-
-    dispatch(updateUser(information))
     dispatch(updateFetch({ id: user.id, body: information }))
+      .unwrap()
+      .then(() => dispatch(updateUser(information)))
+      .catch(() => notify('error', 'Try again later'))
   }
 
   return {
