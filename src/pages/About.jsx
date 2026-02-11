@@ -67,7 +67,7 @@ const About = () => {
           ></motion.div>
         </div>
         <AboutCard developer={frontend} />
-        <AboutCard developer={backend} />
+        {/* <AboutCard developer={backend} /> */}
       </section>
       <Line />
       <Footer />
