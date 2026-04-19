@@ -54,7 +54,7 @@ const SwiperProduct = () => {
                   slidesPerView: 3,
                 },
               }}
-              className="relative -left-2 w-full sm:right-2 md:left-32 lg:left-8"
+              className="relative w-full sm:right-2 md:left-[28%] lg:left-8"
               onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
             >
               {topRatedProducts.map((p, i) => (
@@ -74,7 +74,10 @@ const SwiperProduct = () => {
               classType="round"
               onClick={() => swiperRef.current.swiper.slidePrev()}
             >
-              <AiOutlineArrowLeft size={30} color="white" />
+              <AiOutlineArrowLeft
+                className="size-4 md:size-8 lg:size-8"
+                color="white"
+              />
             </Button>
             <Link to="/products" className="w-28">
               <Button type="button" classType="show">
@@ -86,7 +89,10 @@ const SwiperProduct = () => {
               classType="round"
               onClick={() => swiperRef.current.swiper.slideNext()}
             >
-              <AiOutlineArrowRight size={30} color="white" />
+              <AiOutlineArrowRight
+                className="size-4 md:size-8 lg:size-8"
+                color="white"
+              />
             </Button>
           </div>
         </>

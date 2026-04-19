@@ -20,7 +20,7 @@ const Line = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.5 }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
-        className="mt-16 mb-16 px-8 text-center font-btn text-lg font-bold text-dark-500 sm:px-[70px] md:px-[100px] lg:px-[140px]"
+        className="my-4 px-8 text-center font-btn text-lg font-bold text-dark-500 sm:px-[70px] md:my-16 md:px-[100px] lg:mt-16 lg:mb-16 lg:px-[140px]"
       >
         "{!loading ? advice : 'Loading...'}"☕✨
       </motion.p>

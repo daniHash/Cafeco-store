@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 const Footer = () => {
   return (
-    <div className="h-auto w-full bg-[url('/images/footerpic.png')] bg-cover bg-center py-10 pt-20 sm:h-auto sm:px-10 md:h-[500px] md:px-20 lg:h-[500px] lg:px-[140px]">
+    <div className="h-auto w-full bg-[url('/images/footerpic.png')] bg-cover bg-center py-10 sm:h-auto sm:px-10 md:h-[500px] md:px-20 lg:h-[500px] lg:px-[140px]">
       <motion.div
         initial={{ opacity: 0, y: 150 }}
         whileInView={{ opacity: 1, y: 0 }}

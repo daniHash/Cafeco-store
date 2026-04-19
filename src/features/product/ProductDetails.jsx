@@ -13,13 +13,25 @@ import {
 import { useParams } from 'react-router-dom'
 import Button from '../../ui/Button'
 import Error from '../../ui/Error'
+import { notify } from '../../utils/helper'
+import Cookies from 'js-cookie'
 
 const ProductDetails = ({ isSelected }) => {
   const { productDetails, error } = useSelector((state) => state.products)
   const { id } = useParams()
   const dispatch = useDispatch()
+  const token = Cookies.get('token')
 
+  const handleAuthCheck = () => {
+    if (!token) {
+      notify('error', 'Please login to continue')
+      return false
+    }
+    return true
+  }
   const handleAddItem = () => {
+    if (!handleAuthCheck()) return
+
     const item = {
       id,
       image: productDetails.image,
@@ -48,7 +60,7 @@ const ProductDetails = ({ isSelected }) => {
       </p>
     )
   return (
-    <div className="mt-20 flex h-8/12 w-full flex-col items-center justify-center gap-10 md:mt-10 md:flex-col lg:mt-10 lg:flex-row">
+    <div className="mt-10 flex h-8/12 w-full flex-col items-center justify-center gap-10 md:mt-10 md:flex-col lg:mt-10 lg:flex-row">
       <motion.img
         initial={{ x: -100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}

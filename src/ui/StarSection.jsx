@@ -8,7 +8,7 @@ const StarSection = () => {
       animate={{ scale: 1, opacity: 1 }}
       viewport={{ once: true, amount: 0 }}
       transition={{ duration: 0.4, delay: 1.4, staggerChildren: 0.1 }}
-      className="mt-20 flex w-full flex-col items-center justify-center gap-2 md:mt-10 lg:mt-10"
+      className="mt-10 flex w-full flex-col items-center justify-center gap-2 md:mt-20 lg:mt-10"
     >
       <h4 className="font-btn text-lg font-bold text-dark-500">
         Your Opinion Matters

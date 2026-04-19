@@ -1,66 +1,10 @@
 {
   "users": [
     {
-      "id": "mlig6akl_9k90yc",
+      "id": "mo5q6prt_vqcfaf",
       "firstname": "Danial",
-      "familyname": "HHK",
+      "familyname": "Hajhashemkhani",
       "number": "989034905933",
-      "email": "danihashdev@gmail.com",
-      "password": "123456d",
-      "confrimpassword": "123456d",
-      "score": 20,
-      "addresses": [
-        {
-          "id": "1770839635537",
-          "address": "Esfahan"
-        }
-      ],
-      "orders": [
-        {
-          "address": "Esfahan",
-          "cart": [
-            {
-              "id": "16",
-              "image": "/images/coffeemilk.png",
-              "title": "Americano",
-              "price": 4.3,
-              "quantity": 1,
-              "totalprice": 4.3
-            },
-            {
-              "id": "15",
-              "image": "/images/coffeemilk.png",
-              "title": "Mocha Bliss",
-              "price": 6.5,
-              "quantity": 2,
-              "totalprice": 13
-            }
-          ],
-          "id": 1770839663972,
-          "createdAt": "2026-02-11T19:54:23.972Z"
-        },
-        {
-          "address": "Esfahan",
-          "cart": [
-            {
-              "id": "17",
-              "image": "/images/coffeemilk.png",
-              "price": 5.8,
-              "quantity": 2,
-              "title": "Cappuccino",
-              "totalprice": 11.6
-            }
-          ],
-          "id": 1770839892755,
-          "createdAt": "2026-02-11T19:58:12.755Z"
-        }
-      ]
-    },
-    {
-      "id": "mligeied_7gyao3",
-      "firstname": "Danial",
-      "familyname": "HHK",
-      "number": "989034905446",
       "email": "mehdi.hajhashem.khan@gmail.com",
       "password": "123456d",
       "confrimpassword": "123456d",

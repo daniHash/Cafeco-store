@@ -13,7 +13,7 @@ const Home = () => {
   return (
     <>
       <Header bg={true}>
-        <div className="mt-20 flex w-full flex-col items-center justify-center gap-32">
+        <div className="flex h-full w-full flex-col items-center justify-center gap-16">
           <motion.h1
             initial={{ opacity: 0, y: 100 }}
             whileInView={{ opacity: 1, y: 0 }}

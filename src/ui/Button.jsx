@@ -15,20 +15,20 @@ const Button = ({ children, px, classType, type, onClick, loading }) => {
     header: base + ` bg-[#ddae45]  rounded-md ${pxClasses[px] || ''}`,
     round:
       base +
-      ` bg-primary-300 w-16 h-16 flex justify-center items-center ${pxClasses[px] || ''} rounded-full`,
+      ` bg-primary-300 lg:w-16 lg:h-16 md:w-16 md:h-16 w-10 h-10 flex justify-center items-center ${pxClasses[px] || ''} rounded-full`,
     roundoutline:
       base +
-      ` border-2 border-primary-300 w-14 h-12 mb-3 flex justify-center items-center  ${pxClasses[px] || ''} rounded-full`,
+      ` border-2 border-primary-300 w-14 h-12  flex justify-center items-center  ${pxClasses[px] || ''} rounded-full`,
     primary:
       base +
-      ` rounded-md bg-primary-300 mb-4 hover:bg-primary-400 text-white flex justify-center items-center ${pxClasses[px] ? pxClasses[px] : 'w-full'}`,
+      ` rounded-md bg-primary-300 hover:bg-primary-400 text-white flex justify-center items-center ${pxClasses[px] ? pxClasses[px] : 'w-full'}`,
     productsbtn:
       base +
       ` rounded-md mt-5 bg-[#B59D90] mb-4 hover:bg-[#a08a7e]  hover:shadow-xs text-dark-500 flex justify-center items-center ${pxClasses[px] ? pxClasses[px] : 'w-full'}`,
     show:
       base +
-      ` rounded-md bg-primary-300 mb-4 hover:bg-primary-500 text-white flex justify-center items-center w-full ${pxClasses[px] ? pxClasses[px] : 'w-full'}`,
-    outlineprimary: `py-2.5 transition-all duration-150 ease-in hover:shadow-2xl shadow-black rounded-md bg-transparent border-2 border-primary-300 mb-4 cursor-pointer text-primary-300 flex justify-center items-center ${pxClasses[px] ? pxClasses[px] : 'w-full'}`,
+      ` rounded-md bg-primary-300  hover:bg-primary-500 text-white flex justify-center items-center w-full ${pxClasses[px] ? pxClasses[px] : 'w-full'}`,
+    outlineprimary: `py-2.5 transition-all duration-150 ease-in hover:shadow-2xl shadow-black rounded-md bg-transparent border-2 border-primary-300  cursor-pointer text-primary-300 flex justify-center items-center ${pxClasses[px] ? pxClasses[px] : 'w-full'}`,
     outlinesecondary: `py-2.5 transition-all duration-150 ease-in rounded-md bg-transparent border-2 border-dark-500 mb-4 cursor-pointer text-dark-500 flex justify-center items-center ${pxClasses[px] ? pxClasses[px] : 'w-full'} sm:px-4 sm:w-auto md:px-6 md:w-48 lg:px-8 lg:w-60`,
     plusmin:
       base +
