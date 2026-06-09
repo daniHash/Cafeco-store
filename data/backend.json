@@ -11,6 +11,18 @@
       "score": 0,
       "addresses": [],
       "orders": []
+    },
+    {
+      "id": "4kYLQ0JHnTM",
+      "firstname": "Dani",
+      "familyname": "HHK",
+      "number": "989034905933",
+      "email": "danihashdev@gmail.com",
+      "password": "123456d",
+      "confrimpassword": "123456d",
+      "score": 0,
+      "addresses": [],
+      "orders": []
     }
   ],
   "products": [
@@ -235,5 +247,6 @@
       "sold": 26
     }
   ],
-  "cart": []
+  "cart": [],
+  "$schema": "./node_modules/json-server/schema.json"
 }
