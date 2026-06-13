@@ -18,6 +18,7 @@ const AddressList = () => {
       },
     },
   }
+
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -26,18 +27,24 @@ const AddressList = () => {
       transition: { duration: 0.4, ease: 'easeOut' },
     },
   }
+
   if (addresses.length === 0)
     return (
-      <p className="mt-16 w-full text-center font-text text-xl font-bold text-white">
-        No Addresses found
-      </p>
+      <div className="mt-24 flex flex-col items-center justify-center gap-3">
+        <span className="text-4xl">📍</span>
+        <p className="text-xl font-semibold text-white">No addresses yet</p>
+        <p className="text-sm text-white/50">
+          Add your first address to get started
+        </p>
+      </div>
     )
+
   return (
-    <motion.ul
+    <motion.div
       variants={listVariants}
       initial="hidden"
       animate="visible"
-      className="mt-8 flex list-none flex-col items-center justify-center gap-3.5 divide-y-2 divide-black overflow-auto overflow-x-hidden pt-60 sm:pt-36 md:pt-72 lg:pt-20"
+      className="mx-auto mt-6 flex w-full max-w-2xl list-none flex-col gap-3 px-4 pt-6 pb-10 sm:mt-10 sm:px-6"
     >
       {addresses.map((ad) => (
         <AddressItem
@@ -47,7 +54,7 @@ const AddressList = () => {
           variants={itemVariants}
         />
       ))}
-    </motion.ul>
+    </motion.div>
   )
 }
 

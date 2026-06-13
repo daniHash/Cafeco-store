@@ -23,6 +23,64 @@
       "score": 0,
       "addresses": [],
       "orders": []
+    },
+    {
+      "id": "PdaLqCs247I",
+      "firstname": "Dani",
+      "familyname": "Hajhashemkhani",
+      "number": "989034905933",
+      "email": "mehdi.hajhashem.khan@gmail.com",
+      "password": "123456d",
+      "confrimpassword": "123456d",
+      "score": 0,
+      "addresses": [
+        {
+          "id": "1781333148288",
+          "address": "es"
+        },
+        {
+          "id": "1781333167033",
+          "address": "f"
+        },
+        {
+          "id": "1781333176480",
+          "address": "gr"
+        }
+      ],
+      "orders": []
+    },
+    {
+      "id": "1GZkIYg_FhQ",
+      "firstname": "Dani",
+      "familyname": "Hajhashemkhani",
+      "number": "989034905933",
+      "email": "mehdi.hajhashem.khan@gmail.com",
+      "password": "123456d",
+      "confrimpassword": "123456d",
+      "score": 0,
+      "addresses": [
+        {
+          "id": "1781334945688",
+          "address": "dsfd"
+        },
+        {
+          "id": "1781334948993",
+          "address": "sfdwe"
+        },
+        {
+          "id": "1781334951178",
+          "address": "vesrd"
+        },
+        {
+          "id": "1781334953793",
+          "address": "dbfb"
+        },
+        {
+          "id": "1781334956521",
+          "address": "bgdfdf"
+        }
+      ],
+      "orders": []
     }
   ],
   "products": [
@@ -247,6 +305,15 @@
       "sold": 26
     }
   ],
-  "cart": [],
+  "cart": [
+    {
+      "id": "f6hLgq4QKXE",
+      "image": "/images/coffeemilk.png",
+      "title": "Double Espresso",
+      "price": 3.9,
+      "quantity": 1,
+      "totalprice": 3.9
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }

@@ -34,9 +34,9 @@ const Addresses = () => {
     setAddAddress('')
   }
   return (
-    <div className="flex h-full w-full flex-col">
-      <div className="mt-14 flex w-full items-center justify-between px-4">
-        <h1 className="text flex-1 text-center font-titr text-xl text-white lg:text-4xl">
+    <div className="flex h-full w-full scroll-m-1 flex-col overflow-auto">
+      <div className="flex w-full flex-row items-center justify-between px-1 md:mt-14 md:flex-row md:px-4 lg:mt-14 lg:flex-row lg:px-4">
+        <h1 className="mr-16 text-center font-titr text-xl text-white md:mt-0 md:mr-0 lg:mt-0 lg:mr-0 lg:text-4xl">
           Addresses
         </h1>
 
