@@ -313,6 +313,14 @@
       "price": 3.9,
       "quantity": 1,
       "totalprice": 3.9
+    },
+    {
+      "id": "PJ5uAR2E0EQ",
+      "image": "/images/coffeemilk.png",
+      "title": "Mocha Bliss",
+      "price": 6.5,
+      "quantity": 1,
+      "totalprice": 6.5
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

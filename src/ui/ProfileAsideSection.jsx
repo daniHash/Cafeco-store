@@ -13,7 +13,7 @@ const ProfileAsideSection = () => {
         initial={{ y: -180, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 2.3, ease: 'backInOut' }}
-        className="flex flex-col items-center justify-center gap-8 px-10 sm:gap-10 md:gap-14 lg:gap-14"
+        className="flex flex-col items-center justify-center gap-20 px-10 sm:gap-10 md:gap-14 lg:gap-14"
       >
         <NavLink
           to="information"
@@ -26,7 +26,7 @@ const ProfileAsideSection = () => {
                 className={`size-7 transition-all duration-200 ease-in sm:size-8 md:size-11 lg:size-11 ${isActive ? 'text-yellow-400' : 'text-white'}`}
               />
               <h5
-                className={`mt-2 font-titr text-xs text-wrap transition-all duration-200 ease-in sm:text-sm md:text-lg lg:text-lg ${isActive ? 'text-yellow-400' : 'text-white'}`}
+                className={`mt-2 hidden font-titr text-xs text-wrap transition-all duration-200 ease-in sm:text-sm md:block md:text-lg lg:block lg:text-lg ${isActive ? 'text-yellow-400' : 'text-white'}`}
               >
                 Information
               </h5>
@@ -44,7 +44,7 @@ const ProfileAsideSection = () => {
                 className={`size-7 transition-all duration-200 ease-in sm:size-8 md:size-11 lg:size-11 ${isActive ? 'text-yellow-400' : 'text-white'}`}
               />
               <h5
-                className={`mt-2 font-titr text-xs transition-all duration-200 ease-in sm:text-sm md:text-lg lg:text-lg ${isActive ? 'text-yellow-400' : 'text-white'}`}
+                className={`mt-2 hidden font-titr text-xs transition-all duration-200 ease-in sm:text-sm md:block md:text-lg lg:block lg:text-lg ${isActive ? 'text-yellow-400' : 'text-white'}`}
               >
                 Addresses
               </h5>
@@ -62,7 +62,7 @@ const ProfileAsideSection = () => {
                 className={`size-7 transition-all duration-200 ease-in sm:size-8 md:size-11 lg:size-11 ${isActive ? 'text-yellow-400' : 'text-white'}`}
               />
               <h5
-                className={`mt-2 font-titr text-xs transition-all duration-200 ease-in sm:text-sm md:text-lg lg:text-lg ${isActive ? 'text-yellow-400' : 'text-white'}`}
+                className={`mt-2 hidden font-titr text-xs transition-all duration-200 ease-in sm:text-sm md:block md:text-lg lg:block lg:text-lg ${isActive ? 'text-yellow-400' : 'text-white'}`}
               >
                 Cart
               </h5>
@@ -80,7 +80,7 @@ const ProfileAsideSection = () => {
                 className={`size-7 transition-all duration-200 ease-in sm:size-8 md:size-11 lg:size-11 ${isActive ? 'text-yellow-400' : 'text-white'}`}
               />
               <h5
-                className={`mt-2 font-titr text-xs transition-all duration-200 ease-in sm:text-sm md:text-lg lg:text-lg ${isActive ? 'text-yellow-400' : 'text-white'}`}
+                className={`mt-2 hidden font-titr text-xs transition-all duration-200 ease-in sm:text-sm md:block md:text-lg lg:block lg:text-lg ${isActive ? 'text-yellow-400' : 'text-white'}`}
               >
                 Scores
               </h5>

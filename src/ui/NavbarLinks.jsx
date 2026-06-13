@@ -19,7 +19,7 @@ const NavbarLinks = () => {
 
   return (
     <>
-      {isOpen && <Sidebar setIsOpen={setIsOpen} />}
+      {isOpen && <Sidebar setIsOpen={setIsOpen} isOpen={isOpen} />}
       <motion.ul
         initial={{ y: -180, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
