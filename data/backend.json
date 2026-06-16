@@ -1,22 +1,10 @@
 {
   "users": [
     {
-      "id": "mo5q6prt_vqcfaf",
-      "firstname": "Danial",
+      "id": "8dJH1FMFKbc",
+      "firstname": "Danid",
       "familyname": "Hajhashemkhani",
-      "number": "989034905933",
-      "email": "mehdi.hajhashem.khan@gmail.com",
-      "password": "123456d",
-      "confrimpassword": "123456d",
-      "score": 0,
-      "addresses": [],
-      "orders": []
-    },
-    {
-      "id": "4kYLQ0JHnTM",
-      "firstname": "Dani",
-      "familyname": "HHK",
-      "number": "989034905933",
+      "number": "989929995487",
       "email": "danihashdev@gmail.com",
       "password": "123456d",
       "confrimpassword": "123456d",
@@ -25,61 +13,15 @@
       "orders": []
     },
     {
-      "id": "PdaLqCs247I",
+      "id": "GSSSnw3SGYM",
       "firstname": "Dani",
       "familyname": "Hajhashemkhani",
-      "number": "989034905933",
-      "email": "mehdi.hajhashem.khan@gmail.com",
+      "number": "989967992101",
+      "email": "d@gmail.com",
       "password": "123456d",
       "confrimpassword": "123456d",
       "score": 0,
-      "addresses": [
-        {
-          "id": "1781333148288",
-          "address": "es"
-        },
-        {
-          "id": "1781333167033",
-          "address": "f"
-        },
-        {
-          "id": "1781333176480",
-          "address": "gr"
-        }
-      ],
-      "orders": []
-    },
-    {
-      "id": "1GZkIYg_FhQ",
-      "firstname": "Dani",
-      "familyname": "Hajhashemkhani",
-      "number": "989034905933",
-      "email": "mehdi.hajhashem.khan@gmail.com",
-      "password": "123456d",
-      "confrimpassword": "123456d",
-      "score": 0,
-      "addresses": [
-        {
-          "id": "1781334945688",
-          "address": "dsfd"
-        },
-        {
-          "id": "1781334948993",
-          "address": "sfdwe"
-        },
-        {
-          "id": "1781334951178",
-          "address": "vesrd"
-        },
-        {
-          "id": "1781334953793",
-          "address": "dbfb"
-        },
-        {
-          "id": "1781334956521",
-          "address": "bgdfdf"
-        }
-      ],
+      "addresses": [],
       "orders": []
     }
   ],
@@ -305,23 +247,6 @@
       "sold": 26
     }
   ],
-  "cart": [
-    {
-      "id": "f6hLgq4QKXE",
-      "image": "/images/coffeemilk.png",
-      "title": "Double Espresso",
-      "price": 3.9,
-      "quantity": 1,
-      "totalprice": 3.9
-    },
-    {
-      "id": "PJ5uAR2E0EQ",
-      "image": "/images/coffeemilk.png",
-      "title": "Mocha Bliss",
-      "price": 6.5,
-      "quantity": 1,
-      "totalprice": 6.5
-    }
-  ],
+  "cart": [],
   "$schema": "./node_modules/json-server/schema.json"
 }

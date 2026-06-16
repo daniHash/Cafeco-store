@@ -131,16 +131,15 @@ export const firstStep = [
 ]
 export const inputs = [
   {
-    id: 'phone',
-    label: 'Phone',
-    type: 'tel',
-    name: 'number',
-    placeholder: 'Phone...',
-    pattern: '^[0-9]{8,15}$',
-    title: 'Please input real phone',
-    regex: /^(?:\+)?(?!0+$)(?!([0-9])\1+$)[0-9]{8,15}$/,
-    regexErr:
-      'Please enter a valid phone number (8-15 digits, optional + for country code).',
+    id: 'Email',
+    label: 'Email',
+    type: 'email',
+    name: 'email',
+    placeholder: 'example@gmail.com',
+    pattern: '.{5,}',
+    title: 'Please input real email',
+    regex: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/,
+    regexErr: 'Please enter a valid email.',
   },
   {
     id: 'pass',

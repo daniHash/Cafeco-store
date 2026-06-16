@@ -32,9 +32,9 @@ export const registerFetch = createAsyncThunk(
 
 export const loginFetch = createAsyncThunk(
   'auth/login',
-  async (credentials, { rejectWithValue }) => {
+  async (userData, { rejectWithValue }) => {
     try {
-      const res = await login(credentials)
+      const res = await login(userData)
       return res.data || res
     } catch (err) {
       return rejectWithValue(err.message)

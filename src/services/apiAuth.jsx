@@ -1,48 +1,66 @@
 import { swal } from '../utils/helper'
 import Cookies from 'js-cookie'
 
-const BASE_URL = 'http://localhost:3000/api/v2/auth'
+const BASE_URL = 'http://localhost:8000/users'
 
 export const login = async (body) => {
-  const res = await fetch(`${BASE_URL}/login`, {
-    method: 'POST',
-    headers: {
-      'Content-type': 'application/json',
-    },
-    credentials: 'include',
-    body: JSON.stringify(body),
-  })
+  const res = await fetch(`${BASE_URL}?email=${body.email}`)
+  const users = await res.json()
 
-  if (!res.ok) throw new Error('Failed to fetch profile')
+  const user = users[0]
+  if (!user || user.password !== body.password) {
+    swal('error', 'Error!', 'Invalid email or password.')
+    throw new Error('Invalid credentials')
+  }
 
-  return res.json()
+  Cookies.set('token', user.id, { expires: 0.5, secure: true })
+  return user
 }
 
 export const register = async (body) => {
   try {
-    const res = await fetch('http://localhost:8000/users', {
+    const checkRes = await fetch(`${BASE_URL}?email=${body.email}`)
+    const emailMatches = await checkRes.json()
+
+    console.log(body.number)
+    const phoneRes = await fetch(`${BASE_URL}?number=${body.number}`)
+
+    const phoneMatches = await phoneRes.json()
+
+    if (emailMatches.length > 0 || phoneMatches.length > 0) {
+      swal(
+        'error',
+        'Error!',
+        'This email or phone number is already registered.'
+      )
+      throw new Error('Duplicate user')
+    }
+
+    const res = await fetch(BASE_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body),
     })
 
-    if (res.ok) {
-      swal('success', 'Success!', 'Your registration is completed.')
-    } else {
+    if (!res.ok) {
       swal('error', 'Error!', 'Try again later.')
       throw new Error('Failed to register user')
     }
+
     const data = await res.json()
-    Cookies.set('token', 'data.token', { expires: 0.5, secure: true })
+    swal('success', 'Success!', 'Your registration is completed.')
+    Cookies.set('token', data.id, { expires: 0.5, secure: true })
     return data
-  } catch {
-    swal('error', 'Error!', 'Try again later.')
-    throw new Error('Failed to register user')
+  } catch (err) {
+    if (err.message !== 'Duplicate user') {
+      swal('error', 'Error!', 'Try again later.')
+    }
+    throw err
   }
 }
 
 export const update = async (id, body) => {
-  const res = await fetch(`http://localhost:8000/users/${id}`, {
+  const res = await fetch(`${BASE_URL}/${id}`, {
     method: 'PATCH',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(body),
@@ -55,7 +73,7 @@ export const update = async (id, body) => {
 }
 
 export const getUser = async (id) => {
-  const res = await fetch(`http://localhost:8000/users/${id}`)
+  const res = await fetch(`${BASE_URL}/${id}`)
 
   if (!res.ok) throw new Error('Failed to get user')
 
@@ -72,7 +90,7 @@ export const addAddress = async (userId, newAddress) => {
     addresses: [...(user.addresses || []), { id, address: newAddress }],
   }
 
-  const res = await fetch(`http://localhost:8000/users/${userId}`, {
+  const res = await fetch(`${BASE_URL}/${userId}`, {
     method: 'PATCH',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(updatedUser),
@@ -89,7 +107,7 @@ export const editAddress = async (userId, addressId, body) => {
     item.id === addressId ? { ...item, ...body } : item
   )
 
-  const res = await fetch(`http://localhost:8000/users/${userId}`, {
+  const res = await fetch(`${BASE_URL}/${userId}`, {
     method: 'PATCH',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ ...user, addresses: updatedAddresses }),
@@ -106,7 +124,7 @@ export const deleteAddress = async (userId, addressId) => {
     (item) => item.id !== addressId
   )
 
-  const res = await fetch(`http://localhost:8000/users/${userId}`, {
+  const res = await fetch(`${BASE_URL}/${userId}`, {
     method: 'PATCH',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ ...user, addresses: updatedAddresses }),
@@ -117,14 +135,14 @@ export const deleteAddress = async (userId, addressId) => {
 }
 
 export const apiCreateOrder = async (userId, updatedOrders) => {
-  const userRes = await fetch(`http://localhost:8000/users/${userId}`)
+  const userRes = await fetch(`${BASE_URL}/${userId}`)
   if (!userRes.ok) throw new Error('Failed to fetch user')
   const user = await userRes.json()
 
   let newScore = (user.score || 0) + 10
   if (newScore > 100) newScore = 0
 
-  const res = await fetch(`http://localhost:8000/users/${userId}`, {
+  const res = await fetch(`${BASE_URL}/${userId}`, {
     method: 'PATCH',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({

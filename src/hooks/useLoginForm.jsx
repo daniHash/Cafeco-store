@@ -1,17 +1,34 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { inputs } from '../utils/helper'
 import { notify } from '../utils/helper'
 import Swal from 'sweetalert2'
+import { useDispatch, useSelector } from 'react-redux'
+import { loginFetch, resetStatus } from '../features/auth/authSlice'
+import { useNavigate } from 'react-router-dom'
 
 const useRegisterForm = () => {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
   const [values, setValues] = useState({})
   const [errors, setErrors] = useState({})
+  const success = useSelector((state) => state.user.success)
+
+  useEffect(() => {
+    if (success) {
+      navigate('/products')
+      dispatch(resetStatus())
+    }
+  }, [success, dispatch, navigate])
 
   const handleReset = () => {
     setValues({})
   }
   const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value })
+  }
+  const handlePhoneChange = (phone, name) => {
+    setValues({ ...values, [name]: phone })
+    console.log(values.number)
   }
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -37,13 +54,14 @@ const useRegisterForm = () => {
       background: '#f4e8d8',
       color: '#321e18',
     })
-    console.log('Form data:', values)
+    dispatch(loginFetch(values))
   }
 
   return {
     values,
     errors,
     handleChange,
+    handlePhoneChange,
     handleSubmit,
     handleReset,
   }

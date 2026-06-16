@@ -7,8 +7,14 @@ import useLoginForm from '../../hooks/useLoginForm'
 import 'notyf/notyf.min.css'
 
 const RegisterForm = () => {
-  const { values, errors, handleChange, handleReset, handleSubmit } =
-    useLoginForm()
+  const {
+    values,
+    errors,
+    handleChange,
+    handlePhoneChange,
+    handleReset,
+    handleSubmit,
+  } = useLoginForm()
   return (
     <div className="flex h-8/12 w-md items-center justify-start overflow-hidden rounded-3xl bg-accent-300 shadow-form md:w-xl lg:w-1/2">
       <div className="hidden h-full w-1/2 bg-[url('/images/login.jpg')] bg-cover md:hidden lg:block"></div>
@@ -28,6 +34,7 @@ const RegisterForm = () => {
               input={input}
               value={values[input.name] || ''}
               onChange={handleChange}
+              handlePhoneChange={handlePhoneChange}
               errors={errors[input.name]}
               key={input.id}
             />
