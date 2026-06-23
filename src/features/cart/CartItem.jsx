@@ -41,7 +41,7 @@ const CartItem = ({ item }) => {
         className="hidden h-32 w-2/12 sm:hidden md:block lg:block"
         alt=""
       />
-      <h3 className="text-center font-titr text-sm text-dark-500 lg:text-[24px]">
+      <h3 className="text-center font-titr text-sm text-dark-500 md:text-xl lg:text-2xl">
         {item.title}
       </h3>
       <h3 className="hidden text-center font-titr text-sm text-dark-500 sm:block md:block lg:block lg:text-[24px]">
@@ -58,7 +58,7 @@ const CartItem = ({ item }) => {
           <BiPlus size={18} className="mt-2 mb-2" />
         </Button>
       </div>
-      <h3 className="text-center font-titr text-sm text-dark-500 lg:text-[24px]">
+      <h3 className="hidden text-center font-titr text-sm text-dark-500 md:block lg:block lg:text-[24px]">
         {formatCurrency(item.totalprice)}
       </h3>
       <Button

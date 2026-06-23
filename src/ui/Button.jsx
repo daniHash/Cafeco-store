@@ -1,10 +1,10 @@
 const pxClasses = {
   10: 'px-3',
-  20: 'px-5',
+  20: 'lg:px-5 md:px-4 px-3',
   30: 'px-8',
   40: 'px-10',
   50: 'px-12',
-  60: 'px-20',
+  60: 'lg:px-20 md:px-16 px-14',
   70: 'px-24',
   80: 'px-32',
 }
@@ -30,12 +30,10 @@ const Button = ({ children, px, classType, type, onClick, loading }) => {
       ` rounded-md bg-primary-300  hover:bg-primary-500 text-white flex justify-center items-center w-full ${pxClasses[px] ? pxClasses[px] : 'w-full'}`,
     outlineprimary: `py-2.5 transition-all duration-150 ease-in hover:shadow-2xl shadow-black rounded-md bg-transparent border-2 border-primary-300  cursor-pointer text-primary-300 flex justify-center items-center ${pxClasses[px] ? pxClasses[px] : 'w-full'}`,
     outlinesecondary: `py-2.5 transition-all duration-150 ease-in rounded-md bg-transparent border-2 border-dark-500 mb-4 cursor-pointer text-dark-500 flex justify-center items-center ${pxClasses[px] ? pxClasses[px] : 'w-full'} sm:px-4 sm:w-auto md:px-6 md:w-48 lg:px-8 lg:w-60`,
-    plusmin:
-      base +
-      ` rounded-md bg-primary-300 hover:bg-primary-400 text-white flex justify-center items-center ${pxClasses[px] ? pxClasses[px] : 'w-full'}`,
-    delete:
-      base +
-      ` rounded-md bg-destructive-300 hover:bg-destructive-400 text-white flex justify-center items-center ${pxClasses[px] ? pxClasses[px] : 'w-full'}`,
+    plusmin: `cursor-pointer ${loading && 'opacity-50'} shadow-black lg:py-2.5 md:py-2 py:0.5 font-btn font-black transition-all duration-150 ease-in hover:shadow-2xl
+       rounded-md bg-primary-300 hover:bg-primary-400 text-white flex justify-center items-center ${pxClasses[px] ? pxClasses[px] : 'w-full'}`,
+    delete: `cursor-pointer ${loading && 'opacity-50'} shadow-black lg:py-2.5 md:py-2 py:0.5 font-btn font-black transition-all duration-150 ease-in hover:shadow-2xl
+       rounded-md bg-destructive-300 hover:bg-destructive-400 text-white flex justify-center items-center ${pxClasses[px] ? pxClasses[px] : 'w-full'}`,
     edit:
       base +
       ` rounded-md bg-[#E29E01] hover:bg-[#b98305] text-white flex justify-center items-center ${pxClasses[px] ? pxClasses[px] : 'w-full'}`,

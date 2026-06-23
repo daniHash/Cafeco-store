@@ -159,7 +159,13 @@ const CheckOutSection = () => {
               />
 
               <div className="mt-2 flex justify-end gap-3">
-                <Button classType="delete" onClick={() => setIsOpen(false)}>
+                <Button
+                  classType="delete"
+                  onClick={() => {
+                    setIsOpen(false)
+                    setAddress('')
+                  }}
+                >
                   Cancel
                 </Button>
                 <Button classType="edit" onClick={handleSubmit}>
