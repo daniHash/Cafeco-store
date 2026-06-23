@@ -12,6 +12,8 @@ import AddressDropdown from '../cart/AddressDropdown'
 
 const CheckOutSection = () => {
   const [address, setAddress] = useState('')
+  const [isFilled, setIsFilled] = useState(true)
+  const [isLoading, setIsLoading] = useState(false)
   const { cart } = useSelector((state) => state.cart)
   const [isOpen, setIsOpen] = useState(false)
   const { score } = useSelector((state) => state.user.user)
@@ -29,23 +31,28 @@ const CheckOutSection = () => {
   const discountedPrice = totalPrice * (1 - discount)
 
   const handleSubmit = () => {
-    const order = {
-      address,
-      cart,
-      id: Date.now(),
-      createdAt: new Date().toISOString(),
+    if (address) {
+      const order = {
+        address,
+        cart,
+        id: Date.now(),
+        createdAt: new Date().toISOString(),
+      }
+      setTimeout(() => {
+        dispatch(createOrderFetch(order))
+          .unwrap()
+          .then(() => {
+            dispatch(clearCartAsync())
+            dispatch(resetCart())
+            notify('success', 'Order created successfully! 🛍️')
+            setIsOpen(false)
+          })
+          .catch(() => notify('error', 'Try again later'))
+      }, 300)
+    } else {
+      setIsFilled(false)
+      notify('error', 'Please select an address before proceeding!')
     }
-    setTimeout(() => {
-      dispatch(createOrderFetch(order))
-        .unwrap()
-        .then(() => {
-          dispatch(clearCartAsync())
-          dispatch(resetCart())
-          notify('success', 'Order created successfully! 🛍️')
-          setIsOpen(false)
-        })
-        .catch(() => notify('error', 'Try again later'))
-    }, 300)
   }
 
   return (
@@ -137,25 +144,26 @@ const CheckOutSection = () => {
                   Cancel
                 </Button>
                 <Button classType="edit" onClick={handleSubmit}>
-                  <PDFDownloadLink
-                    document={
-                      <InvoicePDF
-                        orderId={Date.now()}
-                        cart={cart}
-                        address={address}
-                        totalPrice={discountedPrice}
-                        originalPrice={totalPrice}
-                        discount={discount}
-                      />
-                    }
-                    fileName={`order-${Date.now()}.pdf`}
-                  >
-                    {({ loading }) =>
-                      loading
-                        ? 'Generating...'
-                        : `Payment ${formatCurrency(totalPrice)}`
-                    }
-                  </PDFDownloadLink>
+                  {isFilled && (
+                    <PDFDownloadLink
+                      document={
+                        <InvoicePDF
+                          orderId={Date.now()}
+                          cart={cart}
+                          address={address}
+                          totalPrice={discountedPrice}
+                          originalPrice={totalPrice}
+                          discount={discount}
+                        />
+                      }
+                      fileName={`order-${Date.now()}.pdf`}
+                    >
+                      {() => setIsLoading(true)}
+                    </PDFDownloadLink>
+                  )}
+                  {!isLoading
+                    ? 'Generating...'
+                    : `Payment ${formatCurrency(totalPrice)}`}
                 </Button>
               </div>
             </motion.div>

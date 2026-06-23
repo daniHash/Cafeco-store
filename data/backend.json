@@ -8,8 +8,13 @@
       "email": "danihashdev@gmail.com",
       "password": "123456d",
       "confrimpassword": "123456d",
-      "score": 10,
-      "addresses": [],
+      "score": 0,
+      "addresses": [
+        {
+          "id": "1782232100347",
+          "address": "esfahan"
+        }
+      ],
       "orders": [
         {
           "address": "",
@@ -26,6 +31,207 @@
           ],
           "id": 1782230983140,
           "createdAt": "2026-06-23T16:09:43.140Z"
+        },
+        {
+          "address": "esfahan",
+          "cart": [
+            {
+              "productId": "19",
+              "image": "/images/coffeemilk.png",
+              "title": "Double Espresso",
+              "price": 3.9,
+              "quantity": 9,
+              "totalprice": 35.1,
+              "id": "bdrsn52s2ZE"
+            }
+          ],
+          "id": 1782232114830,
+          "createdAt": "2026-06-23T16:28:34.830Z"
+        },
+        {
+          "address": "esfahan",
+          "cart": [
+            {
+              "productId": "14",
+              "image": "/images/coffeemilk.png",
+              "title": "Caramel Latte",
+              "price": 6.1,
+              "quantity": 1,
+              "totalprice": 6.1,
+              "id": "7142TIKgFL8"
+            },
+            {
+              "productId": "15",
+              "image": "/images/coffeemilk.png",
+              "title": "Mocha Bliss",
+              "price": 6.5,
+              "quantity": 2,
+              "totalprice": 13,
+              "id": "MIMGC-US6hU"
+            },
+            {
+              "image": "/images/coffeemilk.png",
+              "title": "Cappuccino",
+              "price": 5.8,
+              "quantity": 2,
+              "totalprice": 11.6,
+              "id": "OYaJ19NBBrQ"
+            }
+          ],
+          "id": 1782232234813,
+          "createdAt": "2026-06-23T16:30:34.813Z"
+        },
+        {
+          "address": "esfahan",
+          "cart": [
+            {
+              "id": "17",
+              "image": "/images/coffeemilk.png",
+              "price": 5.8,
+              "quantity": 1,
+              "title": "Cappuccino",
+              "totalprice": 5.8
+            }
+          ],
+          "id": 1782232243718,
+          "createdAt": "2026-06-23T16:30:43.718Z"
+        },
+        {
+          "address": "esfahan",
+          "cart": [
+            {
+              "id": "17",
+              "image": "/images/coffeemilk.png",
+              "price": 5.8,
+              "quantity": 1,
+              "title": "Cappuccino",
+              "totalprice": 5.8
+            }
+          ],
+          "id": 1782232275206,
+          "createdAt": "2026-06-23T16:31:15.206Z"
+        },
+        {
+          "address": "esfahan",
+          "cart": [
+            {
+              "id": "17",
+              "image": "/images/coffeemilk.png",
+              "price": 5.8,
+              "quantity": 2,
+              "title": "Cappuccino",
+              "totalprice": 11.6
+            }
+          ],
+          "id": 1782232285333,
+          "createdAt": "2026-06-23T16:31:25.333Z"
+        },
+        {
+          "address": "esfahan",
+          "cart": [
+            {
+              "productId": "19",
+              "image": "/images/coffeemilk.png",
+              "title": "Double Espresso",
+              "price": 3.9,
+              "quantity": 1,
+              "totalprice": 3.9,
+              "id": "qYjbHbUZDms"
+            }
+          ],
+          "id": 1782232324638,
+          "createdAt": "2026-06-23T16:32:04.638Z"
+        },
+        {
+          "address": "esfahan",
+          "cart": [
+            {
+              "productId": "19",
+              "image": "/images/coffeemilk.png",
+              "title": "Double Espresso",
+              "price": 3.9,
+              "quantity": 1,
+              "totalprice": 3.9,
+              "id": "3bOBMqaYxWQ"
+            }
+          ],
+          "id": 1782232336502,
+          "createdAt": "2026-06-23T16:32:16.502Z"
+        },
+        {
+          "address": "esfahan",
+          "cart": [
+            {
+              "productId": "15",
+              "image": "/images/coffeemilk.png",
+              "title": "Mocha Bliss",
+              "price": 6.5,
+              "quantity": 1,
+              "totalprice": 6.5,
+              "id": "YKYdVprHQl0"
+            },
+            {
+              "productId": "14",
+              "image": "/images/coffeemilk.png",
+              "title": "Caramel Latte",
+              "price": 6.1,
+              "quantity": 1,
+              "totalprice": 6.1,
+              "id": "YD__fbVAwlc"
+            }
+          ],
+          "id": 1782232348198,
+          "createdAt": "2026-06-23T16:32:28.198Z"
+        },
+        {
+          "address": "esfahan",
+          "cart": [
+            {
+              "productId": "16",
+              "image": "/images/coffeemilk.png",
+              "title": "Americano",
+              "price": 4.3,
+              "quantity": 1,
+              "totalprice": 4.3,
+              "id": "aPdh6aZwejI"
+            },
+            {
+              "productId": "19",
+              "image": "/images/coffeemilk.png",
+              "title": "Double Espresso",
+              "price": 3.9,
+              "quantity": 1,
+              "totalprice": 3.9,
+              "id": "8AtZhIOgEEk"
+            }
+          ],
+          "id": 1782232356358,
+          "createdAt": "2026-06-23T16:32:36.358Z"
+        },
+        {
+          "address": "esfahan",
+          "cart": [
+            {
+              "productId": "19",
+              "image": "/images/coffeemilk.png",
+              "title": "Double Espresso",
+              "price": 3.9,
+              "quantity": 10,
+              "totalprice": 39,
+              "id": "--13K2_eK6s"
+            },
+            {
+              "productId": "15",
+              "image": "/images/coffeemilk.png",
+              "title": "Mocha Bliss",
+              "price": 6.5,
+              "quantity": 1,
+              "totalprice": 6.5,
+              "id": "uhQ8OdnKwsw"
+            }
+          ],
+          "id": 1782232409846,
+          "createdAt": "2026-06-23T16:33:29.846Z"
         }
       ]
     },
@@ -264,16 +470,6 @@
       "sold": 26
     }
   ],
-  "cart": [
-    {
-      "productId": "19",
-      "image": "/images/coffeemilk.png",
-      "title": "Double Espresso",
-      "price": 3.9,
-      "quantity": 3,
-      "totalprice": 11.7,
-      "id": "bdrsn52s2ZE"
-    }
-  ],
+  "cart": [],
   "$schema": "./node_modules/json-server/schema.json"
 }
