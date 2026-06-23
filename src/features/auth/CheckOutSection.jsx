@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { useDispatch, useSelector } from 'react-redux'
 import { formatCurrency, notify } from '../../utils/helper'
 import { useEffect, useState } from 'react'
-import { PDFDownloadLink } from '@react-pdf/renderer'
+import { pdf, PDFDownloadLink } from '@react-pdf/renderer'
 import { createOrderFetch, resetScore } from './authSlice'
 import { clearCartAsync, resetCart } from '../cart/cartSlice'
 import InvoicePDF from '../../ui/InvoicePDF'
@@ -12,8 +12,6 @@ import AddressDropdown from '../cart/AddressDropdown'
 
 const CheckOutSection = () => {
   const [address, setAddress] = useState('')
-  const [isFilled, setIsFilled] = useState(true)
-  const [isLoading, setIsLoading] = useState(false)
   const { cart } = useSelector((state) => state.cart)
   const [isOpen, setIsOpen] = useState(false)
   const { score } = useSelector((state) => state.user.user)
@@ -30,28 +28,49 @@ const CheckOutSection = () => {
   const discount = score === 100 ? 0.15 : 0
   const discountedPrice = totalPrice * (1 - discount)
 
-  const handleSubmit = () => {
-    if (address) {
-      const order = {
-        address,
-        cart,
-        id: Date.now(),
-        createdAt: new Date().toISOString(),
-      }
-      setTimeout(() => {
-        dispatch(createOrderFetch(order))
-          .unwrap()
-          .then(() => {
-            dispatch(clearCartAsync())
-            dispatch(resetCart())
-            notify('success', 'Order created successfully! 🛍️')
-            setIsOpen(false)
-          })
-          .catch(() => notify('error', 'Try again later'))
-      }, 300)
-    } else {
-      setIsFilled(false)
+  const handleSubmit = async () => {
+    if (!address) {
       notify('error', 'Please select an address before proceeding!')
+      return
+    }
+
+    const order = {
+      address,
+      cart,
+      id: Date.now(),
+      createdAt: new Date().toISOString(),
+    }
+
+    try {
+      await dispatch(createOrderFetch(order)).unwrap()
+
+      const blob = await pdf(
+        <InvoicePDF
+          orderId={order.id}
+          cart={cart}
+          address={address}
+          totalPrice={discountedPrice}
+          originalPrice={totalPrice}
+          discount={discount}
+        />
+      ).toBlob()
+
+      const url = URL.createObjectURL(blob)
+
+      const a = document.createElement('a')
+      a.href = url
+      a.download = `order-${order.id}.pdf`
+      a.click()
+
+      URL.revokeObjectURL(url)
+
+      await dispatch(clearCartAsync()).unwrap()
+      dispatch(resetCart())
+
+      notify('success', 'Order created successfully! 🛍️')
+      setIsOpen(false)
+    } catch {
+      notify('error', 'Try again later')
     }
   }
 
@@ -98,7 +117,7 @@ const CheckOutSection = () => {
             )}
           </h3>
         </div>
-        <div className="mt-20 flex w-full justify-center">
+        <div className="mt-20 mb-5 flex w-full justify-center">
           <Button classType="primary" px={20} onClick={() => setIsOpen(true)}>
             Chekout{' '}
             <span className="ml-20">
@@ -144,26 +163,7 @@ const CheckOutSection = () => {
                   Cancel
                 </Button>
                 <Button classType="edit" onClick={handleSubmit}>
-                  {isFilled && (
-                    <PDFDownloadLink
-                      document={
-                        <InvoicePDF
-                          orderId={Date.now()}
-                          cart={cart}
-                          address={address}
-                          totalPrice={discountedPrice}
-                          originalPrice={totalPrice}
-                          discount={discount}
-                        />
-                      }
-                      fileName={`order-${Date.now()}.pdf`}
-                    >
-                      {() => setIsLoading(true)}
-                    </PDFDownloadLink>
-                  )}
-                  {!isLoading
-                    ? 'Generating...'
-                    : `Payment ${formatCurrency(totalPrice)}`}
+                  Payment {formatCurrency(totalPrice)}
                 </Button>
               </div>
             </motion.div>
