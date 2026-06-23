@@ -34,11 +34,11 @@ const CartItem = ({ item }) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.1, ease: 'easeOut' }}
       whileHover={{ scale: 1.01, boxShadow: '0px 4px 20px rgba(0,0,0,0.12)' }}
-      className={`flex w-full items-center justify-between px-1 py-10 transition-all duration-300 ease-in-out sm:px-2 md:px-7 lg:px-7 ${isRemoving ? '-translate-x-10/12 opacity-0' : 'translate-x-0 opacity-100'}`}
+      className={`group flex w-full items-center justify-between px-1 py-10 transition-all duration-300 ease-in-out sm:px-2 md:px-7 lg:px-7 ${isRemoving ? '-translate-x-10/12 opacity-0' : 'translate-x-0 opacity-100'}`}
     >
       <img
         src="/images/coffeemilk.png"
-        className="hidden h-32 w-2/12 sm:hidden md:block lg:block"
+        className="hidden h-32 w-2/12 transition-all duration-200 ease-in-out group-hover:-rotate-4 sm:hidden md:block lg:block"
         alt=""
       />
       <h3 className="text-center font-titr text-sm text-dark-500 md:text-xl lg:text-2xl">

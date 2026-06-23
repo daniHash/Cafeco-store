@@ -8,7 +8,7 @@
       "email": "danihashdev@gmail.com",
       "password": "123456d",
       "confrimpassword": "123456d",
-      "score": 20,
+      "score": 30,
       "addresses": [
         {
           "id": "1782232100347",
@@ -470,6 +470,40 @@
           ],
           "id": 1782234098295,
           "createdAt": "2026-06-23T17:01:38.295Z"
+        },
+        {
+          "address": "esfahan , malekshahr , 17shahrivar , yasin street , arman building , 244",
+          "cart": [
+            {
+              "productId": "19",
+              "image": "/images/coffeemilk.png",
+              "title": "Double Espresso",
+              "price": 3.9,
+              "quantity": 1,
+              "totalprice": 3.9,
+              "id": "jS9Thf945I0"
+            },
+            {
+              "productId": "14",
+              "image": "/images/coffeemilk.png",
+              "title": "Caramel Latte",
+              "price": 6.1,
+              "quantity": 1,
+              "totalprice": 6.1,
+              "id": "u4vQPmngbv8"
+            },
+            {
+              "productId": "22",
+              "image": "/images/coffeemilk.png",
+              "title": "Caramel Macchiato",
+              "price": 6.4,
+              "quantity": 1,
+              "totalprice": 6.4,
+              "id": "rk2UPDP0pnc"
+            }
+          ],
+          "id": 1782234965080,
+          "createdAt": "2026-06-23T17:16:05.080Z"
         }
       ]
     },
@@ -708,34 +742,6 @@
       "sold": 26
     }
   ],
-  "cart": [
-    {
-      "productId": "19",
-      "image": "/images/coffeemilk.png",
-      "title": "Double Espresso",
-      "price": 3.9,
-      "quantity": 1,
-      "totalprice": 3.9,
-      "id": "jS9Thf945I0"
-    },
-    {
-      "productId": "14",
-      "image": "/images/coffeemilk.png",
-      "title": "Caramel Latte",
-      "price": 6.1,
-      "quantity": 1,
-      "totalprice": 6.1,
-      "id": "u4vQPmngbv8"
-    },
-    {
-      "productId": "22",
-      "image": "/images/coffeemilk.png",
-      "title": "Caramel Macchiato",
-      "price": 6.4,
-      "quantity": 1,
-      "totalprice": 6.4,
-      "id": "rk2UPDP0pnc"
-    }
-  ],
+  "cart": [],
   "$schema": "./node_modules/json-server/schema.json"
 }
