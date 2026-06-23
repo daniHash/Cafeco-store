@@ -1,18 +1,21 @@
 const BASE_URL = 'http://localhost:8000/cart'
 
-/* ─────────── GET CART ─────────── */
 export const getUserCart = async () => {
   const res = await fetch(BASE_URL)
   if (!res.ok) throw new Error('Failed to fetch cart')
   return await res.json()
 }
 
-/* ─────────── ADD ITEM ─────────── */
+export const apiRemoveItem = async (id) => {
+  const res = await fetch(`${BASE_URL}/${id}`, { method: 'DELETE' })
+  if (!res.ok) throw new Error('failed to delete item')
+  return true
+}
 export const apiAddItem = async (item) => {
   const cleanPrice = +item.price
 
   const newItem = {
-    id: item.id,
+    productId: item.productId,
     image: item.image,
     title: item.title,
     price: cleanPrice,
@@ -27,16 +30,9 @@ export const apiAddItem = async (item) => {
   })
 
   if (!res.ok) throw new Error('failed to add item')
-  return newItem
-}
-/* ─────────── REMOVE ENTIRE ITEM ─────────── */
-export const apiRemoveItem = async (id) => {
-  const res = await fetch(`${BASE_URL}/${id}`, { method: 'DELETE' })
-  if (!res.ok) throw new Error('failed to delete item')
-  return true
+  return await res.json()
 }
 
-/* ─────────── INCREASE ITEM ─────────── */
 export const apiIncreaseItem = async (id) => {
   const item = await fetch(`${BASE_URL}/${id}`).then((r) => r.json())
 
@@ -51,12 +47,11 @@ export const apiIncreaseItem = async (id) => {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(updated),
   })
-
+  console.log(res)
   if (!res.ok) throw new Error('failed increase item')
   return updated
 }
 
-/* ─────────── DECREASE ITEM ─────────── */
 export const apiDecreaseItem = async (id) => {
   const item = await fetch(`${BASE_URL}/${id}`).then((r) => r.json())
 
@@ -81,7 +76,6 @@ export const apiDecreaseItem = async (id) => {
   return updated
 }
 
-/* ─────────── CLEAR ENTIRE CART ─────────── */
 export const apiClearCart = async () => {
   const all = await fetch(BASE_URL).then((r) => r.json())
 

@@ -13,8 +13,9 @@ import Cookies from 'js-cookie'
 const useCartItem = (item) => {
   const dispatch = useDispatch()
   const { cart } = useSelector((state) => state.cart)
-
-  const cartItem = cart.find((p) => p.id === item.id)
+  const cartItem =
+    cart.find((p) => p.productId === item.id) ||
+    cart.find((p) => p.id === item.id)
   const token = Cookies.get('token')
   const handleAuthCheck = () => {
     if (!token) {
@@ -28,16 +29,17 @@ const useCartItem = (item) => {
     if (!handleAuthCheck()) return
 
     const newItem = {
-      id: item.id,
+      productId: item.id,
       image: item.image,
       price: item.price,
-      quantity: 1,
       title: item.title,
+      quantity: 1,
       totalprice: item.price,
     }
+
     dispatch(addItemAsync(newItem))
       .unwrap()
-      .then(() => dispatch(addItem(newItem)))
+      .then((savedItem) => dispatch(addItem(savedItem)))
       .catch(() => notify('error', 'Try again later'))
   }
 

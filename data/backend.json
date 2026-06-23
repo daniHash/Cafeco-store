@@ -2,15 +2,32 @@
   "users": [
     {
       "id": "8dJH1FMFKbc",
-      "firstname": "Danid",
+      "firstname": "Dani",
       "familyname": "Hajhashemkhani",
       "number": "989929995487",
       "email": "danihashdev@gmail.com",
       "password": "123456d",
       "confrimpassword": "123456d",
-      "score": 0,
+      "score": 10,
       "addresses": [],
-      "orders": []
+      "orders": [
+        {
+          "address": "",
+          "cart": [
+            {
+              "productId": "14",
+              "image": "/images/coffeemilk.png",
+              "title": "Caramel Latte",
+              "price": 6.1,
+              "quantity": 5,
+              "totalprice": 30.5,
+              "id": "b_WG5nhf2tI"
+            }
+          ],
+          "id": 1782230983140,
+          "createdAt": "2026-06-23T16:09:43.140Z"
+        }
+      ]
     },
     {
       "id": "GSSSnw3SGYM",
@@ -247,6 +264,16 @@
       "sold": 26
     }
   ],
-  "cart": [],
+  "cart": [
+    {
+      "productId": "19",
+      "image": "/images/coffeemilk.png",
+      "title": "Double Espresso",
+      "price": 3.9,
+      "quantity": 3,
+      "totalprice": 11.7,
+      "id": "bdrsn52s2ZE"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }
