@@ -769,6 +769,24 @@
       "quantity": 2,
       "totalprice": 12.2,
       "id": "KcOezF70e3A"
+    },
+    {
+      "productId": "22",
+      "image": "/images/coffeemilk.png",
+      "title": "Caramel Macchiato",
+      "price": 6.4,
+      "quantity": 1,
+      "totalprice": 6.4,
+      "id": "PZbiYPSVBNU"
+    },
+    {
+      "productId": "26",
+      "image": "/images/coffeemilk.png",
+      "title": "Peach Iced Tea",
+      "price": 4.7,
+      "quantity": 1,
+      "totalprice": 4.7,
+      "id": "TXjBM8qqjuI"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

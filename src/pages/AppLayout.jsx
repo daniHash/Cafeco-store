@@ -27,7 +27,7 @@ const AppLayout = () => {
 
   if (isLoading) return <Loader />
   return (
-    <div className="h-full w-full">
+    <div className="h-full w-full overflow-hidden">
       {!shouldHideNavbar && (
         <Navbar>
           <Logo />

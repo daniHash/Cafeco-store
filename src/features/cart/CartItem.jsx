@@ -34,40 +34,45 @@ const CartItem = ({ item }) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.1, ease: 'easeOut' }}
       whileHover={{ scale: 1.01, boxShadow: '0px 4px 20px rgba(0,0,0,0.12)' }}
-      className={`group flex w-full items-center justify-between px-1 py-10 transition-all duration-300 ease-in-out sm:px-2 md:px-7 lg:px-7 ${isRemoving ? '-translate-x-10/12 opacity-0' : 'translate-x-0 opacity-100'}`}
+      className={`group flex w-full flex-col items-center justify-between gap-4 px-1 py-5 transition-all duration-300 ease-in-out sm:px-2 md:px-7 lg:px-7 ${isRemoving ? '-translate-x-10/12 opacity-0' : 'translate-x-0 opacity-100'}`}
     >
-      <img
-        src="/images/coffeemilk.png"
-        className="hidden h-32 w-2/12 transition-all duration-200 ease-in-out group-hover:-rotate-4 sm:hidden md:block lg:block"
-        alt=""
-      />
-      <h3 className="text-center font-titr text-sm text-dark-500 md:text-xl lg:text-2xl">
+      <h3 className="block text-center font-titr text-sm text-dark-500 md:hidden md:text-xl lg:hidden lg:text-2xl">
         {item.title}
       </h3>
-      <h3 className="hidden text-center font-titr text-sm text-dark-500 sm:block md:block lg:block lg:text-[24px]">
-        {formatCurrency(item.price)}
-      </h3>
-      <div className="flex items-center justify-center gap-2 sm:gap-4 md:gap-6 lg:gap-8">
-        <Button classType="plusmin" px={20} onClick={decrease}>
-          <BiMinus size={18} className="mt-2 mb-2" />
-        </Button>
-        <h3 className="text-center font-titr text-sm text-dark-500 lg:text-[24px]">
-          {item.quantity}
+      <div className="flex w-full items-center justify-between">
+        <img
+          src="/images/coffeemilk.png"
+          className="h-12 w-3/12 transition-all duration-200 ease-in-out group-hover:-rotate-4 md:h-2/4 md:w-2/12 lg:h-32"
+          alt=""
+        />
+        <h3 className="hidden text-center font-titr text-sm text-dark-500 md:block md:text-xl lg:block lg:text-2xl">
+          {item.title}
         </h3>
-        <Button classType="plusmin" px={20} onClick={increase}>
-          <BiPlus size={18} className="mt-2 mb-2" />
+        <h3 className="text-center font-titr text-sm text-dark-500 lg:text-[24px]">
+          {formatCurrency(item.price)}
+        </h3>
+        <div className="flex items-center justify-center gap-2 sm:gap-4 md:gap-6 lg:gap-8">
+          <Button classType="plusmin" px={20} onClick={decrease}>
+            <BiMinus size={18} className="mt-2 mb-2" />
+          </Button>
+          <h3 className="text-center font-titr text-sm text-dark-500 lg:text-[24px]">
+            {item.quantity}
+          </h3>
+          <Button classType="plusmin" px={20} onClick={increase}>
+            <BiPlus size={18} className="mt-2 mb-2" />
+          </Button>
+        </div>
+        <h3 className="hidden text-center font-titr text-sm text-dark-500 md:block lg:block lg:text-[24px]">
+          {formatCurrency(item.totalprice)}
+        </h3>
+        <Button
+          classType="delete"
+          px={20}
+          onClick={() => handleDeleteItem(item.id)}
+        >
+          <RiDeleteBin6Line size={20} className="mt-2 mb-2" />
         </Button>
       </div>
-      <h3 className="hidden text-center font-titr text-sm text-dark-500 md:block lg:block lg:text-[24px]">
-        {formatCurrency(item.totalprice)}
-      </h3>
-      <Button
-        classType="delete"
-        px={20}
-        onClick={() => handleDeleteItem(item.id)}
-      >
-        <RiDeleteBin6Line size={20} className="mt-2 mb-2" />
-      </Button>
     </motion.li>
   )
 }
