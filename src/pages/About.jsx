@@ -5,8 +5,10 @@ import Line from '../features/advice/Line'
 import AboutCard from '../ui/AboutCard'
 import Footer from '../ui/Footer'
 import Header from '../ui/Header'
+import useFetchCart from '../hooks/useFetchCart'
 
 const About = () => {
+  useFetchCart()
   return (
     <>
       <Header bg={false}>

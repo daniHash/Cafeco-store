@@ -742,6 +742,34 @@
       "sold": 26
     }
   ],
-  "cart": [],
+  "cart": [
+    {
+      "productId": "15",
+      "image": "/images/coffeemilk.png",
+      "title": "Mocha Bliss",
+      "price": 6.5,
+      "quantity": 2,
+      "totalprice": 13,
+      "id": "Mf2uQ8lMZBE"
+    },
+    {
+      "productId": "15",
+      "image": "/images/coffeemilk.png",
+      "title": "Mocha Bliss",
+      "price": 6.5,
+      "quantity": 1,
+      "totalprice": 6.5,
+      "id": "42osv48Z6xE"
+    },
+    {
+      "productId": "14",
+      "image": "/images/coffeemilk.png",
+      "title": "Caramel Latte",
+      "price": 6.1,
+      "quantity": 2,
+      "totalprice": 12.2,
+      "id": "KcOezF70e3A"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }

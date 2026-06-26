@@ -13,6 +13,16 @@ import Cookies from 'js-cookie'
 const useCartItem = (item) => {
   const dispatch = useDispatch()
   const { cart } = useSelector((state) => state.cart)
+
+  if (!item) {
+    return {
+      cartItem: null,
+      add: () => {},
+      increase: () => {},
+      decrease: () => {},
+    }
+  }
+
   const cartItem =
     cart.find((p) => p.productId === item.id) ||
     cart.find((p) => p.id === item.id)
@@ -44,6 +54,8 @@ const useCartItem = (item) => {
   }
 
   const increase = () => {
+    if (!cartItem) return
+
     if (!handleAuthCheck()) return
     dispatch(increaseAsync(cartItem.id))
       .unwrap()
@@ -52,6 +64,8 @@ const useCartItem = (item) => {
   }
 
   const decrease = () => {
+    if (!cartItem) return
+
     if (!handleAuthCheck()) return
     dispatch(decreaseAsync(cartItem.id))
       .unwrap()

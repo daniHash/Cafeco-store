@@ -8,8 +8,10 @@ import HomeProductsSection from '../features/product/HomeProductsSection'
 import Line from '../features/advice/Line'
 import Footer from '../ui/Footer'
 import Button from '../ui/Button'
+import useFetchCart from '../hooks/useFetchCart'
 
 const Home = () => {
+  useFetchCart()
   return (
     <>
       <Header bg={true}>

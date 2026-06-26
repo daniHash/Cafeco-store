@@ -47,7 +47,6 @@ export const apiIncreaseItem = async (id) => {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(updated),
   })
-  console.log(res)
   if (!res.ok) throw new Error('failed increase item')
   return updated
 }

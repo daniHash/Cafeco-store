@@ -6,11 +6,13 @@ import Error from '../../ui/Error'
 import Cookies from 'js-cookie'
 import useCartItem from '../../hooks/useCartItem'
 import { useSelector } from 'react-redux'
+import Loader from '../../ui/Loader'
 
 const ProductDetails = ({ isSelected }) => {
   const { productDetails, error } = useSelector((state) => state.products)
   const { add, increase, decrease } = useCartItem(productDetails)
 
+  if (!productDetails) return <Loader />
   if (error) return <Error>{error}</Error>
   if (!productDetails)
     return (
