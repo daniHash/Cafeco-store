@@ -14,7 +14,8 @@ const Productpage = () => {
   const { isLoading, productDetails } = useSelector((state) => state.products)
   const { cart } = useSelector((state) => state.cart)
   const { id } = useParams()
-  const isSelected = cart.find((p) => p.id === id)
+  const isSelected =
+    cart.find((p) => p.productId === id) || cart.find((p) => p.id === id)
 
   useEffect(() => {
     if (!productDetails || productDetails.id !== id) {

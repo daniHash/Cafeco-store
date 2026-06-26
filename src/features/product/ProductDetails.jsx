@@ -101,10 +101,10 @@ const ProductDetails = ({ isSelected }) => {
           transition={{ duration: 0.5, delay: 0.8 }}
           className="hidden gap-0.5 sm:flex sm:gap-1 md:flex md:gap-1.5 lg:flex lg:gap-2"
         >
-          <span className="py1.5 rounded-md bg-red-500 px-1">
+          <span className="py1.5 rounded-md bg-primary-300 px-1 text-primary-100">
             {productDetails.category}
           </span>
-          <span className="py1.5 rounded-md bg-blue-500 px-1">
+          <span className="py1.5 rounded-md bg-primary-300 px-1 text-primary-100">
             {productDetails.subcategory}
           </span>
         </motion.div>
