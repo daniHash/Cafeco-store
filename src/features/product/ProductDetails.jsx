@@ -1,56 +1,15 @@
 import { BiCartAdd, BiMinus, BiPlus } from 'react-icons/bi'
-import { useDispatch, useSelector } from 'react-redux'
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion'
-import {
-  addItem,
-  addItemAsync,
-  decreaseAsync,
-  decreaseItemQuantity,
-  increaseAsync,
-  increaseItemQuantity,
-} from '../cart/cartSlice'
-import { useParams } from 'react-router-dom'
 import Button from '../../ui/Button'
 import Error from '../../ui/Error'
-import { notify } from '../../utils/helper'
 import Cookies from 'js-cookie'
+import useCartItem from '../../hooks/useCartItem'
+import { useSelector } from 'react-redux'
 
 const ProductDetails = ({ isSelected }) => {
   const { productDetails, error } = useSelector((state) => state.products)
-  const { id } = useParams()
-  const dispatch = useDispatch()
-  const token = Cookies.get('token')
-
-  const handleAuthCheck = () => {
-    if (!token) {
-      notify('error', 'Please login to continue')
-      return false
-    }
-    return true
-  }
-  const handleAddItem = () => {
-    if (!handleAuthCheck()) return
-
-    const item = {
-      id,
-      image: productDetails.image,
-      price: productDetails.price,
-      quantity: 1,
-      title: productDetails.title,
-      totalprice: productDetails.price,
-    }
-    dispatch(addItem(item))
-    dispatch(addItemAsync(item))
-  }
-  const handleIncItem = () => {
-    dispatch(increaseItemQuantity(isSelected.id))
-    dispatch(increaseAsync(isSelected.id))
-  }
-  const handleDecItem = () => {
-    dispatch(decreaseItemQuantity(isSelected.id))
-    dispatch(decreaseAsync(isSelected.id))
-  }
+  const { add, increase, decrease } = useCartItem(productDetails)
 
   if (error) return <Error>{error}</Error>
   if (!productDetails)
@@ -139,18 +98,18 @@ const ProductDetails = ({ isSelected }) => {
         >
           {isSelected ? (
             <div className="flex items-center justify-center gap-2 sm:gap-4 md:gap-6 lg:gap-8">
-              <Button classType="plusmin" px={20} onClick={handleDecItem}>
+              <Button classType="plusmin" px={20} onClick={decrease}>
                 <BiMinus size={18} className="mt-2 mb-2" />
               </Button>
               <h3 className="text-center font-titr text-sm text-dark-500 lg:text-[24px]">
                 {isSelected.quantity}
               </h3>
-              <Button classType="plusmin" px={20} onClick={handleIncItem}>
+              <Button classType="plusmin" px={20} onClick={increase}>
                 <BiPlus size={18} className="mt-2 mb-2" />
               </Button>
             </div>
           ) : (
-            <Button type="button" classType="primary" onClick={handleAddItem}>
+            <Button type="button" classType="primary" onClick={add}>
               <BiCartAdd size={30} /> Add to cart
             </Button>
           )}
