@@ -742,6 +742,16 @@
       "sold": 26
     }
   ],
-  "cart": [],
+  "cart": [
+    {
+      "productId": "19",
+      "image": "/images/coffeemilk.png",
+      "title": "Double Espresso",
+      "price": 3.9,
+      "quantity": 1,
+      "totalprice": 3.9,
+      "id": "dfhUEFADDiQ"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }

@@ -10,6 +10,7 @@ const ProtectedRoute = () => {
     const token = Cookies.get('token')
     if (token) {
       setIsAuthenticated(true)
+      navigate('/products')
     } else {
       notify('error', 'At first you must login or register')
       navigate('/login')
