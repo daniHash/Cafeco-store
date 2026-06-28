@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { CgProfile } from 'react-icons/cg'
 import { PiMapPinArea } from 'react-icons/pi'
 import { FaOpencart } from 'react-icons/fa'
-import { MdOutlineGeneratingTokens } from 'react-icons/md'
+import { MdHistory, MdOutlineGeneratingTokens } from 'react-icons/md'
 
 const ProfileAsideSection = () => {
   return (
@@ -25,11 +25,11 @@ const ProfileAsideSection = () => {
                 size="45px"
                 className={`size-7 transition-all duration-200 ease-in sm:size-8 md:size-11 lg:size-11 ${isActive ? 'text-yellow-400' : 'text-white'}`}
               />
-              <h5
+              {/* <h5
                 className={`mt-2 hidden font-titr text-xs text-wrap transition-all duration-200 ease-in sm:text-sm md:block md:text-lg lg:block lg:text-lg ${isActive ? 'text-yellow-400' : 'text-white'}`}
               >
                 Information
-              </h5>
+              </h5> */}
             </>
           )}
         </NavLink>
@@ -43,11 +43,11 @@ const ProfileAsideSection = () => {
                 size="45px"
                 className={`size-7 transition-all duration-200 ease-in sm:size-8 md:size-11 lg:size-11 ${isActive ? 'text-yellow-400' : 'text-white'}`}
               />
-              <h5
+              {/* <h5
                 className={`mt-2 hidden font-titr text-xs transition-all duration-200 ease-in sm:text-sm md:block md:text-lg lg:block lg:text-lg ${isActive ? 'text-yellow-400' : 'text-white'}`}
               >
                 Addresses
-              </h5>
+              </h5> */}
             </>
           )}
         </NavLink>
@@ -61,11 +61,11 @@ const ProfileAsideSection = () => {
                 size="45px"
                 className={`size-7 transition-all duration-200 ease-in sm:size-8 md:size-11 lg:size-11 ${isActive ? 'text-yellow-400' : 'text-white'}`}
               />
-              <h5
+              {/* <h5
                 className={`mt-2 hidden font-titr text-xs transition-all duration-200 ease-in sm:text-sm md:block md:text-lg lg:block lg:text-lg ${isActive ? 'text-yellow-400' : 'text-white'}`}
               >
                 Cart
-              </h5>
+              </h5> */}
             </>
           )}
         </NavLink>
@@ -79,11 +79,29 @@ const ProfileAsideSection = () => {
                 size="45px"
                 className={`size-7 transition-all duration-200 ease-in sm:size-8 md:size-11 lg:size-11 ${isActive ? 'text-yellow-400' : 'text-white'}`}
               />
-              <h5
+              {/* <h5
                 className={`mt-2 hidden font-titr text-xs transition-all duration-200 ease-in sm:text-sm md:block md:text-lg lg:block lg:text-lg ${isActive ? 'text-yellow-400' : 'text-white'}`}
               >
                 Scores
-              </h5>
+              </h5> */}
+            </>
+          )}
+        </NavLink>
+        <NavLink
+          to="orders"
+          className="flex flex-col items-center justify-center"
+        >
+          {({ isActive }) => (
+            <>
+              <MdHistory
+                size="45px"
+                className={`size-7 transition-all duration-200 ease-in sm:size-8 md:size-11 lg:size-11 ${isActive ? 'text-yellow-400' : 'text-white'}`}
+              />
+              {/* <h5
+                className={`mt-2 hidden font-titr text-xs transition-all duration-200 ease-in sm:text-sm md:block md:text-lg lg:block lg:text-lg ${isActive ? 'text-yellow-400' : 'text-white'}`}
+              >
+                Scores
+              </h5> */}
             </>
           )}
         </NavLink>

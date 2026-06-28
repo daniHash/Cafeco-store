@@ -14,6 +14,7 @@ import Information from '../pages/Information'
 import Scores from '../pages/Scores'
 import Addresses from '../pages/Addresses'
 import AuthRedirect from '../pages/AuthRedirect'
+import Orders from '../pages/Orders'
 
 const router = createBrowserRouter([
   {
@@ -80,7 +81,7 @@ const router = createBrowserRouter([
               },
               {
                 path: 'orders',
-                element: <h1 className="text-white">Orders</h1>,
+                element: <Orders />,
               },
             ],
           },
