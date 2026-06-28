@@ -38,17 +38,10 @@ const ProductCard = ({ item, scale, blur }) => {
           <span className="py1.5 rounded-md bg-primary-300 px-1 text-primary-100">
             {item.category.toUpperCase()}
           </span>
-          <span className="py1.5 rounded-md bg-primary-300 px-1 text-primary-100">
-            {item.subcategory.toUpperCase()}
-          </span>
         </div>
         <p className="text-center font-text text-[16px] text-dark-500 sm:block sm:text-[18px] lg:block lg:text-[15px]">
           {displayedText}
-          {showMore && (
-            <Link to={`/product/${item.id}`} className="text-sky-700">
-              more
-            </Link>
-          )}
+          {showMore && <span className="text-sky-700">more</span>}
         </p>
         <div className="flex w-full items-center justify-evenly">
           <span className="flex items-center justify-center gap-1 font-titr text-sm font-bold text-dark-500 sm:gap-2 lg:gap-3">

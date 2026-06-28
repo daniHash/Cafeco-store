@@ -42,7 +42,7 @@ const FilterDropDown = ({ closeDropdown }) => {
         >
           <option value="">Select Category</option>
           {Object.keys(categories).map((cat) => (
-            <option key={cat} value={cat}>
+            <option key={cat} className="font-bold capitalize" value={cat}>
               {cat}
             </option>
           ))}

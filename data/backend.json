@@ -543,230 +543,342 @@
       "score": 0,
       "addresses": [],
       "orders": []
+    },
+    {
+      "id": "q4DCAuZ_-bU",
+      "firstname": "Danial",
+      "familyname": "Hajhashemkhani",
+      "number": "989034905933",
+      "email": "mehdi.hajhashem.khan@gmail.com",
+      "password": "123456d",
+      "confrimpassword": "123456d",
+      "score": 0,
+      "addresses": [],
+      "orders": []
     }
   ],
   "products": [
     {
+      "id": "1",
+      "image": "/images/coffeemilk.png",
+      "title": "Espresso",
+      "description": "Strong and rich coffee shot extracted under high pressure.",
+      "category": "coffee",
+      "price": 2.5,
+      "rating": 4.8,
+      "sold": 120
+    },
+    {
+      "id": "2",
+      "image": "/images/coffeemilk.png",
+      "title": "Americano",
+      "description": "Espresso diluted with hot water for a smooth taste.",
+      "category": "coffee",
+      "price": 3,
+      "rating": 4.6,
+      "sold": 98
+    },
+    {
+      "id": "3",
+      "image": "/images/coffeemilk.png",
+      "title": "Caffe Latte",
+      "description": "Espresso with steamed milk and light foam on top.",
+      "category": "coffee",
+      "price": 4.2,
+      "rating": 4.9,
+      "sold": 210
+    },
+    {
+      "id": "4",
+      "image": "/images/coffeemilk.png",
+      "title": "Cappuccino",
+      "description": "Balanced espresso, steamed milk, and thick foam.",
+      "category": "coffee",
+      "price": 4,
+      "rating": 4.7,
+      "sold": 180
+    },
+    {
+      "id": "5",
+      "image": "/images/coffeemilk.png",
+      "title": "Iced Latte",
+      "description": "Chilled espresso mixed with cold milk and ice.",
+      "category": "coffee",
+      "price": 4.5,
+      "rating": 4.8,
+      "sold": 160
+    },
+    {
+      "id": "6",
+      "image": "/images/coffeemilk.png",
+      "title": "Black Tea",
+      "description": "Classic strong black tea with rich aroma.",
+      "category": "tea",
+      "price": 2,
+      "rating": 4.5,
+      "sold": 75
+    },
+    {
+      "id": "7",
+      "image": "/images/coffeemilk.png",
+      "title": "Green Tea",
+      "description": "Light and refreshing tea packed with antioxidants.",
+      "category": "tea",
+      "price": 2.2,
+      "rating": 4.6,
+      "sold": 88
+    },
+    {
+      "id": "8",
+      "image": "/images/coffeemilk.png",
+      "title": "Mint Tea",
+      "description": "Refreshing herbal tea with natural mint flavor.",
+      "category": "tea",
+      "price": 2.3,
+      "rating": 4.7,
+      "sold": 65
+    },
+    {
+      "id": "9",
+      "image": "/images/coffeemilk.png",
+      "title": "Iced Tea",
+      "description": "Cold brewed tea served with ice and lemon.",
+      "category": "tea",
+      "price": 3,
+      "rating": 4.6,
+      "sold": 110
+    },
+    {
+      "id": "10",
+      "image": "/images/coffeemilk.png",
+      "title": "Chai Latte",
+      "description": "Spiced tea blended with steamed milk.",
+      "category": "tea",
+      "price": 3.8,
+      "rating": 4.8,
+      "sold": 140
+    },
+    {
+      "id": "11",
+      "image": "/images/coffeemilk.png",
+      "title": "Hot Chocolate",
+      "description": "Creamy hot cocoa topped with whipped cream.",
+      "category": "hot_drinks",
+      "price": 3.5,
+      "rating": 4.9,
+      "sold": 190
+    },
+    {
+      "id": "12",
+      "image": "/images/coffeemilk.png",
+      "title": "Matcha Latte",
+      "description": "Japanese green tea powder mixed with milk.",
+      "category": "hot_drinks",
+      "price": 4,
+      "rating": 4.7,
+      "sold": 150
+    },
+    {
+      "id": "13",
+      "image": "/images/coffeemilk.png",
+      "title": "Vanilla Milk",
+      "description": "Warm milk flavored with natural vanilla.",
+      "category": "hot_drinks",
+      "price": 3.2,
+      "rating": 4.4,
+      "sold": 90
+    },
+    {
       "id": "14",
       "image": "/images/coffeemilk.png",
-      "title": "Caramel Latte",
-      "description": "Smooth espresso mixed with caramel syrup and steamed milk.",
-      "category": "Coffee",
-      "subcategory": "Milk",
-      "price": 6.1,
-      "rating": 4.7,
-      "sold": 18
+      "title": "Caramel Milk",
+      "description": "Steamed milk with sweet caramel syrup.",
+      "category": "hot_drinks",
+      "subcategory": "Sweet",
+      "price": 3.4,
+      "rating": 4.6,
+      "sold": 100
     },
     {
       "id": "15",
       "image": "/images/coffeemilk.png",
-      "title": "Mocha Bliss",
-      "description": "Rich espresso blended with chocolate and topped with whipped cream.",
-      "category": "Coffee",
-      "subcategory": "Chocolate",
-      "price": 6.5,
-      "rating": 4.9,
-      "sold": 25
+      "title": "Golden Milk",
+      "description": "Turmeric latte with warm spices and milk.",
+      "category": "hot_drinks",
+      "price": 4.2,
+      "rating": 4.5,
+      "sold": 70
     },
     {
       "id": "16",
       "image": "/images/coffeemilk.png",
-      "title": "Americano",
-      "description": "Classic espresso diluted with hot water for a bold taste.",
-      "category": "Coffee",
-      "subcategory": "Black",
-      "price": 4.3,
-      "rating": 4.5,
-      "sold": 30
+      "title": "Lemonade",
+      "description": "Fresh lemon juice with mint and ice.",
+      "category": "cold_drinks",
+      "price": 3,
+      "rating": 4.6,
+      "sold": 130
     },
     {
       "id": "17",
       "image": "/images/coffeemilk.png",
-      "title": "Cappuccino",
-      "description": "Espresso topped with steamed milk and a thick foam layer.",
-      "category": "Coffee",
-      "subcategory": "Milk",
-      "price": 5.8,
-      "rating": 4.6,
-      "sold": 22
+      "title": "Chocolate Milkshake",
+      "description": "Thick chocolate shake with ice cream.",
+      "category": "cold_drinks",
+      "price": 4.5,
+      "rating": 4.9,
+      "sold": 200
     },
     {
       "id": "18",
       "image": "/images/coffeemilk.png",
-      "title": "Flat White",
-      "description": "Velvety espresso with microfoam steamed milk.",
-      "category": "Coffee",
-      "subcategory": "Milk",
-      "price": 5.9,
+      "title": "Strawberry Smoothie",
+      "description": "Blended strawberries with yogurt and ice.",
+      "category": "cold_drinks",
+      "price": 4.3,
       "rating": 4.7,
-      "sold": 14
+      "sold": 160
     },
     {
       "id": "19",
       "image": "/images/coffeemilk.png",
-      "title": "Double Espresso",
-      "description": "Strong and bold double shot of premium espresso.",
-      "category": "Coffee",
-      "subcategory": "Black",
-      "price": 3.9,
+      "title": "Fresh Orange Juice",
+      "description": "Freshly squeezed orange juice.",
+      "category": "cold_drinks",
+      "price": 3.2,
       "rating": 4.8,
-      "sold": 40
+      "sold": 140
     },
     {
       "id": "20",
       "image": "/images/coffeemilk.png",
-      "title": "Iced Latte",
-      "description": "Chilled espresso mixed with milk and ice cubes.",
-      "category": "Coffee",
-      "subcategory": "Cold",
-      "price": 6.2,
-      "rating": 4.6,
-      "sold": 16
+      "title": "Iced Coffee",
+      "description": "Cold brewed coffee served with ice.",
+      "category": "cold_drinks",
+      "price": 4,
+      "rating": 4.7,
+      "sold": 175
     },
     {
       "id": "21",
       "image": "/images/coffeemilk.png",
-      "title": "Vanilla Frappe",
-      "description": "Blended iced coffee with vanilla flavor and cream.",
-      "category": "Coffee",
-      "subcategory": "Cold",
-      "price": 6.8,
+      "title": "Chocolate Chip Cookie",
+      "description": "Soft cookie loaded with chocolate chips.",
+      "category": "cookies",
+      "price": 1.5,
       "rating": 4.9,
-      "sold": 27
+      "sold": 300
     },
     {
       "id": "22",
       "image": "/images/coffeemilk.png",
-      "title": "Caramel Macchiato",
-      "description": "Espresso layered with steamed milk and caramel drizzle.",
-      "category": "Coffee",
-      "subcategory": "Milk",
-      "price": 6.4,
-      "rating": 4.7,
-      "sold": 21
+      "title": "Butter Cookie",
+      "description": "Crispy and buttery traditional cookie.",
+      "category": "cookies",
+      "price": 1.2,
+      "rating": 4.6,
+      "sold": 220
     },
     {
       "id": "23",
       "image": "/images/coffeemilk.png",
-      "title": "Hot Chocolate",
-      "description": "Creamy hot chocolate made with premium cocoa.",
-      "category": "Drink",
-      "subcategory": "Chocolate",
-      "price": 5,
-      "rating": 4.6,
-      "sold": 19
+      "title": "Oat Cookie",
+      "description": "Healthy cookie with oats and honey.",
+      "category": "cookies",
+      "price": 1.8,
+      "rating": 4.5,
+      "sold": 180
     },
     {
       "id": "24",
       "image": "/images/coffeemilk.png",
-      "title": "Green Tea",
-      "description": "Freshly brewed organic green tea.",
-      "category": "Tea",
-      "subcategory": "Hot",
-      "price": 3.5,
-      "rating": 4.4,
-      "sold": 12
+      "title": "Macarons",
+      "description": "French colorful almond cookies with filling.",
+      "category": "cookies",
+      "price": 2.5,
+      "rating": 4.8,
+      "sold": 150
     },
     {
       "id": "25",
       "image": "/images/coffeemilk.png",
-      "title": "Black Tea",
-      "description": "Strong black tea served hot and refreshing.",
-      "category": "Tea",
-      "subcategory": "Hot",
-      "price": 3.2,
-      "rating": 4.3,
-      "sold": 9
+      "title": "Biscotti",
+      "description": "Crunchy Italian almond biscuits.",
+      "category": "cookies",
+      "price": 2,
+      "rating": 4.6,
+      "sold": 120
     },
     {
       "id": "26",
       "image": "/images/coffeemilk.png",
-      "title": "Peach Iced Tea",
-      "description": "Chilled black tea infused with peach flavor.",
-      "category": "Tea",
-      "subcategory": "Cold",
-      "price": 4.7,
-      "rating": 4.5,
-      "sold": 15
+      "title": "Vanilla Ice Cream",
+      "description": "Classic creamy vanilla ice cream.",
+      "category": "icecream",
+      "price": 3,
+      "rating": 4.8,
+      "sold": 250
     },
     {
       "id": "27",
       "image": "/images/coffeemilk.png",
-      "title": "Butter Croissant",
-      "description": "Flaky and buttery French croissant baked fresh daily.",
-      "category": "Bakery",
-      "subcategory": "Pastry",
-      "price": 2.8,
-      "rating": 4.6,
-      "sold": 34
+      "title": "Chocolate Ice Cream",
+      "description": "Rich and creamy chocolate ice cream.",
+      "category": "icecream",
+      "price": 3.2,
+      "rating": 4.9,
+      "sold": 270
     },
     {
       "id": "28",
       "image": "/images/coffeemilk.png",
-      "title": "Chocolate Muffin",
-      "description": "Soft muffin filled with rich chocolate chips.",
-      "category": "Bakery",
-      "subcategory": "Cake",
-      "price": 3.6,
-      "rating": 4.8,
-      "sold": 29
+      "title": "Strawberry Ice Cream",
+      "description": "Sweet strawberry flavored ice cream.",
+      "category": "icecream",
+      "price": 3.1,
+      "rating": 4.7,
+      "sold": 240
     },
     {
       "id": "29",
       "image": "/images/coffeemilk.png",
-      "title": "New York Cheesecake",
-      "description": "Creamy cheesecake with a buttery biscuit base.",
-      "category": "Dessert",
-      "subcategory": "Cake",
-      "price": 7.2,
+      "title": "Pistachio Ice Cream",
+      "description": "Nutty pistachio flavored ice cream.",
+      "category": "icecream",
+      "price": 3.8,
       "rating": 4.9,
-      "sold": 17
+      "sold": 190
     },
     {
       "id": "30",
       "image": "/images/coffeemilk.png",
-      "title": "Chocolate Brownie",
-      "description": "Rich and fudgy brownie topped with chocolate sauce.",
-      "category": "Dessert",
-      "subcategory": "Chocolate",
-      "price": 4.9,
-      "rating": 4.7,
-      "sold": 23
-    },
-    {
-      "id": "31",
-      "image": "/images/coffeemilk.png",
-      "title": "Strawberry Milkshake",
-      "description": "Creamy milkshake blended with fresh strawberries.",
-      "category": "Drink",
-      "subcategory": "Cold",
-      "price": 6.9,
+      "title": "Salted Caramel Ice Cream",
+      "description": "Sweet and salty caramel ice cream.",
+      "category": "icecream",
+      "price": 3.9,
       "rating": 4.8,
-      "sold": 20
-    },
-    {
-      "id": "32",
-      "image": "/images/coffeemilk.png",
-      "title": "Mango Smoothie",
-      "description": "Refreshing mango smoothie with natural sweetness.",
-      "category": "Drink",
-      "subcategory": "Cold",
-      "price": 6.3,
-      "rating": 4.6,
-      "sold": 13
-    },
-    {
-      "id": "33",
-      "image": "/images/coffeemilk.png",
-      "title": "Cold Brew",
-      "description": "Slow-steeped cold brew coffee with smooth flavor.",
-      "category": "Coffee",
-      "subcategory": "Cold",
-      "price": 5.5,
-      "rating": 4.7,
-      "sold": 26
+      "sold": 210
     }
   ],
-  "cart": [],
+  "cart": [
+    {
+      "productId": "2",
+      "image": "/images/coffeemilk.png",
+      "title": "Americano",
+      "price": 3,
+      "quantity": 3,
+      "totalprice": 9,
+      "id": "lxDFdqzfOZM"
+    },
+    {
+      "productId": "17",
+      "image": "/images/coffeemilk.png",
+      "title": "Chocolate Milkshake",
+      "price": 4.5,
+      "quantity": 1,
+      "totalprice": 4.5,
+      "id": "neyLBIe7rAE"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }

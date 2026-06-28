@@ -173,9 +173,15 @@ export const backend = {
   githubname: 'Arya-veysi',
 }
 export const categories = {
-  drinks: ['Hot', 'Cold', 'Milks'],
-  cakesweety: ['Wet', 'Dry'],
-  biscuitscookies: [],
-  coffees: [],
-  icecreams: [],
+  coffee: [],
+
+  tea: [],
+
+  hot_drinks: [],
+
+  cold_drinks: [],
+
+  cookies: [],
+
+  icecream: [],
 }

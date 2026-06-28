@@ -17,9 +17,9 @@ const Orders = () => {
       <div className="mt-40 flex flex-col items-center gap-5">
         <img src="/images/empty-order.png" className="w-64" alt="" />
 
-        <h2 className="font-titr text-3xl text-dark-500">No Orders Yet</h2>
+        <h2 className="font-titr text-3xl text-white">No Orders Yet</h2>
 
-        <p className="font-text text-dark-400">
+        <p className="font-text text-white">
           Looks like you haven't ordered any coffee yet.
         </p>
       </div>
