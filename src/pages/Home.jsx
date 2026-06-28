@@ -27,7 +27,6 @@ const Home = () => {
             <span className="text-[#E19D01]">
               <Typewriter
                 words={['CofeCo.']}
-                loop={true}
                 cursor
                 cursorStyle="|"
                 cursorColor="white"

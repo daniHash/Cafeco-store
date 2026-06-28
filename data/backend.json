@@ -595,7 +595,7 @@
       "description": "Balanced espresso, steamed milk, and thick foam.",
       "category": "coffee",
       "price": 4,
-      "rating": 4.7,
+      "rating": 4.1,
       "sold": 180
     },
     {
@@ -605,7 +605,7 @@
       "description": "Chilled espresso mixed with cold milk and ice.",
       "category": "coffee",
       "price": 4.5,
-      "rating": 4.8,
+      "rating": 4.2,
       "sold": 160
     },
     {
@@ -635,7 +635,7 @@
       "description": "Refreshing herbal tea with natural mint flavor.",
       "category": "tea",
       "price": 2.3,
-      "rating": 4.7,
+      "rating": 4.3,
       "sold": 65
     },
     {
@@ -645,7 +645,7 @@
       "description": "Cold brewed tea served with ice and lemon.",
       "category": "tea",
       "price": 3,
-      "rating": 4.6,
+      "rating": 4.4,
       "sold": 110
     },
     {
@@ -675,7 +675,7 @@
       "description": "Japanese green tea powder mixed with milk.",
       "category": "hot_drinks",
       "price": 4,
-      "rating": 4.7,
+      "rating": 4.1,
       "sold": 150
     },
     {
@@ -716,7 +716,7 @@
       "description": "Fresh lemon juice with mint and ice.",
       "category": "cold_drinks",
       "price": 3,
-      "rating": 4.6,
+      "rating": 4,
       "sold": 130
     },
     {
@@ -746,7 +746,7 @@
       "description": "Freshly squeezed orange juice.",
       "category": "cold_drinks",
       "price": 3.2,
-      "rating": 4.8,
+      "rating": 4.1,
       "sold": 140
     },
     {
@@ -766,7 +766,7 @@
       "description": "Soft cookie loaded with chocolate chips.",
       "category": "cookies",
       "price": 1.5,
-      "rating": 4.9,
+      "rating": 5,
       "sold": 300
     },
     {
@@ -826,7 +826,7 @@
       "description": "Rich and creamy chocolate ice cream.",
       "category": "icecream",
       "price": 3.2,
-      "rating": 4.9,
+      "rating": 4.4,
       "sold": 270
     },
     {
