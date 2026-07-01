@@ -31,10 +31,10 @@ const MainProducts = ({ query }) => {
   return (
     <motion.section
       initial={{ opacity: 0, x: 150 }}
-      whileInView={{ opacity: 1, x: 0 }}
+      animate={{ opacity: 1, x: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.8, ease: 'easeOut' }}
-      className="h-[1000px] w-full overflow-auto px-[20px] lg:px-[140px]"
+      className="h-auto w-full px-[20px] lg:px-[140px]"
     >
       <div className="mt-6 flex w-full flex-wrap items-center justify-center gap-4 sm:justify-center sm:gap-10 md:mt-16 md:justify-center lg:mt-16 lg:justify-center lg:space-y-5 lg:space-x-4">
         {!filteredProducts.length ? (

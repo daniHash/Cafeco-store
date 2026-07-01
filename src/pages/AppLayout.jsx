@@ -7,6 +7,7 @@ import Navbar from '../ui/Navbar'
 import Logo from '../ui/Logo'
 import NavbarLinks from '../ui/NavbarLinks'
 import useAuthCheck from '../hooks/useAuthCheck'
+import ScrollToTop from '../ui/ScrollToTop'
 
 const AppLayout = () => {
   const dispatch = useDispatch()
@@ -34,6 +35,7 @@ const AppLayout = () => {
           <NavbarLinks />
         </Navbar>
       )}
+      <ScrollToTop />
       <Outlet />
     </div>
   )

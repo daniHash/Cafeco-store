@@ -9,6 +9,7 @@ import MainProducts from '../features/product/MainProducts'
 import Loader from '../ui/Loader'
 import SearchBar from '../ui/SearchBar'
 import Error from '../ui/Error'
+import ScrollToTopButton from '../ui/ScrollToTopButton'
 
 const Products = () => {
   const dispatch = useDispatch()
@@ -41,7 +42,7 @@ const Products = () => {
             🌟 The most popular choice 🌟
           </h1>
           {error ? (
-            <Error>{error}</Error>
+            <Error>Try again later</Error>
           ) : products.length === 0 ? (
             <p className="mt-16 text-center font-text text-xl font-bold text-dark-500">
               No products available
@@ -52,10 +53,11 @@ const Products = () => {
         </div>
       </Header>
       <SearchBar query={query} handleSearch={handleSearch} />
-      {error && <Error>{error}</Error>}
+      {error && <Error>Try again later</Error>}
       <MainProducts query={query} />
       <Line />
       <Footer />
+      <ScrollToTopButton />
     </>
   )
 }
