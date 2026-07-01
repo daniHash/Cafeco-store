@@ -12,7 +12,7 @@ const ProductCard = ({ item, scale, blur }) => {
   const words = item.description.split('')
   const showMore = words.length > 40
   const displayedText = showMore
-    ? words.slice(0, 40).join('') + '...'
+    ? words.slice(0, 30).join('') + '...'
     : item.description
   return (
     <motion.div
@@ -20,17 +20,21 @@ const ProductCard = ({ item, scale, blur }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 0.2, ease: 'backInOut' }}
-      className={`relative flex h-auto w-full transition-all duration-300 ease-in-out md:h-[460px] md:w-[335px] lg:h-[480px] lg:w-[350px] ${scale && 'scale-60'} ${blur && 'blur-md'} w-full flex-col items-center justify-center gap-4 rounded-2xl bg-box-300 px-5 py-4 md:gap-5 lg:gap-5`}
+      className={`relative flex h-auto w-full transition-all duration-300 ease-in-out md:h-[460px] md:w-[355px] lg:h-[500px] lg:w-[350px] ${scale && 'scale-60'} ${blur && 'blur-md'} w-full flex-col items-center justify-center gap-4 rounded-2xl bg-box-300 px-5 py-4 md:gap-5 lg:gap-5`}
     >
       <Link
         to={`/product/${item.id}`}
         className="flex flex-col items-center justify-center gap-4 md:gap-5 lg:gap-5"
       >
-        <img
-          src={`${item.image}`}
-          alt=""
-          className="w-40 cursor-pointer md:block md:w-60 lg:block lg:w-64"
-        />
+        <div className="h-36 w-full overflow-hidden rounded-xl md:h-40 lg:h-56">
+          <img
+            src={item.image}
+            alt={item.title}
+            loading="lazy"
+            decoding="async"
+            className="h-full w-full object-cover transition duration-300 hover:scale-110"
+          />
+        </div>
         <h3 className="font-titr text-[16px] text-dark-500 sm:text-[20px] lg:text-[24px]">
           {item.title}
         </h3>

@@ -41,8 +41,8 @@ const CartItem = ({ item }) => {
       </h3>
       <div className="flex w-full items-center justify-between">
         <img
-          src="/images/coffeemilk.png"
-          className="h-12 w-3/12 transition-all duration-200 ease-in-out group-hover:-rotate-4 md:h-2/4 md:w-2/12 lg:h-32"
+          src={item.image}
+          className="h-16 w-3/12 rounded-2xl transition-all duration-200 ease-in-out group-hover:-rotate-4 md:h-24 md:w-2/12 lg:h-32 lg:w-2/12"
           alt=""
         />
         <h3 className="hidden text-center font-titr text-sm text-dark-500 md:block md:text-xl lg:block lg:text-2xl">

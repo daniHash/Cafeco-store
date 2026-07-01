@@ -552,7 +552,7 @@
       "email": "mehdi.hajhashem.khan@gmail.com",
       "password": "123456d",
       "confrimpassword": "123456d",
-      "score": 20,
+      "score": 30,
       "addresses": [
         {
           "id": "1782636432103",
@@ -600,6 +600,58 @@
           ],
           "id": 1782933483534,
           "createdAt": "2026-07-01T19:18:03.534Z"
+        },
+        {
+          "address": "tehran , arghavanieh",
+          "cart": [
+            {
+              "productId": "2",
+              "image": "/images/products/americano.webp",
+              "title": "Americano",
+              "price": 3,
+              "quantity": 3,
+              "totalprice": 9,
+              "id": "jLXggmy53K0"
+            },
+            {
+              "productId": "1",
+              "image": "/images/products/esspreso.webp",
+              "title": "Espresso",
+              "price": 2.5,
+              "quantity": 1,
+              "totalprice": 2.5,
+              "id": "gapnsVafX3U"
+            },
+            {
+              "productId": "22",
+              "image": "/images/products/oat.webp",
+              "title": "Oat Cookie",
+              "price": 1.8,
+              "quantity": 1,
+              "totalprice": 1.8,
+              "id": "mnbZ9Hxo9xw"
+            },
+            {
+              "productId": "12",
+              "image": "/images/products/matchalatte.webp",
+              "title": "Matcha Latte",
+              "price": 4,
+              "quantity": 1,
+              "totalprice": 4,
+              "id": "ok8G7jY6WbM"
+            },
+            {
+              "productId": "4",
+              "image": "/images/products/cuppuccino.webp",
+              "title": "Cappuccino",
+              "price": 4,
+              "quantity": 1,
+              "totalprice": 4,
+              "id": "LtsTf_JfeJE"
+            }
+          ],
+          "id": 1782939302884,
+          "createdAt": "2026-07-01T20:55:02.884Z"
         }
       ]
     }
@@ -607,7 +659,7 @@
   "products": [
     {
       "id": "1",
-      "image": "/images/coffeemilk.png",
+      "image": "/images/products/esspreso.webp",
       "title": "Espresso",
       "description": "Strong and rich coffee shot extracted under high pressure.",
       "category": "coffee",
@@ -617,7 +669,7 @@
     },
     {
       "id": "2",
-      "image": "/images/coffeemilk.png",
+      "image": "/images/products/americano.webp",
       "title": "Americano",
       "description": "Espresso diluted with hot water for a smooth taste.",
       "category": "coffee",
@@ -627,7 +679,7 @@
     },
     {
       "id": "3",
-      "image": "/images/coffeemilk.png",
+      "image": "/images/products/latte.webp",
       "title": "Caffe Latte",
       "description": "Espresso with steamed milk and light foam on top.",
       "category": "coffee",
@@ -637,7 +689,7 @@
     },
     {
       "id": "4",
-      "image": "/images/coffeemilk.png",
+      "image": "/images/products/cuppuccino.webp",
       "title": "Cappuccino",
       "description": "Balanced espresso, steamed milk, and thick foam.",
       "category": "coffee",
@@ -647,7 +699,7 @@
     },
     {
       "id": "5",
-      "image": "/images/coffeemilk.png",
+      "image": "/images/products/icedlatte.webp",
       "title": "Iced Latte",
       "description": "Chilled espresso mixed with cold milk and ice.",
       "category": "coffee",
@@ -657,7 +709,7 @@
     },
     {
       "id": "6",
-      "image": "/images/coffeemilk.png",
+      "image": "/images/products/blacktea.webp",
       "title": "Black Tea",
       "description": "Classic strong black tea with rich aroma.",
       "category": "tea",
@@ -667,7 +719,7 @@
     },
     {
       "id": "7",
-      "image": "/images/coffeemilk.png",
+      "image": "/images/products/greentea.webp",
       "title": "Green Tea",
       "description": "Light and refreshing tea packed with antioxidants.",
       "category": "tea",
@@ -677,7 +729,7 @@
     },
     {
       "id": "8",
-      "image": "/images/coffeemilk.png",
+      "image": "/images/products/minttea.webp",
       "title": "Mint Tea",
       "description": "Refreshing herbal tea with natural mint flavor.",
       "category": "tea",
@@ -687,7 +739,7 @@
     },
     {
       "id": "9",
-      "image": "/images/coffeemilk.png",
+      "image": "/images/products/icedtea.webp",
       "title": "Iced Tea",
       "description": "Cold brewed tea served with ice and lemon.",
       "category": "tea",
@@ -697,7 +749,7 @@
     },
     {
       "id": "10",
-      "image": "/images/coffeemilk.png",
+      "image": "/images/products/chailatte.webp",
       "title": "Chai Latte",
       "description": "Spiced tea blended with steamed milk.",
       "category": "tea",
@@ -707,7 +759,7 @@
     },
     {
       "id": "11",
-      "image": "/images/coffeemilk.png",
+      "image": "/images/products/hotchoc.webp",
       "title": "Hot Chocolate",
       "description": "Creamy hot cocoa topped with whipped cream.",
       "category": "hot_drinks",
@@ -717,7 +769,7 @@
     },
     {
       "id": "12",
-      "image": "/images/coffeemilk.png",
+      "image": "/images/products/matchalatte.webp",
       "title": "Matcha Latte",
       "description": "Japanese green tea powder mixed with milk.",
       "category": "hot_drinks",
@@ -727,7 +779,7 @@
     },
     {
       "id": "13",
-      "image": "/images/coffeemilk.png",
+      "image": "/images/products/vanilla.webp",
       "title": "Vanilla Milk",
       "description": "Warm milk flavored with natural vanilla.",
       "category": "hot_drinks",
@@ -737,7 +789,7 @@
     },
     {
       "id": "14",
-      "image": "/images/coffeemilk.png",
+      "image": "/images/products/caramelmilk.webp",
       "title": "Caramel Milk",
       "description": "Steamed milk with sweet caramel syrup.",
       "category": "hot_drinks",
@@ -748,7 +800,7 @@
     },
     {
       "id": "15",
-      "image": "/images/coffeemilk.png",
+      "image": "/images/products/goldenmilk.webp",
       "title": "Golden Milk",
       "description": "Turmeric latte with warm spices and milk.",
       "category": "hot_drinks",
@@ -758,7 +810,7 @@
     },
     {
       "id": "16",
-      "image": "/images/coffeemilk.png",
+      "image": "/images/products/lemonade.webp",
       "title": "Lemonade",
       "description": "Fresh lemon juice with mint and ice.",
       "category": "cold_drinks",
@@ -768,7 +820,7 @@
     },
     {
       "id": "17",
-      "image": "/images/coffeemilk.png",
+      "image": "/images/products/chocmilk.webp",
       "title": "Chocolate Milkshake",
       "description": "Thick chocolate shake with ice cream.",
       "category": "cold_drinks",
@@ -778,7 +830,7 @@
     },
     {
       "id": "18",
-      "image": "/images/coffeemilk.png",
+      "image": "/images/products/strawsmoth.webp",
       "title": "Strawberry Smoothie",
       "description": "Blended strawberries with yogurt and ice.",
       "category": "cold_drinks",
@@ -788,7 +840,7 @@
     },
     {
       "id": "19",
-      "image": "/images/coffeemilk.png",
+      "image": "/images/products/orange.webp",
       "title": "Fresh Orange Juice",
       "description": "Freshly squeezed orange juice.",
       "category": "cold_drinks",
@@ -798,17 +850,7 @@
     },
     {
       "id": "20",
-      "image": "/images/coffeemilk.png",
-      "title": "Iced Coffee",
-      "description": "Cold brewed coffee served with ice.",
-      "category": "cold_drinks",
-      "price": 4,
-      "rating": 4.7,
-      "sold": 175
-    },
-    {
-      "id": "21",
-      "image": "/images/coffeemilk.png",
+      "image": "/images/products/chocchip.webp",
       "title": "Chocolate Chip Cookie",
       "description": "Soft cookie loaded with chocolate chips.",
       "category": "cookies",
@@ -817,8 +859,8 @@
       "sold": 300
     },
     {
-      "id": "22",
-      "image": "/images/coffeemilk.png",
+      "id": "21",
+      "image": "/images/products/butter.webp",
       "title": "Butter Cookie",
       "description": "Crispy and buttery traditional cookie.",
       "category": "cookies",
@@ -827,8 +869,8 @@
       "sold": 220
     },
     {
-      "id": "23",
-      "image": "/images/coffeemilk.png",
+      "id": "22",
+      "image": "/images/products/oat.webp",
       "title": "Oat Cookie",
       "description": "Healthy cookie with oats and honey.",
       "category": "cookies",
@@ -837,28 +879,8 @@
       "sold": 180
     },
     {
-      "id": "24",
-      "image": "/images/coffeemilk.png",
-      "title": "Macarons",
-      "description": "French colorful almond cookies with filling.",
-      "category": "cookies",
-      "price": 2.5,
-      "rating": 4.8,
-      "sold": 150
-    },
-    {
-      "id": "25",
-      "image": "/images/coffeemilk.png",
-      "title": "Biscotti",
-      "description": "Crunchy Italian almond biscuits.",
-      "category": "cookies",
-      "price": 2,
-      "rating": 4.6,
-      "sold": 120
-    },
-    {
-      "id": "26",
-      "image": "/images/coffeemilk.png",
+      "id": "23",
+      "image": "/images/products/vicecream.webp",
       "title": "Vanilla Ice Cream",
       "description": "Classic creamy vanilla ice cream.",
       "category": "icecream",
@@ -867,8 +889,8 @@
       "sold": 250
     },
     {
-      "id": "27",
-      "image": "/images/coffeemilk.png",
+      "id": "24",
+      "image": "/images/products/chocice.webp",
       "title": "Chocolate Ice Cream",
       "description": "Rich and creamy chocolate ice cream.",
       "category": "icecream",
@@ -877,34 +899,14 @@
       "sold": 270
     },
     {
-      "id": "28",
-      "image": "/images/coffeemilk.png",
+      "id": "25",
+      "image": "/images/products/straicecream.webp",
       "title": "Strawberry Ice Cream",
       "description": "Sweet strawberry flavored ice cream.",
       "category": "icecream",
       "price": 3.1,
       "rating": 4.7,
       "sold": 240
-    },
-    {
-      "id": "29",
-      "image": "/images/coffeemilk.png",
-      "title": "Pistachio Ice Cream",
-      "description": "Nutty pistachio flavored ice cream.",
-      "category": "icecream",
-      "price": 3.8,
-      "rating": 4.9,
-      "sold": 190
-    },
-    {
-      "id": "30",
-      "image": "/images/coffeemilk.png",
-      "title": "Salted Caramel Ice Cream",
-      "description": "Sweet and salty caramel ice cream.",
-      "category": "icecream",
-      "price": 3.9,
-      "rating": 4.8,
-      "sold": 210
     }
   ],
   "cart": [],

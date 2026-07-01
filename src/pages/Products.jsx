@@ -36,7 +36,7 @@ const Products = () => {
   return (
     <>
       <Header>
-        <div className="mt-20 flex w-full flex-col items-center justify-center gap-12">
+        <div className="mt-14 flex w-full flex-col items-center justify-center gap-12">
           <h1 className="text text-center font-titr text-xl text-white lg:text-4xl">
             🌟 The most popular choice 🌟
           </h1>

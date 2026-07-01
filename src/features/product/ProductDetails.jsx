@@ -29,7 +29,7 @@ const ProductDetails = ({ isSelected }) => {
         transition={{ duration: 0.8, ease: 'easeOut' }}
         src={productDetails.image}
         alt="image of product"
-        className="h-full w-1/2 shadow-black drop-shadow-[0_60px_75px_rgba(0,0,0,0.3)]"
+        className="h-full w-1/2 rounded-2xl shadow-black drop-shadow-[0_60px_75px_rgba(0,0,0,0.3)]"
       />
       <div className="flex flex-col items-center justify-center gap-10">
         <motion.h2

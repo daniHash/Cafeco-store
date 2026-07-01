@@ -20,7 +20,7 @@ const Navbar = ({ children }) => {
 
   return (
     <motion.nav
-      className={`fixed top-2 z-50 flex h-20 w-full items-center justify-between rounded-[10px] border-2 border-white/10 ${!scrolled ? 'bg-white/2' : 'bg-dark-500/50'} text-white backdrop-blur-lg`}
+      className={`fixed top-2 z-[100] flex h-20 w-full items-center justify-between rounded-[10px] border-2 border-white/10 ${!scrolled ? 'bg-white/2' : 'bg-dark-500/50'} text-white backdrop-blur-lg`}
       initial={{ y: -180, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 2, ease: 'backOut' }}
