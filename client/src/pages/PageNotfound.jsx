@@ -24,7 +24,7 @@ const item = {
   },
 }
 
-const PageNotFound = () => {
+const Pagenotfound = () => {
   const navigate = useNavigate()
 
   return (
@@ -132,4 +132,4 @@ const PageNotFound = () => {
   )
 }
 
-export default PageNotFound
+export default Pagenotfound

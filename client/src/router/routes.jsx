@@ -8,7 +8,7 @@ import Cart from '../pages/Cart'
 import Profile from '../pages/Profile'
 import Productpage from '../pages/Productpage'
 import Products from '../pages/Products'
-import PageNotFound from '../pages/PageNotFound'
+import Pagenotfound from '../pages/Pagenotfound'
 import ProtectedRoute from '../pages/ProtectedRoute'
 import Information from '../pages/Information'
 import Scores from '../pages/Scores'
@@ -91,7 +91,7 @@ const router = createBrowserRouter([
   },
   {
     path: '*',
-    element: <PageNotFound />,
+    element: <Pagenotfound />,
   },
 ])
 
