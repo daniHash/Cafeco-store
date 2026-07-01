@@ -21,7 +21,7 @@ A modern, fully responsive coffee shop e-commerce application built with **React
 ## 🛍️ Products
 
 <p align="center">
-  <img src="./public/prev/products.png" width="900">
+  <img src="./client/public/prev/products.png" width="900">
 </p>
 
 ---
@@ -29,7 +29,7 @@ A modern, fully responsive coffee shop e-commerce application built with **React
 ## ☕ Product Details
 
 <p align="center">
-  <img src="./public/prev/productpage.png" width="900">
+  <img src="./client/public/prev/productpage.png" width="900">
 </p>
 
 ---
@@ -37,7 +37,7 @@ A modern, fully responsive coffee shop e-commerce application built with **React
 ## 🛒 Shopping Cart
 
 <p align="center">
-  <img src="./public/prev/cart.png" width="900">
+  <img src="./client/public/prev/cart.png" width="900">
 </p>
 
 ---
@@ -45,7 +45,7 @@ A modern, fully responsive coffee shop e-commerce application built with **React
 ## 🔑 Login page
 
 <p align="center">
-  <img src="./public/prev/login.png" width="900">
+  <img src="./client/public/prev/login.png" width="900">
 </p>
 
 ---
