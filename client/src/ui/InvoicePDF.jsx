@@ -4,7 +4,7 @@ import { Font } from '@react-pdf/renderer'
 
 Font.register({
   family: 'MochiyPopOne',
-  src: '../../public/fonts/MOCHIYPOPONE-REGULAR.TTF',
+  src: '/fonts/MOCHIYPOPONE-REGULAR.TTF',
 })
 const styles = StyleSheet.create({
   page: {
