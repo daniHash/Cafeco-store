@@ -43,6 +43,7 @@ const CheckOutSection = () => {
 
     try {
       await dispatch(createOrderFetch(order)).unwrap()
+      console.log('1')
 
       const blob = await pdf(
         <InvoicePDF
@@ -54,6 +55,7 @@ const CheckOutSection = () => {
           discount={discount}
         />
       ).toBlob()
+      console.log('2')
 
       const url = URL.createObjectURL(blob)
 
@@ -65,11 +67,13 @@ const CheckOutSection = () => {
       URL.revokeObjectURL(url)
 
       await dispatch(clearCartAsync()).unwrap()
+      console.log('3')
       dispatch(resetCart())
 
       notify('success', 'Order created successfully! 🛍️')
       setIsOpen(false)
-    } catch {
+    } catch (err) {
+      console.log(err)
       notify('error', 'Try again later')
     }
   }
