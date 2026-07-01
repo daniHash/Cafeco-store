@@ -1,4 +1,4 @@
-import StarRating from './StarRating'
+import StarRating from './StarRating.jsx'
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion'
 const StarSection = () => {
