@@ -25,7 +25,7 @@ const MainProducts = ({ query }) => {
           : finalProducts
   )
   const filteredProducts =
-    category == 'all'
+    category == 'all' || !category
       ? sortedProducts
       : sortedProducts.filter((p) => p.category == category)
   return (

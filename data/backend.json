@@ -552,7 +552,7 @@
       "email": "mehdi.hajhashem.khan@gmail.com",
       "password": "123456d",
       "confrimpassword": "123456d",
-      "score": 10,
+      "score": 20,
       "addresses": [
         {
           "id": "1782636432103",
@@ -584,6 +584,22 @@
           ],
           "id": 1782636439851,
           "createdAt": "2026-06-28T08:47:19.851Z"
+        },
+        {
+          "address": "tehran , arghavanieh",
+          "cart": [
+            {
+              "productId": "21",
+              "image": "/images/coffeemilk.png",
+              "title": "Chocolate Chip Cookie",
+              "price": 1.5,
+              "quantity": 5,
+              "totalprice": 7.5,
+              "id": "tMOsn4iLKe4"
+            }
+          ],
+          "id": 1782933483534,
+          "createdAt": "2026-07-01T19:18:03.534Z"
         }
       ]
     }
