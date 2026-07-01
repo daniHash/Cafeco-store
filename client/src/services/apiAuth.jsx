@@ -1,7 +1,7 @@
 import { swal } from '../utils/helper'
 import Cookies from 'js-cookie'
 
-const BASE_URL = 'http://localhost:8000/users'
+const BASE_URL = 'https://cafeco-store.onrender.com/users'
 
 export const login = async (body) => {
   const res = await fetch(`${BASE_URL}?email=${body.email}`)

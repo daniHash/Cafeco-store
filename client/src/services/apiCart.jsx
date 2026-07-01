@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:8000/cart'
+const BASE_URL = 'https://cafeco-store.onrender.com/cart'
 
 export const getUserCart = async () => {
   const res = await fetch(BASE_URL)

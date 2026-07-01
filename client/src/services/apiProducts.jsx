@@ -1,5 +1,5 @@
 // const BASE_URL = 'http://localhost:3000/api/v2/products'
-const BASE_URL = 'http://localhost:8000/products'
+const BASE_URL = 'https://cafeco-store.onrender.com/products'
 
 export const getCofeProducts = async () => {
   const res = await fetch(BASE_URL)
