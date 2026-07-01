@@ -12,7 +12,7 @@ const Logo = () => {
       <Link to="/" className="flex items-center justify-center">
         <img src="/icons/logo.png" className="w-[50px] lg:w-[80px]" alt="" />
         <h3 className="text-center font-titr text-lg text-[#e29c01] lg:text-[28px]">
-          CofeCo.
+          CafeCo.
         </h3>
       </Link>
     </motion.div>

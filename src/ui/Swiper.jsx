@@ -26,7 +26,7 @@ const SwiperProduct = () => {
   const topRatedProducts = products.filter((item) => item.rating > 4.5)
 
   if (isLoading) return <Loader />
-  if (error) return <Error>{error}</Error>
+  if (error) return <Error>Try again later</Error>
 
   return (
     <>

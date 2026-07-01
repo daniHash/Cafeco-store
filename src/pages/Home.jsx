@@ -26,7 +26,7 @@ const Home = () => {
             Start your day with <br />
             <span className="text-[#E19D01]">
               <Typewriter
-                words={['CofeCo.']}
+                words={['CafeCo.']}
                 cursor
                 cursorStyle="|"
                 cursorColor="white"

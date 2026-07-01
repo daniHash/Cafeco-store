@@ -18,7 +18,7 @@ const Footer = () => {
               alt=""
             />
             <h2 className="text-center font-titr text-xl text-white lg:text-4xl">
-              CofeCo.
+              CafeCo.
             </h2>
           </Link>
           <div className="flex flex-col items-center justify-center">
