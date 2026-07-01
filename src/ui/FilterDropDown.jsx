@@ -1,18 +1,18 @@
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion'
 import { useState } from 'react'
-import { categories, notify } from '../utils/helper'
+import { categories } from '../utils/helper'
 import Button from './Button'
+import { Link, useSearchParams } from 'react-router-dom'
 
 const FilterDropDown = ({ closeDropdown }) => {
   const [category, setCategory] = useState('')
-  const [subCategory, setSubCategory] = useState('')
 
-  const subCategories = category ? categories[category] : []
+  const [searchParams] = useSearchParams()
+  const params = new URLSearchParams(searchParams)
+  params.set('category', category)
+
   const handleFilter = () => {
-    !subCategory
-      ? notify('error', 'Please select the subcategory')
-      : console.log('Category:', category, 'Subcategory:', subCategory)
     closeDropdown()
   }
 
@@ -35,12 +35,14 @@ const FilterDropDown = ({ closeDropdown }) => {
           value={category}
           onChange={(e) => {
             setCategory(e.target.value)
-            setSubCategory('')
           }}
           id="categ"
           className="block w-full cursor-pointer rounded-md border-none bg-primary-200 p-2 text-center font-btn font-bold text-dark-500 outline-none"
         >
           <option value="">Select Category</option>
+          <option className="font-bold capitalize" value="all">
+            All products
+          </option>
           {Object.keys(categories).map((cat) => (
             <option key={cat} className="font-bold capitalize" value={cat}>
               {cat}
@@ -48,34 +50,11 @@ const FilterDropDown = ({ closeDropdown }) => {
           ))}
         </select>
       </div>
-
-      {subCategories.length > 0 && (
-        <div className="mt-5 flex w-full flex-col items-center justify-center">
-          <label
-            htmlFor="subcateg"
-            className="mb-2 block w-full text-center font-btn font-bold text-dark-500"
-          >
-            Subcategory
-          </label>
-          <select
-            value={subCategory}
-            onChange={(e) => setSubCategory(e.target.value)}
-            id="subcateg"
-            className="block w-full cursor-pointer rounded-md border-none bg-primary-200 p-2 text-center font-btn font-bold text-dark-500 outline-none"
-          >
-            <option value="">Select Subcategory</option>
-            {subCategories.map((sub) => (
-              <option key={sub} value={sub}>
-                {sub}
-              </option>
-            ))}
-          </select>
-        </div>
-      )}
-
-      <Button classType="productsbtn" onClick={handleFilter}>
-        Filter
-      </Button>
+      <Link className="w-full" to={`?${params.toString()}`}>
+        <Button classType="productsbtn" onClick={handleFilter}>
+          Filter
+        </Button>
+      </Link>
     </motion.div>
   )
 }

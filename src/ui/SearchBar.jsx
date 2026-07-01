@@ -1,6 +1,6 @@
 import { FaOpencart, FaSortAmountDown } from 'react-icons/fa'
 import { LuListFilter } from 'react-icons/lu'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { fetchCart } from '../features/cart/cartSlice'
@@ -13,6 +13,7 @@ const SearchBar = ({ query, handleSearch }) => {
   const navigate = useNavigate()
   const filter = useDropdownToggle()
   const sort = useDropdownToggle()
+  const [searchParams, setSearchParams] = useSearchParams()
   const { isFetched, cart } = useSelector((state) => state.cart)
 
   useEffect(() => {
@@ -29,9 +30,12 @@ const SearchBar = ({ query, handleSearch }) => {
     }
   }
   const handleSort = (e) => {
-    sort.toggle()
+    sort.close()
     const value = e.target.innerText.toLowerCase().split(' ')
-    navigate(`/products?sort=${value[value.length - 1]}`)
+    const sortValue = value[value.length - 1]
+    const params = new URLSearchParams(searchParams)
+    params.set('sort', sortValue)
+    setSearchParams(params)
   }
 
   return (

@@ -552,9 +552,40 @@
       "email": "mehdi.hajhashem.khan@gmail.com",
       "password": "123456d",
       "confrimpassword": "123456d",
-      "score": 0,
-      "addresses": [],
-      "orders": []
+      "score": 10,
+      "addresses": [
+        {
+          "id": "1782636432103",
+          "address": "tehran , arghavanieh"
+        }
+      ],
+      "orders": [
+        {
+          "address": "tehran , arghavanieh",
+          "cart": [
+            {
+              "productId": "2",
+              "image": "/images/coffeemilk.png",
+              "title": "Americano",
+              "price": 3,
+              "quantity": 3,
+              "totalprice": 9,
+              "id": "lxDFdqzfOZM"
+            },
+            {
+              "productId": "17",
+              "image": "/images/coffeemilk.png",
+              "title": "Chocolate Milkshake",
+              "price": 4.5,
+              "quantity": 1,
+              "totalprice": 4.5,
+              "id": "neyLBIe7rAE"
+            }
+          ],
+          "id": 1782636439851,
+          "createdAt": "2026-06-28T08:47:19.851Z"
+        }
+      ]
     }
   ],
   "products": [
@@ -860,25 +891,6 @@
       "sold": 210
     }
   ],
-  "cart": [
-    {
-      "productId": "2",
-      "image": "/images/coffeemilk.png",
-      "title": "Americano",
-      "price": 3,
-      "quantity": 3,
-      "totalprice": 9,
-      "id": "lxDFdqzfOZM"
-    },
-    {
-      "productId": "17",
-      "image": "/images/coffeemilk.png",
-      "title": "Chocolate Milkshake",
-      "price": 4.5,
-      "quantity": 1,
-      "totalprice": 4.5,
-      "id": "neyLBIe7rAE"
-    }
-  ],
+  "cart": [],
   "$schema": "./node_modules/json-server/schema.json"
 }
