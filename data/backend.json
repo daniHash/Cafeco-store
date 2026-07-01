@@ -909,43 +909,6 @@
       "sold": 240
     }
   ],
-  "cart": [
-    {
-      "productId": "11",
-      "image": "/images/products/hotchoc.webp",
-      "title": "Hot Chocolate",
-      "price": 3.5,
-      "quantity": 1,
-      "totalprice": 3.5,
-      "id": "G7dMxDwbaGE"
-    },
-    {
-      "productId": "2",
-      "image": "/images/products/americano.webp",
-      "title": "Americano",
-      "price": 3,
-      "quantity": 1,
-      "totalprice": 3,
-      "id": "uL9s56nlK5w"
-    },
-    {
-      "productId": "7",
-      "image": "/images/products/greentea.webp",
-      "title": "Green Tea",
-      "price": 2.2,
-      "quantity": 1,
-      "totalprice": 2.2,
-      "id": "vAZ8yuMTlv0"
-    },
-    {
-      "productId": "10",
-      "image": "/images/products/chailatte.webp",
-      "title": "Chai Latte",
-      "price": 3.8,
-      "quantity": 1,
-      "totalprice": 3.8,
-      "id": "VjvETVx5b10"
-    }
-  ],
+  "cart": [],
   "$schema": "./node_modules/json-server/schema.json"
 }
