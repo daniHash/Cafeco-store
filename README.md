@@ -10,7 +10,7 @@ A modern, fully responsive coffee shop e-commerce application built with **React
 
 🔗 **Live Demo**
 
-## https://your-demo-link.com
+## https://cafeco-store.vercel.app/
 
 </div>
 
