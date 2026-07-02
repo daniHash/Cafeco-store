@@ -4,17 +4,28 @@ import Cookies from 'js-cookie'
 const BASE_URL = 'https://cafeco-store.onrender.com/users'
 
 export const login = async (body) => {
-  const res = await fetch(`${BASE_URL}?email=${body.email}`)
-  const users = await res.json()
+  try {
+    const res = await fetch(`${BASE_URL}?email=${body.email}`)
+    const users = await res.json()
 
-  const user = users[0]
-  if (!user || user.password !== body.password) {
-    swal('error', 'Error!', 'Invalid email or password.')
-    throw new Error('Invalid credentials')
+    const user = users[0]
+    if (!user || user.password !== body.password) {
+      swal('error', 'Error!', 'Invalid email or password.')
+      throw new Error('Invalid credentials')
+    }
+
+    if (!res.ok) {
+      swal('error', 'Error!', 'Try again later.')
+      throw new Error('Failed to register user')
+    }
+
+    Cookies.set('token', user.id, { expires: 0.5, secure: true })
+    swal('success', 'Succssed!', 'Register it was successfuly')
+    return user
+  } catch {
+    swal('error', 'Error!', 'Try again later.')
+    throw new Error('Failed to register user')
   }
-
-  Cookies.set('token', user.id, { expires: 0.5, secure: true })
-  return user
 }
 
 export const register = async (body) => {

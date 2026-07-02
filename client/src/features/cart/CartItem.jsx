@@ -12,7 +12,7 @@ import Button from '../../ui/Button'
 const CartItem = ({ item }) => {
   const [isRemoving, setIsRemoving] = useState(false)
   const dispatch = useDispatch()
-  const { increase, decrease } = useCartItem(item)
+  const { increase, decrease, isIncreasing, isDecreasing } = useCartItem(item)
 
   const handleDeleteItem = (id) => {
     setIsRemoving(true)
@@ -52,13 +52,23 @@ const CartItem = ({ item }) => {
           {formatCurrency(item.price)}
         </h3>
         <div className="flex items-center justify-center gap-2 sm:gap-4 md:gap-6 lg:gap-8">
-          <Button classType="plusmin" px={20} onClick={decrease}>
+          <Button
+            loading={isIncreasing || isDecreasing}
+            classType="plusmin"
+            px={20}
+            onClick={decrease}
+          >
             <BiMinus size={18} className="mt-2 mb-2" />
           </Button>
           <h3 className="text-center font-titr text-sm text-dark-500 lg:text-[24px]">
             {item.quantity}
           </h3>
-          <Button classType="plusmin" px={20} onClick={increase}>
+          <Button
+            loading={isIncreasing || isDecreasing}
+            classType="plusmin"
+            px={20}
+            onClick={increase}
+          >
             <BiPlus size={18} className="mt-2 mb-2" />
           </Button>
         </div>

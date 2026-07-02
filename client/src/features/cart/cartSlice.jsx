@@ -12,6 +12,8 @@ const initialState = {
   error: null,
   isLoading: false,
   isFetched: false,
+  loadingProductId: null,
+  loadingAction: null,
 }
 
 export const fetchCart = createAsyncThunk(
@@ -135,6 +137,42 @@ const cartSlice = createSlice({
       })
       .addCase(clearCartAsync.fulfilled, (state) => {
         state.cart = []
+      })
+      .addCase(addItemAsync.rejected, (state) => {
+        state.loadingProductId = false
+        state.loadingAction = null
+      })
+      .addCase(addItemAsync.pending, (state, action) => {
+        state.loadingProductId = action.meta.arg.productId
+        state.loadingAction = 'add'
+      })
+      .addCase(addItemAsync.fulfilled, (state) => {
+        state.loadingProductId = null
+        state.loadingAction = null
+      })
+      .addCase(increaseAsync.pending, (state, action) => {
+        state.loadingProductId = action.meta.arg
+        state.loadingAction = 'increase'
+      })
+      .addCase(increaseAsync.fulfilled, (state) => {
+        state.loadingProductId = null
+        state.loadingAction = null
+      })
+      .addCase(increaseAsync.rejected, (state) => {
+        state.loadingProductId = null
+        state.loadingAction = null
+      })
+      .addCase(decreaseAsync.pending, (state, action) => {
+        state.loadingProductId = action.meta.arg
+        state.loadingAction = 'decrease'
+      })
+      .addCase(decreaseAsync.fulfilled, (state) => {
+        state.loadingProductId = null
+        state.loadingAction = null
+      })
+      .addCase(decreaseAsync.rejected, (state) => {
+        state.loadingProductId = null
+        state.loadingAction = null
       })
   },
 })

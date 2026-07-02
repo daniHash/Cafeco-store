@@ -45,15 +45,6 @@ const useRegisterForm = () => {
       return
     }
 
-    Swal.fire({
-      icon: 'success',
-      title: 'Success!',
-      text: 'Your registration is completed.',
-      confirmButtonText: 'OK',
-      // color: "#8d6e63",
-      background: '#f4e8d8',
-      color: '#321e18',
-    })
     dispatch(loginFetch(values))
   }
 

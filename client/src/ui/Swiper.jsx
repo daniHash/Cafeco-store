@@ -25,7 +25,12 @@ const SwiperProduct = () => {
 
   const topRatedProducts = products.filter((item) => item.rating > 4.5)
 
-  if (isLoading) return <Loader />
+  if (isLoading)
+    return (
+      <p className="mt-10 text-center font-text text-2xl font-bold text-dark-500">
+        Loading...
+      </p>
+    )
   if (error) return <Error>Try again later</Error>
 
   return (

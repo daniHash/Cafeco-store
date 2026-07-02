@@ -15,6 +15,8 @@ const CheckOutSection = () => {
   const { cart } = useSelector((state) => state.cart)
   const [isOpen, setIsOpen] = useState(false)
   const { score } = useSelector((state) => state.user.user)
+  const { loading } = useSelector((state) => state.user)
+
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -169,8 +171,14 @@ const CheckOutSection = () => {
                 >
                   Cancel
                 </Button>
-                <Button classType="edit" onClick={handleSubmit}>
-                  Payment {formatCurrency(totalPrice)}
+                <Button
+                  classType="edit"
+                  onClick={handleSubmit}
+                  loading={loading}
+                >
+                  {loading
+                    ? 'Processing...'
+                    : `Payment ${formatCurrency(totalPrice)}`}
                 </Button>
               </div>
             </motion.div>

@@ -7,10 +7,13 @@ import Cookies from 'js-cookie'
 import useCartItem from '../../hooks/useCartItem'
 import { useSelector } from 'react-redux'
 import Loader from '../../ui/Loader'
+import useFetchCart from '../../hooks/useFetchCart'
 
 const ProductDetails = ({ isSelected }) => {
+  useFetchCart()
   const { productDetails, error } = useSelector((state) => state.products)
-  const { add, increase, decrease } = useCartItem(productDetails)
+  const { add, increase, decrease, isAdding, isDecreasing, isIncreasing } =
+    useCartItem(productDetails)
 
   if (!productDetails) return <Loader />
   if (error) return <Error>{error}</Error>
@@ -21,7 +24,7 @@ const ProductDetails = ({ isSelected }) => {
       </p>
     )
   return (
-    <div className="mt-10 flex h-8/12 w-full flex-col items-center justify-center gap-10 md:mt-10 md:flex-col lg:mt-10 lg:flex-row">
+    <div className="mt-20 flex h-8/12 w-full flex-col items-center justify-center gap-10 md:mt-10 md:flex-col lg:mt-10 lg:flex-row">
       <motion.img
         initial={{ x: -100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
@@ -29,7 +32,7 @@ const ProductDetails = ({ isSelected }) => {
         transition={{ duration: 0.8, ease: 'easeOut' }}
         src={productDetails.image}
         alt="image of product"
-        className="h-full w-1/2 rounded-2xl shadow-black drop-shadow-[0_60px_75px_rgba(0,0,0,0.3)]"
+        className="h-4/12 w-1/2 rounded-2xl shadow-black drop-shadow-[0_60px_75px_rgba(0,0,0,0.3)]"
       />
       <div className="flex flex-col items-center justify-center gap-10">
         <motion.h2
@@ -97,19 +100,34 @@ const ProductDetails = ({ isSelected }) => {
         >
           {isSelected ? (
             <div className="flex items-center justify-center gap-2 sm:gap-4 md:gap-6 lg:gap-8">
-              <Button classType="plusmin" px={20} onClick={decrease}>
+              <Button
+                loading={isIncreasing || isDecreasing}
+                classType="plusmin"
+                px={20}
+                onClick={decrease}
+              >
                 <BiMinus size={18} className="mt-2 mb-2" />
               </Button>
               <h3 className="text-center font-titr text-sm text-dark-500 lg:text-[24px]">
                 {isSelected.quantity}
               </h3>
-              <Button classType="plusmin" px={20} onClick={increase}>
+              <Button
+                loading={isIncreasing || isDecreasing}
+                classType="plusmin"
+                px={20}
+                onClick={increase}
+              >
                 <BiPlus size={18} className="mt-2 mb-2" />
               </Button>
             </div>
           ) : (
-            <Button type="button" classType="primary" onClick={add}>
-              <BiCartAdd size={30} /> Add to cart
+            <Button
+              loading={isAdding}
+              type="button"
+              classType="primary"
+              onClick={add}
+            >
+              <BiCartAdd size={30} /> {isAdding ? 'Adding...' : 'Add to cart'}
             </Button>
           )}
         </motion.div>

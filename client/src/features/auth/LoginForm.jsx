@@ -5,6 +5,7 @@ import Input from '../../ui/Input'
 import SpanForm from '../../ui/SpanForm'
 import useLoginForm from '../../hooks/useLoginForm'
 import 'notyf/notyf.min.css'
+import { useSelector } from 'react-redux'
 
 const RegisterForm = () => {
   const {
@@ -15,6 +16,9 @@ const RegisterForm = () => {
     handleReset,
     handleSubmit,
   } = useLoginForm()
+
+  const loading = useSelector((state) => state.user.loading)
+
   return (
     <div className="flex h-8/12 w-md items-center justify-start overflow-hidden rounded-3xl bg-accent-300 shadow-form md:w-xl lg:w-1/2">
       <div className="hidden h-full w-1/2 bg-[url('/images/login.jpg')] bg-cover md:hidden lg:block"></div>
@@ -45,8 +49,10 @@ const RegisterForm = () => {
           <Button classType="roundoutline" type="button" onClick={handleReset}>
             <RxReset size={30} color="#8d6e63" />
           </Button>
-          <Button classType="primary" type="submit">
-            <span className="font-btn text-sm font-bold lg:text-lg">Login</span>
+          <Button classType="primary" loading={loading} type="submit">
+            <span className="font-btn text-sm font-bold lg:text-lg">
+              {loading ? 'Submitting...' : 'Login'}
+            </span>
           </Button>
         </div>
 

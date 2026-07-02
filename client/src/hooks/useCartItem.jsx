@@ -12,7 +12,9 @@ import Cookies from 'js-cookie'
 
 const useCartItem = (item) => {
   const dispatch = useDispatch()
-  const { cart } = useSelector((state) => state.cart)
+  const { cart, loadingAction, loadingProductId } = useSelector(
+    (state) => state.cart
+  )
 
   if (!item) {
     return {
@@ -26,6 +28,13 @@ const useCartItem = (item) => {
   const cartItem =
     cart.find((p) => p.productId === item.id) ||
     cart.find((p) => p.id === item.id)
+
+  const isAdding = loadingAction === 'add' && loadingProductId === item.id
+  const isIncreasing =
+    loadingAction === 'increase' && loadingProductId === cartItem?.id
+  const isDecreasing =
+    loadingAction === 'decrease' && loadingProductId === cartItem?.id
+
   const token = Cookies.get('token')
   const handleAuthCheck = () => {
     if (!token) {
@@ -78,6 +87,9 @@ const useCartItem = (item) => {
     add,
     increase,
     decrease,
+    isAdding,
+    isIncreasing,
+    isDecreasing,
   }
 }
 export default useCartItem

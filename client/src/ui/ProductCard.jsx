@@ -8,7 +8,16 @@ import Button from './Button'
 import useCartItem from '../hooks/useCartItem'
 
 const ProductCard = ({ item, scale, blur }) => {
-  const { cartItem, add, increase, decrease } = useCartItem(item)
+  const {
+    cartItem,
+    add,
+    increase,
+    decrease,
+    isAdding,
+    isIncreasing,
+    isDecreasing,
+  } = useCartItem(item)
+
   const words = item.description.split('')
   const showMore = words.length > 40
   const displayedText = showMore
@@ -60,19 +69,34 @@ const ProductCard = ({ item, scale, blur }) => {
 
       {cartItem ? (
         <div className="z-50 flex items-center justify-center gap-2 sm:gap-4 md:gap-6 lg:gap-8">
-          <Button classType="plusmin" px={20} onClick={decrease}>
+          <Button
+            classType="plusmin"
+            px={20}
+            loading={isIncreasing || isDecreasing}
+            onClick={decrease}
+          >
             <BiMinus size={18} className="mt-2 mb-2" />
           </Button>
           <h3 className="text-center font-titr text-sm text-dark-500 lg:text-[24px]">
             {cartItem.quantity}
           </h3>
-          <Button classType="plusmin" px={20} onClick={increase}>
+          <Button
+            classType="plusmin"
+            loading={isIncreasing || isDecreasing}
+            px={20}
+            onClick={increase}
+          >
             <BiPlus size={18} className="mt-2 mb-2" />
           </Button>
         </div>
       ) : (
-        <Button type="button" classType="primary" onClick={add}>
-          <BiCartAdd size={30} /> Add to cart
+        <Button
+          type="button"
+          loading={isAdding}
+          classType="primary"
+          onClick={add}
+        >
+          <BiCartAdd size={30} /> {isAdding ? 'Adding...' : 'Add to cart'}
         </Button>
       )}
     </motion.div>
