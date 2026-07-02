@@ -16,8 +16,6 @@ A modern, fully responsive coffee shop e-commerce application built with **React
 
 # ✨ Preview
 
-> Replace these images with your own screenshots.
-
 ## 🛍️ Products
 
 <p align="center">
