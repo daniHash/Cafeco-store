@@ -107,7 +107,7 @@ const UpdateInformForm = () => {
           </motion.div>
           <Button
             px={20}
-            classType="delete"
+            classType="logout"
             type="button"
             onClick={() => {
               document.cookie =

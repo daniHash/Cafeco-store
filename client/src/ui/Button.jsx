@@ -46,6 +46,9 @@ const Button = ({ children, px, classType, type, onClick, loading }) => {
     anable:
       base +
       ` rounded-md bg-primary-300 hover:bg-primary-400 text-white flex justify-center items-center ${pxClasses[px] ? pxClasses[px] : 'w-full'}`,
+    logout:
+      base +
+      ` rounded-md bg-destructive-300 hover:bg-destructive-400 text-white flex justify-center items-center ${pxClasses[px] ? pxClasses[px] : 'w-full'}`,
   }
   return (
     <>
