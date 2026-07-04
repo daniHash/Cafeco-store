@@ -29,22 +29,6 @@ const router = createBrowserRouter([
         element: <About />,
       },
       {
-        path: '/register',
-        element: (
-          <AuthRedirect>
-            <Register />,
-          </AuthRedirect>
-        ),
-      },
-      {
-        path: '/login',
-        element: (
-          <AuthRedirect>
-            <Login />,
-          </AuthRedirect>
-        ),
-      },
-      {
         path: '/products',
         element: <Products />,
       },
@@ -92,6 +76,22 @@ const router = createBrowserRouter([
   {
     path: '*',
     element: <Pagenotfound />,
+  },
+  {
+    path: '/register',
+    element: (
+      <AuthRedirect>
+        <Register />,
+      </AuthRedirect>
+    ),
+  },
+  {
+    path: '/login',
+    element: (
+      <AuthRedirect>
+        <Login />,
+      </AuthRedirect>
+    ),
   },
 ])
 

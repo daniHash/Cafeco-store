@@ -94,9 +94,9 @@ export const secondStep = [
     placeholder: 'example123456',
     pattern: '.{6,}',
     title: 'Please input 6 digits at least',
-    regex: /^(?=.*[A-Za-z])[A-Za-z0-9]{6,9}$/,
+    regex: /^(?=.*[A-Za-z])[A-Za-z0-9]{6,20}$/,
     regexErr:
-      'Password must be 6-9 characters and include at least one letter.',
+      'Password must be 6-20 characters and include at least one letter.',
   },
   {
     id: 'confrim',
@@ -106,7 +106,7 @@ export const secondStep = [
     pattern: '.{6,}',
     title: 'Please input 6 digits at least',
     placeholder: 'Re-enter password',
-    regex: /^(?=.*[A-Za-z])[A-Za-z0-9]{6,9}$/,
+    regex: /^(?=.*[A-Za-z])[A-Za-z0-9]{6,20}$/,
   },
 ]
 export const firstStep = [
@@ -149,9 +149,9 @@ export const inputs = [
     placeholder: 'example123456',
     pattern: '.{6,}',
     title: 'Please input 6 digits at least',
-    regex: /^(?=.*[A-Za-z])[A-Za-z0-9]{6,9}$/,
+    regex: /^(?=.*[A-Za-z])[A-Za-z0-9]{6,20}$/,
     regexErr:
-      'Password must be 6-9 characters and include at least one letter.',
+      'Password must be 6-20 characters and include at least one letter.',
   },
 ]
 export const frontend = {

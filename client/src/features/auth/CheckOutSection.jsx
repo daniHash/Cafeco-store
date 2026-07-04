@@ -15,7 +15,7 @@ const CheckOutSection = () => {
   const { cart } = useSelector((state) => state.cart)
   const [isOpen, setIsOpen] = useState(false)
   const { score } = useSelector((state) => state.user.user)
-  const { loading } = useSelector((state) => state.user)
+  const [isProcessing, setIsProcessing] = useState(false)
 
   const dispatch = useDispatch()
 
@@ -35,6 +35,8 @@ const CheckOutSection = () => {
       notify('error', 'Please select an address before proceeding!')
       return
     }
+
+    setIsProcessing(true)
 
     const order = {
       address,
@@ -74,6 +76,8 @@ const CheckOutSection = () => {
     } catch (err) {
       console.log(err)
       notify('error', 'Try again later')
+    } finally {
+      setIsProcessing(false)
     }
   }
 
@@ -174,9 +178,9 @@ const CheckOutSection = () => {
                 <Button
                   classType="edit"
                   onClick={handleSubmit}
-                  loading={loading}
+                  loading={isProcessing}
                 >
-                  {loading
+                  {isProcessing
                     ? 'Processing...'
                     : `Payment ${formatCurrency(totalPrice)}`}
                 </Button>
